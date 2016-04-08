@@ -1,15 +1,16 @@
 ---
 title: Meeting Notes - April 5, 2016
-location: Civic Tech TO - Connection Lab
+location: Civic Tech TO, Connection Lab
 attendees: 8
 date: 2016-04-05
-startTime: '19:10'
+startTime: '20:10'
+endTime: '21:00'
 ---
 
-
 # Agenda
+
 1. Intros
-2. Problem Definition recap
+2. Problem Definition recap ([Brainstorm Gdoc](https://docs.google.com/document/d/1XQiqvkuFiTmaVtZcjmwBUfH5cwZdaYYLXHPqWAB1sB0/edit))
 3. ~~Website~~    
 4. Roadmap (Events)
     - Under Gardiner Community Meeting _April 7_
@@ -21,9 +22,11 @@ startTime: '19:10'
 7. Next Meeting
 
 # Notes
+
 - Many new attendees! Restructured agenda to make more time for discussion
 
 ## Problem Definition: Key Issue & Problem For
+
 - Worked through comments and notes from our brainstorming docs, key themes in our discussion:
     - resiliency, sustainable communities
     - 'democratizing' potential (in quotes)
@@ -36,6 +39,7 @@ startTime: '19:10'
 - Proposal that we consider adopting an "emergent problem definition"
 
 ## Roadmap
+
 A few events that had been brought up as potential anchors for us to establish goals around were:
 - Under Gardiner Community Meeting _April 7_  [undergardiner.com](http://www.undergardiner.com/)
     - Project in early stages, decided to wait on future chances to connect
@@ -53,6 +57,7 @@ A few events that had been brought up as potential anchors for us to establish g
     - potential to set as a goal for technical reference implementation
 
 # Outcomes
+
 - Decided to hold a longer planning meeting (3hrs), not during Civic Tech TO's night
-    - Poll for meeting time will be put on the `#torontomesh` channel
-    - Will be selected prior to next Tuesday (April 12) and announced at Civic Tech TO
+    - poll for meeting time will be put on the `#torontomesh` channel
+    - will be selected prior to next Tuesday (April 12) and announced at Civic Tech TO
