@@ -33,7 +33,7 @@ endTime: '21:00'
 - Open questions from discussion:
     - What are our targets for performance?
     - What is our current performance?
-      `50 MB/s` mesh link; `13 MB/s` pi2; speculating `~30 MB/s` pi3
+      `50 Mbps` mesh link; `13 Mbps` pi2; speculating `~30 Mbps` pi3
     - Are the hardware limits we see enough to move away from off the shelf toward custom hardware/solutions?
 
 - Next steps should be laid out in a tech roadmap, moving on to tackling:
