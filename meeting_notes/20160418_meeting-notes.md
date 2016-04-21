@@ -36,7 +36,7 @@ endTime: '21:30'
 
 ## Vision
 
-- Looking at the problem definition doc: https://docs.google.com/document/d/1XQiqvkuFiTmaVtZcjmwBUfH5cwZdaYYLXHPqWAB1sB0/edit
+- Looking at the [Brainstorming Gdoc](https://docs.google.com/document/d/1XQiqvkuFiTmaVtZcjmwBUfH5cwZdaYYLXHPqWAB1sB0/edit)
 - "Internet infrastructure = invisible": Agency, Autonomy, Tech literacy
 - Resiliencly (new): In case something were to happen (e.g. Turkey site blocking)
     - Redudancy, decenteralized systems over single points of failure, Positive, negative attributes: latency, potentially
@@ -54,21 +54,21 @@ endTime: '21:30'
     - Ref: Sao Paulo air quality network
 - *High speed access*
     - Not priority
-    - Ref: http://www.thestar.com/business/tech_news/2016/04/17/what-became-of-torontos-push-for-free-public-wi-fi.html
+    - Ref: [Toronto Star "What became of Toronto’s push for free public Wi-Fi?"](http://www.thestar.com/business/tech_news/2016/04/17/what-became-of-torontos-push-for-free-public-wi-fi.html)
         - Paid for by BIA (in most cases, downtown London)
         - Possible matching funds
         - Montreal: Not for profit wireless group, part funded by the city
         - Involve City Council
         - Wireless Toronto: Funding is possible (needs more investigating)
-        - **Are people are most interested in free public access (vote)**
+        - **Are people are most interested in free public access (Voted)**
             - Not the main thing; Not the first consideration: Are they mutually exclusive
-        - Free wireless diagram: http://networkcultures.org/unlikeus/wp-content/uploads/sites/2/2013/03/networktypes.png
+        - Free wireless [Network Types Diagram](http://www.rand.org/about/history/baran.html)
             - BIA could provide an uplink to the Internet
         - Is this project mutually exclusive? No
             - The mesh can hook into an established, provided for (BIA), infrastructure
-        - **Vote: Main concern is not access (majority voted yes)**
-- **Vote: *Internet iInfrastructure is invisible to most of its users, resulting in end users not having:* (majority voted yes)**
-- **Vote: Resilience, and redundancy (majority voted yes)**
+        - **Vote: Main concern is not access (Voted)**
+- **Vote: *Internet iInfrastructure is invisible to most of its users, resulting in end users not having:* (Voted)**
+- **Vote: Resilience, and redundancy (Voted)**
     - Use case: catastrophe
     - Alternative to a HAM radio network
     - Blackout scenarios
@@ -77,14 +77,14 @@ endTime: '21:30'
     - Possible frame it as "How we operate"
     - POV: like to know packet journey; what is being tracked, where is data going?
     - What we are building: no centeralized ISP
-- *Have a sustainable community to maintain an engaged group* (voted to delete)
+- *Have a sustainable community to maintain an engaged group* (Voted to delete)
     - Layer above technical implimentation
     - To be removed from problem definition
 - *Provide access to high-speed Internet*
     - Are we providing the tools to start a network? or access to an existing network?
     - Original intent: Mesh net is avliable, anyone is able to access (access to the internet)
     - Source code access is 
-    - **Covered in the previous points? (vote)**
+    - **Covered in the previous points? (Voted)**
     - Is this a bi-product of the mesh?
         - Originally it is seen as a bi-product
     - Internet as utility
@@ -113,7 +113,7 @@ endTime: '21:30'
 - We can't have a completely free mesh net (electrical, shared paid infrastructure, solar panels)
 - Black Box, compared to invisible (Black box)
 
-### WE GOTTA: VISION STATEMENT!!
+### Vision Statment
 > We are going to build an infrastructure that gives users:
 > - agency to make important decisions about their privacy 
 > - autonomy to access information in an uncontrolled/free manner
@@ -124,8 +124,8 @@ endTime: '21:30'
 > ...In order to address the fact that Internet infrastructure is a black-box to most of its users.
 
 ## Roadmap
-- Potential events: last week we looked at Maker Fest (TPL, proposal booth), HOPE: outreach and other projects
-- Maker Faire:
+- Potential events: last week we looked at Maker Festival (TPL, proposal booth), HOPE: outreach and other projects
+- Maker Festival:
     - Workshop, booth: place to chat, voice calls over the mesh
     - Way to build engagement: interactive (gamify), exhibit (interesting to look at)
         - Role-play (game to teach networking concepts)
@@ -137,19 +137,26 @@ endTime: '21:30'
         - **Leading proposal writing and submission (April 30): Udit, Ben, Dawn**
         - **End of May**: Validation of tech (Prototype Developed)
         - **Mid-June**: Working version will be ready for deployment (Mesh Prototype Validated)
-    - Working sub-groups:
-        - **Software**: Garry, Ben
-        - **Use Cases for the Mesh**: Udit, Ben, Garry
-        - **Hardware**: Ben, Udit, Dawn
-        - **Outreach**: Vince, Ben
-        - **Literacy Dev**: Yuri, Matt
-        - **Design**: Matt
-        - **Knowledge Management**: Matt, Dawn
-        - **Website**: Dawn, Matt, Garry
     - Mesh networks 101
 - Website:
     - Possible Wordpress deployment / _Github_ pages
     - Deadline for Maker Faire submission (needed for submission)
 - _HOPE_:
     - Connect with _NYCMesh_
-- **July: schedule a 6-month planning sessions (recap 4 months)**
+
+## Working sub-groups:
+- **Software**: Garry, Ben
+- **Use Cases for the Mesh**: Udit, Ben, Garry
+- **Hardware**: Ben, Udit, Dawn
+- **Outreach**: Vince, Ben
+- **Literacy Dev**: Yuri, Matt
+- **Design**: Matt
+- **Knowledge Management**: Matt, Dawn
+- **Website**: Dawn, Matt, Garry
+
+# Outcomes
+- **Maker Festival submission, April 30 deadline: Udit, Ben, Dawn**
+- Breakout groups were created
+- Decided to schedule a recap session in July
+    - Agenda so far: Plan for next 6 months and recap the previous 4 months
+    - Time and place TBD
