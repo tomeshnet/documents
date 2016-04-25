@@ -25,7 +25,7 @@ We established initial working groups at the [April 18 meeting](https://github.c
 
 | Working Group | Members |
 | --- | --- |
-| **Hardware** | Ben, Udit, @dcwalk |
+| **Hardware** | Ben, Udit, [@dcwalk](https://github.com/dcwalk) |
 | **Software** | Ben, Garry |
 | **Use Cases for the Mesh** | Udit, Ben, Garry |
 | **Outreach** | Vince, Ben |
@@ -40,7 +40,7 @@ We established an initial roadmap at the [April 18 meeting](https://github.com/t
 
 | Month | Deadlines |
 | --- | --- |
-| **April** | **April 30**: a proposal for Maker Festival<br />**April 30**: a proposal for Maker Festival |
+| **April** | **April 30**: first version of the website<br />**April 30**: a proposal for Maker Festival |
 | **May** | **end May**: prototype developed for Maker Festival |
-| **June** | **mid June**: prototype _developed_validated for Maker Festival |
+| **June** | **mid June**: prototype validated for Maker Festival |
 | **July** | **July 9-10**: Maker Festival! (hopefully)<br />**July 22-24**: HOPE Conference<br />**end July**: TOmesh Planning Session |
