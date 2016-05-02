@@ -5,7 +5,7 @@ This is the repository where our meeting minutes and other important documents a
 # Getting Involved
 
 We are still in the early stages and would love involvement from more people! Please be in touch by:
-* speaking with us on the `#torontomesh` channel in [CivicTechTO](http://civictech.ca/)'s slack ([get an invite](https://civictechto-slack-invite.herokuapp.com/))
+* speaking with us on the `#tomesh` channel in [CivicTechTO](http://civictech.ca/)'s slack ([get an invite](https://civictechto-slack-invite.herokuapp.com/))
 
 ## Project Vision
 
