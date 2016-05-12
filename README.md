@@ -2,11 +2,13 @@
 
 This is the repository where our meeting minutes and other important documents and planning notes will live.
 
-# Getting Involved
+## Getting Involved
 
 We are still in the early stages and would love involvement from more people! Please be in touch by:
 * emailing us at [hello@tomesh.net](mailto:hello@tomesh.net)
 * speaking with us on the `#tomesh` channel in [CivicTechTO](http://civictech.ca/)'s slack ([get an invite](https://civictechto-slack-invite.herokuapp.com/))
+
+If you notice any errors, would like to submit changes, or add content, please see the [Contributing Guidelines](https://github.com/tomeshnet/documents/blob/master/CONTRIBUTING.md).
 
 ## Project Vision
 
