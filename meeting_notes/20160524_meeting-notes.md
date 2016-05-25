@@ -1,7 +1,7 @@
 ---
 title: Meeting Notes - May 24, 2016
 location: Civic Tech TO, The DMZ
-attendees:
+attendees: 6
 date: 2016-05-24
 startTime: 19:30
 endTime: 21:00
