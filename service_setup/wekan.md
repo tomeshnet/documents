@@ -1,6 +1,6 @@
 # tomesh.net Kanban
 
-The Toronto Mesh uses a [Kanban (看板)](https://en.wikipedia.org/wiki/Kanban) to keep track of ideas and their progess. The software we use is the self-hosted open-source [Wekan](https://github.com/wekan/wekan). Anyone is free to create an account and participate.
+The Toronto Mesh uses a [Kanban (看板)](https://en.wikipedia.org/wiki/Kanban) to keep track of ideas and their progress. The software we use is the self-hosted open-source [Wekan](https://github.com/wekan/wekan). Anyone is free to create an account and participate.
 
 ## Usage
 
@@ -57,11 +57,11 @@ You can contribute to the [Toronto Mesh](tomesh.net) project in many ways. Start
 	export PORT="80"
 	```
 
-1. Update the autostart script and reboot:
+1. Update the auto-start script and reboot:
 
 	```
 	$ update-rc.d -f wekan remove && update-rc.d wekan defaults
-	$ sudo reboot
+	$ reboot
 	```
 
  	Find Wekan on [http://wekan.tomesh.net](http://wekan.tomesh.net).
