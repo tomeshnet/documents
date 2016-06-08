@@ -56,7 +56,7 @@ endTime: 21:30
   - Glossary **internet interested**
   - Tutorial (similar to something from [neocities](https://neocities.org/)) **internet interested, mesh joiners**
   - Reference Specification of Steps Req.d, Hardware, software (build script), mesh naming convention, **all**
-  - Visualization of noes (e.g., map) **all**
+  - Visualization of nodes (e.g., map) **all**
 
 - Separate to mesh.101, a document for our site: "[why mesh?](https://pad.riseup.net/p/fOO8LQrXs5H4)" which Curtis has been working on
 
