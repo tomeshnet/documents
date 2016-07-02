@@ -49,7 +49,7 @@ endTime: 21:00
 
 ## Website Status
 
-- Events PR needs to be reviewed, will review at the end in
+- Events PR needs to be reviewed, will review at the end of night
 
 ## `@e` update from Ottawa
 
