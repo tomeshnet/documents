@@ -31,7 +31,7 @@ endTime: 21:00
 ## Participation on Civic Tech "Make Change" Panel July 17, 2016
 
 - Request: "In an attempt to try to get exposure to the good work y'all are doing, we've opened up an opportunity on ​July 17th​ to present your project on a panel at the [Make Change Conference](http://makechangeconference.com/). The panel will be 3-4 community members to talk about the projects they're working on, the approach we use, the relationships we're building, and what we're learning about along the way. If anyone from `#tomesh` squad has an interest in participating, let me know."
-- Voted, we were all in consensus no block to participate. Garry and Curtis volunteered and are available and will connect with Alex
+- **VOTED**, consensus to participate. Garry and Curtis volunteered and are available and will connect with Alex
 
 ## Makerfestival Events Update
 
