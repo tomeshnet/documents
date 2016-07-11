@@ -46,10 +46,10 @@ endTime: 21:00
 - Use case: _Distributed file hosting_
   - Centralized servers are difficult to scale (Reduce costs for data centres with a distributed FS)
   - Localized file content
-  - Optimized for efficiency, but not for anonomity on a mesh
+  - Optimized for efficiency, but not for anonymity on a mesh
 - Discussion point: _Net Nuetrality_
-  - Obfisicate packets by default. Equal weighted data on the network
-  - No favourtism to types of network traffic and tiered services
+  - Obfuscate packets by default. Equal weighted data on the network
+  - No favouritism to types of network traffic and tiered services
 - Discussion point: _Encrypted by default_
   - Use of Ethereum and end-to-end encryption
   - Processing power between nodes will determine the performance of the network (encrypted)
@@ -58,7 +58,7 @@ endTime: 21:00
   - [LoRaWAN](https://en.wikipedia.org/wiki/LPWAN) applications like sensor networks
 - Use case: _Preloaded content on nodes_
   - Deploying a Wikipedia like service on a mesh
-  - Distributed infrastruce to host content (get around expensive infrastruce to host data)
+  - Distributed infrastructure to host content (get around expensive infrastructure to host data)
   - [Freenet](https://freenetproject.org/), [IPFS](https://ipfs.io/), [Swarm](http://www.oneswarm.org), as examples
 
 ## Roadmap Update
@@ -66,8 +66,8 @@ endTime: 21:00
 -  **Aim for first week of August (after HOPE and Maker Festival) to regroup and plan out next 6 months**
   - Funding outreach: Agree on a where to channel efforts for funding (e.g. grants, crowdfunding, partners)
   - Collect use cases, and testimonials
-  - Create a reference node (software/hardware) to be adapted for other communties and cases
-  - Experiment with 900mhz city block coverage. Refering to NYC Mesh's deployments
+  - Create a reference node (software/hardware) to be adapted for other communities and cases
+  - Experiment with 900mhz city block coverage. Referring to NYC Mesh's deployments
   - Creation of a web UI, like [RaspAP](https://github.com/billz/raspap-webgui) for TOMesh's nodes
   - Reference: [Enigma box](https://en.enigmabox.net/)
     - Comes with with Internet service and VPN
