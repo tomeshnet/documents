@@ -27,7 +27,7 @@ endTime: 21:00
 - Leo
 - Ethan
 - Curtis
-- Udit ([STEAMLabs](http://steamlabs.ca)
+- Udit ([STEAMLabs](http://steamlabs.ca))
 - Ben
 
 ## Community Deployment Brainstorm
@@ -82,10 +82,10 @@ endTime: 21:00
 
 ## Misc Notes
 
-- Workshop session on encryption and network security
+- General interest in a workshop session on encryption and network security
   - Why have confidence in this network
   - Focus on real concerns of people
-- Wireless Nomad
+- Wireless Nomad (some history)
   - Access to DSL network
   - Radio that talks to neighbours
   - Run as co-op
