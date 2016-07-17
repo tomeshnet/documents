@@ -1,27 +1,6 @@
 # tomesh.net Kanban
 
-The Toronto Mesh uses a [Kanban (看板)](https://en.wikipedia.org/wiki/Kanban) to keep track of ideas and their progress. The software we use is the self-hosted open-source [Wekan](https://github.com/wekan/wekan). Anyone is free to create an account and participate.
-
-## Usage
-
-You can contribute to the [Toronto Mesh](tomesh.net) project in many ways. Start by creating an account and login to the [Toronto Mesh Kanban](http://wekan.tomesh.net).
-
-### Propose an Idea
-
-* Create a new Card in the **Ideas** column by adding a short title
-* Include details in the Description
-* Add appropriate Labels for easy filtering
-
-### Participate in Discussion
-
-* You can add a Comment to an existing Card, regardless of what column the Card is in
-* Visit [tomesh.net](https://tomesh.net) and find other chat channels to discuss
-
-### Work on a Card
-
-* Find a Card you would like to take ownership and add yourself as a Member to that Card
-* Move the Card to the **In Progress** column, or **Discuss** column if that needs to happen first for the particular Card
-* When completed, move the Card to the **Done** column (a task that leads to a Pull Request in our [Github repositories](https://github.com/tomeshnet/) is usually considered done when reviewed and merged)
+We are self-hosting [Wekan](https://github.com/wekan/wekan) to coordinate tasks. This page describes how the Wekan server is set up.
 
 ## Set Up Wekan Server
 

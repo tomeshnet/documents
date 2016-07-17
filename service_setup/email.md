@@ -48,6 +48,6 @@ Password:       PASSWORD
 ### Public Accounts
 
 | Email | Use |
-| --- | --- |
+|:--|:--|
 | hello@tomesh.net | Inbound emails from website |
 | noreply@tomesh.net | Automated outgoing emails |
