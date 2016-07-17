@@ -29,9 +29,9 @@ The Toronto Mesh uses a [Kanban (看板)](https://en.wikipedia.org/wiki/Kanban) 
 
 ### Usage
 
-You can contribute to the Toronto Mesh project in many ways. To see our current status, visit the [publicly viewable Kanban](https://wekan.tomesh.net/b/LWS8X7sGFXqDgZ7ag/tomesh-net).
+To see the current status of the Toronto Mesh project, visit the [publicly viewable Kanban](https://wekan.tomesh.net/b/LWS8X7sGFXqDgZ7ag/tomesh-net).
 
-If you would like to join the project, start by [creating an account](https://wekan.tomesh.net), and then ask on Slack or email [hello@tomesh.net](mailto:hello@tomesh.net) for an invite to our main Board.
+You can contribute to the project in many ways. Start by [creating an account](https://wekan.tomesh.net) for our Kanban, and then ask on Slack or email [hello@tomesh.net](mailto:hello@tomesh.net) for an invite to our main Board.
 
 #### Propose an Idea
 
