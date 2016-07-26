@@ -19,4 +19,35 @@ Here is [a tool to verify that everything is set up correctly](https://test.mail
 
 Mailbox accounts are set up through [this link](https://q.meshwith.me/postfixadmin/). The admin account is currently managed by @benhylau, please message him if you need mailboxes or forwarders set up. To access your tomesh.net email, it is recommended that you use your favourite IMAP/SMTP/POP3 client, but [a web client](https://webmail.tomesh.net) is also available.
 
+IMAP and SMTP settings for `USERNAME@tomesh.net` are as follow:
+
+**IMAP Incoming Mail Server**
+
+```
+Host:           imap.seattlemesh.net
+Port:           993
+Use SSL:        true
+Authentication: Password
+Username:       USERNAME@tomesh.net
+Password:       PASSWORD
+```
+
+**SMTP Outgoing Mail Server**
+
+```
+Host:           mail.seattlemesh.net
+Port:           587
+Use SSL:        true
+Authentication: Password
+Username:       USERNAME@tomesh.net
+Password:       PASSWORD
+```
+
 **Note:** After creating a new mailbox, you need to send it an email before you can access it through webmail.
+
+### Public Accounts
+
+| Email | Use |
+|:--|:--|
+| hello@tomesh.net | Inbound emails from website |
+| noreply@tomesh.net | Automated outgoing emails |
