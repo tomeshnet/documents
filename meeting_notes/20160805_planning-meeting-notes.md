@@ -7,7 +7,29 @@ startTime: 19:00
 endTime: 23:30
 ---
 
-# History, Development, What We've Learned So Far
+# Agenda
+
+0. Intros (10 mins)
+1. TOmesh so far... (20 mins)
+2. Non-tech WiFi research group update (15 mins)
+*Break (10 mins)*
+3. Organization (40 mins)
+4. Mesh deployment strategy (30 mins)
+5. Funding (15 mins)
+6. Roadmap (40 mins)
+
+## Intros (10 mins)
+
+- We will use voting in this meeting to reach consensus and help keep to time:
+
+    - _Thumbs up_: go ahead, care about the issue and happy with direction
+    - _Closed fist_: "no-block"
+    - _Thumbs down_: needs more discussion, feel strongly enough to block
+
+- Agenda for meeting
+- Names, general areas of interest, level of involvement so far
+
+## TOMesh so far...
 
 BEN: I got interested in distributed networks and how mesh can do that. Not from networking or security background, a lot of learning along way.
 
@@ -19,6 +41,8 @@ There are sustained mesh like Barcelona, etc, but North America doesn't have sus
 
 Can't just focus on building the tech. Must grow the community and distribute the knowledge on how tomaintain it.  Must scale community in line with the mesh.
 Technical literacy education modules.
+
+### Reference Node Prototype (Raspberri Pi)
 
 Tech platform -> Raspberry Pi. Initial idea to flash routers, but they are becoming increasingly locked down. Interested in a platform that is a lot more flexible. Distributed networks, distributed applications.
 
@@ -32,15 +56,18 @@ NICK: Wireless Slovenia uses cjdns and has 1000+ nodes. Some scalability issues 
 
 BEN: Really? Wow great, didn't know, will look at that. Make a card on Wekan.
 
-# State of tomesh Now
+### Maker Festival
 
-## Maker Festival
+- Satellite "Intro to Networks" Workshop on June 25 & "tomesh.mini" game on July 6 and 7 during Makerfestival Extravaganza
+
 
 Outreach where we built a game board. Learned what people care about.
 
 UDIT: One thing we realized early on was that we had a hard time connecting with people about why this is important and what we are trying to do.  Brainstormed and came up with a game to showcase what the problems are with centralized systems. In the board game, you connect parts of city and it would bring down parts of your system and you had to reconnect, demonstrating the faults of centralized system. Kids interested. Using a Raspberry Pi instead of a modem was great to get people involved on a lower level than just talking about mesh itself.
 
-## HOPE xi – N.Y.
+### HOPE – NY
+
+- Ben and dcwalk connected with other mesh projects at [HOPE XI (Hackers on Planet Earth)](https://xi.hope.net/ ), met people based in GTHA region interested as well
 
 BEN: Hackers On Planet Earth is a conference like Chaos Computing Club. Discussed what does tech mean to society?
 
@@ -103,7 +130,20 @@ BEN: No, it's not anonymous, but you can run TOR over cjdns. Anonymity is hugely
 
 MICHAEL: That's really important! [Gave example on how some previously encrypted messages were decrypted after the key got exposed.]
 
-# Vision Statement
+### Vision Statement
+
+- Current vision statement, which has recieved lots of feedback about changes:
+
+> The internet is currently not open and inclusive for all people. We are building a community-owned infrastructure that gives us:
+- open, lower-cost **access** to the World Wide Web
+- a **resilient** and redundant network
+- **agency** to make important decisions about privacy
+- **autonomy** to access information in a free manner
+- an opportunity to develop **technical literacies**
+
+- Decided during April 18, 2016 planning meeting: https://github.com/tomeshnet/documents/blob/master/meeting_notes/20160418_meeting-notes.md
+- Minor tweaks and discussion on June 28: https://github.com/tomeshnet/documents/blob/master/meeting_notes/20160621_meeting-notes.md#e-update-from-ottawa
+- Relevant Pull Request: https://github.com/tomeshnet/tomesh.net/pull/19
 
 GARRY: Vision statement is present on website, and there has been discussion about revising it. Does it still hold true? There is a Github pull request for some changes.
 
@@ -112,6 +152,10 @@ BEN: Last time we talked about this we agreed we all cared about these things bu
 DAWN: Part of it was at that time we didn't have a secured path for funding and didn't have a deployment project for defining it. So we were trying to figure it out without knowing where it was going.
 
 BEN: Initiate a vote on per item basis in the Vision.
+
+### Code of Conduct
+
+- Previous consensus to adopt a Code of Conduct, work in progress: [WIP Code of Conduct](https://github.com/tomeshnet/documents/pull/23 )
 
 NICK: Curious about whether tomesh as an organization has put thought into human dynamics of this. Some people might be more interest in the tech and don't care about being nice to each other. Do we handle that?
 
@@ -124,7 +168,7 @@ it all today.
 
 **CoC Workgroup**: Lee, Nick, Ben, Leandro, Dennis, David, Curtis, Dawn, Michael
 
-MICHAEL: I'm concenrned about how people can screw with the system, malicious intent, etc.
+MICHAEL: I'm concerned about how people can screw with the system, malicious intent, etc.
 
 BEN: Network level abuse need to be handled at the protocol level.
 
@@ -140,7 +184,7 @@ BEN: Great idea Curtis. You should do it :)
 
 **VOTE**: For Curtis to write revised Vision Statement.
 
-# Non-tech WiFi Research Group Update
+## Non-tech WiFi Research Group Update
 
 LEANDRO: Intro about efforts so far. Considering target communities, weighing need for something like this in community, how well it satisfies tomesh's needs for test deployment (we haven't really talked about this with tech group), what local resources available, community connections, symbiotic initiatives, funding. TCH looks good, especially with Nahum's connections in such communities and programs happening there. Researching where we have the best access to go in and actually do something there. Orton Park has most meat on bones in terms of access for us, but also looking into Swansea (High park), Firgrove (Jane/Finch), Kensington Market.
 
@@ -200,7 +244,9 @@ BEN: Back to the identity crisis the non-tech group is having...
 
 **VOTE**: Bring these things to the next non-tech group and figure out what they want to accomplish. Bring it back to the general tomesh group and have as an agenda point for next meeting where the two groups fit.
 
-# Tools and Practices
+## Organization
+
+### Tools and practices
 
 BEN: Add Vector.im to list?
 
@@ -227,13 +273,13 @@ BEN: Yes, possible. Currently hosted on Digital Ocean since it provides the upti
 
 If you develop something, you are [responsible for documenting it](https://github.com/tomeshnet/documents/tree/master/service_setup). Don't have central points of failure. If you have something that needs authenticated access, share access with at least a couple of people so if you disappear it doesn't get lost or become unusable. Don't share password. Make multiple admin accounts.
 
-# Logo
+### Logo
 
 BEN: Just do it please! Someone?
 
 [Leandro: I didn't mention this because we moved on too quickly and I was taking notes, but branding is a very important thing. It communicates everything about you, even a "feeling" that people take away when exposed.  There are groups that can help develop the identity and image of any initiative according to their needs to very effectively deliver ideas with heavy and memorable impact. The logo, the name, the colours, even vision statements. It does matter. It's not about corporate tactics. It's about human psychology, science, and smart communication.]
 
-# Website
+### Website
 
 LEANDRO: Wiki intro with what is mesh, links for further info. Then a blog page of what's going on. Content from collaboration, progress, discussion on Crabgrass, Kune.
 
@@ -247,4 +293,15 @@ BEN: No, link to Wekan. It's publicly readable. Write access requires authorizat
 
 GARRY: Meeting notes should be kept for all meetings. Made available to everyone. Current process is to write on a Riseup Pad, then transfer to [this Github repo](https://github.com/tomeshnet/documents/tree/master/meeting_notes).
 
-# [Mesh Deployment section will be added shortly]
+## Mesh Deployment Strategy
+
+[section will be added shortly]
+
+
+## Roadmap (6 Months = August–January)
+
+### Legal status of TOmesh Organization
+
+### Permanent space
+
+### Upcoming Outreach and Workshops
