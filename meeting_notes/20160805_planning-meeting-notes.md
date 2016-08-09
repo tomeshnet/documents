@@ -103,11 +103,11 @@ First, have a virtual space for local meshes to communicate. [Vector](https://ve
 - Current vision statement, which has received lots of feedback about changes:
 
 	> The internet is currently not open and inclusive for all people. We are building a community-owned infrastructure that gives us:
-	- open, lower-cost **access** to the World Wide Web
-	- a **resilient** and redundant network
-	- **agency** to make important decisions about privacy
-	- **autonomy** to access information in a free manner
-	- an opportunity to develop **technical literacies**
+	> - open, lower-cost **access** to the World Wide Web
+	> - a **resilient** and redundant network
+	> - **agency** to make important decisions about privacy
+	> - **autonomy** to access information in a free manner
+	> - an opportunity to develop **technical literacies**
 
 - Decided during [April 18, 2016 planning meeting](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20160418_meeting-notes.md)
 - [Minor tweaks and discussion on June 28](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20160621_meeting-notes.md#e-update-from-ottawa)
