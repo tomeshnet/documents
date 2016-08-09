@@ -49,15 +49,15 @@ Tech platform -> Raspberry Pi. Initial idea to flash routers, but they are becom
 
 [Platform based on Raspbian](https://github.com/tomeshnet/prototype-cjdns-pi2):
 
-	- Flash SD card and run a line of code and the Pi will reboot and talk to one another
-	- Connect through SSH to node remotely, end-to-end encrypted
+- Flash SD card and run a line of code and the Pi will reboot and talk to one another
+- Connect through SSH to node remotely, end-to-end encrypted
 
 #### Existing Examples
 
 Existng cjdns meshes:
 
-	- [Hyperboria](https://fc00.org) (a virtual mesh) has 700+ nodes globally
-	- Wireless Slovenia uses cjdns and has 1000+ nodes (some scalability issues but they're doing it)
+- [Hyperboria](https://fc00.org) (a virtual mesh) has 700+ nodes globally
+- Wireless Slovenia uses cjdns and has 1000+ nodes (some scalability issues but they're doing it)
 
 #### Range Testing
 
@@ -102,12 +102,12 @@ First, have a virtual space for local meshes to communicate. [Vector](https://ve
 
 - Current vision statement, which has received lots of feedback about changes:
 
-> The internet is currently not open and inclusive for all people. We are building a community-owned infrastructure that gives us:
-- open, lower-cost **access** to the World Wide Web
-- a **resilient** and redundant network
-- **agency** to make important decisions about privacy
-- **autonomy** to access information in a free manner
-- an opportunity to develop **technical literacies**
+	> The internet is currently not open and inclusive for all people. We are building a community-owned infrastructure that gives us:
+	- open, lower-cost **access** to the World Wide Web
+	- a **resilient** and redundant network
+	- **agency** to make important decisions about privacy
+	- **autonomy** to access information in a free manner
+	- an opportunity to develop **technical literacies**
 
 - Decided during [April 18, 2016 planning meeting](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20160418_meeting-notes.md)
 - [Minor tweaks and discussion on June 28](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20160621_meeting-notes.md#e-update-from-ottawa)
@@ -216,7 +216,7 @@ Meeting notes should be kept for all meetings. Made available to everyone. Curre
 
 ### Logo
 
-[Didn't spend much time talking about this, someone should just do it]
+Didn't spend much time talking about this, someone should just do it :)
 
 [Leandro: I didn't mention this because we moved on too quickly and I was taking notes, but branding is a very important thing. It communicates everything about you, even a "feeling" that people take away when exposed.  There are groups that can help develop the identity and image of any initiative according to their needs to very effectively deliver ideas with heavy and memorable impact. The logo, the name, the colours, even vision statements. It does matter. It's not about corporate tactics. It's about human psychology, science, and smart communication.]
 
@@ -225,10 +225,11 @@ Meeting notes should be kept for all meetings. Made available to everyone. Curre
 [Showed our existing website and its current features]
 
 Suggestions:
-	- Landing pages to get people up to speed about what we're about
-	- Need intro to what is mesh, and links for further info
-	- Blog page of what's going on (content from collaboration, progress, discussion on wiki, etc.)
-	- Show task progress by linking to our publicly readable Wekan (write access requires authorization)
+
+- Landing pages to get people up to speed about what we're about
+- Need intro to what is mesh, and links for further info
+- Blog page of what's going on (content from collaboration, progress, discussion on wiki, etc.)
+- Show task progress by linking to our publicly readable Wekan (write access requires authorization)
 
 ## Mesh Deployment Strategy
 
@@ -279,20 +280,20 @@ Suggestions:
 
 Several people offering space:
 
-	- Hugh runs internet TV station "That Channel", offering space and show time (need someone who can represent tomesh)
-	- Jon is exploring some opportunities with Planet Geek
+- Hugh runs internet TV station "That Channel", offering space and show time (need someone who can represent tomesh)
+- Jon is exploring some opportunities with Planet Geek
 
 Get together?
 	
-	- CivicTechTO usually goes out for drinks
+- CivicTechTO usually goes out for drinks
 
 ### Upcoming Outreach and Workshops
 
 In this sequence over the next few weeks:
 
-	- Build a Mesh Node (Ben, Nick, and whoever wants to help plan)
-	- Toronto Internet Infrastructure (Lee, Udit, Ben)
-	- Build a Bot (Garry)
+- Build a Mesh Node (Ben, Nick, and whoever wants to help plan)
+- Toronto Internet Infrastructure (Lee, Udit, Ben)
+- Build a Bot (Garry)
 
 ### Action Items
 
