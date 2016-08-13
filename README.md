@@ -49,14 +49,3 @@ You can contribute to the project in many ways. Start by [creating an account](h
 * Find a Card you would like to take ownership and add yourself as a Member to that Card
 * Move the Card to the **In Progress** column, or **Discuss** column if that needs to happen first for the particular Card
 * When completed, move the Card to the **Done** column (a task that leads to a Pull Request in our [Github repositories](https://github.com/tomeshnet/) is usually considered done when reviewed and merged)
-
-## Roadmap
-
-We established an initial roadmap at the [April 18 meeting](https://github.com/tomeshnet/meetings/blob/master/meeting_notes/20160418_meeting-notes.md) and will develop another one in **July** for the remainder of 2016.
-
-| Month | Deadlines |
-| --- | --- |
-| **April** | **April 30**: first version of the website<br />**April 30**: a proposal for Maker Festival |
-| **May** | **end May**: prototype developed for Maker Festival |
-| **June** | **mid June**: prototype validated for Maker Festival |
-| **July** | **July 9-10**: Maker Festival! (hopefully)<br />**July 22-24**: HOPE Conference<br />**end July**: TOmesh Planning Session |
