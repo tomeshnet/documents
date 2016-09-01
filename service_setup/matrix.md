@@ -8,7 +8,7 @@ Toronto Mesh is running a [Matrix](http://matrix.org) homeserver for our decentr
 
 This page describes how both these components are set up.
 
-## Set Up Martix Homeserver
+## Set Up Matrix Homeserver
 
 We currently run the Python-implemented [Synapse](https://github.com/matrix-org/synapse/) homeserver at **matrix.tomesh.net**.
 
@@ -152,7 +152,7 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	```
 1. Reload nginx `service nginx reload`.
 
-1. Assuming Deffie-Hellman **.pem** and **crontab** for letsencrypt renewals are already configured, just run:
+1. Assuming Diffie-Hellman **.pem** and **crontab** for letsencrypt renewals are already configured, just run:
 
 	```
 	# /opt/letsencrypt/letsencrypt-auto certonly --agree-tos --renew-by-default --email hello@tomesh.net -a webroot --webroot-path=/usr/share/nginx/html -d matrix.tomesh.net
@@ -289,7 +289,7 @@ The web client we host at **chat.tomesh.net** is running [Vector Web](https://gi
 
 1. Reload nginx `service nginx reload`.
 
-1. Assuming Deffie-Hellman **.pem** and **crontab** for letsencrypt renewals are already configured, just run:
+1. Assuming Diffie-Hellman **.pem** and **crontab** for letsencrypt renewals are already configured, just run:
 
 	```
 	# /opt/letsencrypt/letsencrypt-auto certonly --agree-tos --renew-by-default --email hello@tomesh.net -a webroot --webroot-path=/usr/share/nginx/html -d chat.tomesh.net
