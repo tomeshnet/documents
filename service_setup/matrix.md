@@ -3,6 +3,7 @@
 Toronto Mesh is running a [Matrix](http://matrix.org) homeserver for our decentralized chat. The Matrix protocol allows us to communicate on the same homeserver, as well as reach users and rooms on other homeservers via homeserver federation. Users are free to connect to our homeserver with [any compatible desktop or mobile client](http://matrix.org/docs/projects/try-matrix-now.html#clients), or the web client we host.
 
 **Matrix homeserver**: [https://matrix.tomesh.net](https://matrix.tomesh.net)
+
 **Web client**: [https://chat.tomesh.net](https://chat.tomesh.net)
 
 This page describes how both these components are set up.
@@ -210,16 +211,16 @@ The web client we host at **chat.tomesh.net** is running [Vector Web](https://gi
 
 1. Create **config.json** from the sample with `cp config.sample.json config.json`, then edit `default_hs_url` in **config.json** such that the file looks like:
 
-```
-{
-    "default_hs_url": "https://matrix.tomesh.net",
-    "default_is_url": "https://vector.im",
-    "brand": "Vector",
-    "integrations_ui_url": "http://localhost:8081/",
-    "integrations_rest_url": "http://localhost:5050",
-    "enableLabs": true
-}
-```
+	```
+	{
+	    "default_hs_url": "https://matrix.tomesh.net",
+	    "default_is_url": "https://vector.im",
+	    "brand": "Vector",
+	    "integrations_ui_url": "http://localhost:8081/",
+	    "integrations_rest_url": "http://localhost:5050",
+	    "enableLabs": true
+	}
+	```
 
 1. Run `chmod 755 /var/www` to ensure we have the right permissions.
 
