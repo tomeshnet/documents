@@ -294,4 +294,15 @@ The web client we host at **chat.tomesh.net** is running [Vector Web](https://gi
 	```
 	# /opt/letsencrypt/letsencrypt-auto certonly --agree-tos --renew-by-default --email hello@tomesh.net -a webroot --webroot-path=/usr/share/nginx/html -d chat.tomesh.net
 	```
+	
+## Create More RAM
 
+We are running Synapse on a 1 GB VPS that also runs other services. The process often gets dangerously close to being killed by the kernel from memory exhaustion. So we created 1 GB of swap memory on the SSD to handle load spikes:
+
+```
+# dd if=/dev/zero of=/swapfile bs=1M count=1024
+# chmod 600 /swapfile
+# mkswap /swapfile
+# swapon /swapfile
+# echo '/swapfile none swap defaults 0 0' >> /etc/fstab
+```
