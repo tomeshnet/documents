@@ -24,13 +24,13 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	                     libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
 	```
 
-1. Install Synapse homeserver at commit [5405351b147cb5e1b62651fd0c5ad95c5e0569e6](https://github.com/matrix-org/synapse/commit/5405351b147cb5e1b62651fd0c5ad95c5e0569e6):
+1. Install Synapse homeserver version [v0.18.0](https://github.com/matrix-org/synapse/releases/tag/v0.18.0):
 
 	```
 	# virtualenv -p python2.7 ~/.synapse
 	# source ~/.synapse/bin/activate
 	# pip install --upgrade setuptools
-	# pip install https://github.com/matrix-org/synapse/tarball/5405351b147cb5e1b62651fd0c5ad95c5e0569e6
+	# pip install https://github.com/matrix-org/synapse/tarball/v0.18.0
 	```
 
 	>From now on, each time you want to configure the server, run `cd ~/.synapse && source ./bin/activate` from a root shell.
@@ -191,34 +191,60 @@ The web client we host at **chat.tomesh.net** is running [Vector Web](https://gi
 	3.10.3
 	```
 
-1. Follow instructions on the [Vector Web Github repo](https://github.com/vector-im/vector-web/) to build a package of the static files. Basically, run the following commands to build **v0.7.4**:
+1. Follow instructions on the [Vector Web Github repo](https://github.com/vector-im/vector-web/) to build a package of the static files. Basically, run the following commands to build **v0.8.1**:
 
 	```
 	$ git clone https://github.com/vector-im/vector-web.git
 	$ cd vector-web
-	$ git checkout v0.7.4
+	$ git checkout v0.8.1
 	$ npm install
 	$ npm run package
 	```
 
-1. Find the generated package at **packages/vector-v0.7.4.tar.gz**.
+1. Find the generated package at **packages/vector-v0.8.1.tar.gz**.
 
 ### Serve Vector Web at chat.tomesh.net
 
 1. Get a root shell with `sudo -i`.
 
-1. Extract **vector-v0.7.4.tar.gz** into **/var/www/chat.tomesh.net**.
+1. Extract **vector-v0.8.1.tar.gz** into **/var/www/chat.tomesh.net**.
 
-1. Create **config.json** from the sample with `cp config.sample.json config.json`, then edit `default_hs_url` in **config.json** such that the file looks like:
+1. Create **config.json** from the sample with `cp config.sample.json config.json`, then edit `default_hs_url` in **config.json** and remove the example entries in `roomDirectory` such that the file looks like:
 
 	```
 	{
-	    "default_hs_url": "https://matrix.tomesh.net",
-	    "default_is_url": "https://vector.im",
-	    "brand": "Vector",
-	    "integrations_ui_url": "http://localhost:8081/",
-	    "integrations_rest_url": "http://localhost:5050",
-	    "enableLabs": true
+	  "default_hs_url": "https://matrix.tomesh.net",
+	  "default_is_url": "https://vector.im",
+	  "brand": "Vector",
+	  "integrations_ui_url": "http://localhost:8081/",
+	  "integrations_rest_url": "http://localhost:5050",
+	  "enableLabs": true,
+	  "roomDirectory": {
+	    "networks": [
+	      "matrix:matrix_org",
+	      "gitter",
+	      "irc:freenode",
+	      "irc:mozilla"
+	    ],
+	    "networkPatterns": {
+	      "matrix:matrix_org": "#.*:matrix.org",
+	      "gitter": "#gitter_.*:matrix.org",
+	      "irc:freenode": "#freenode_.*:matrix.org",
+	      "irc:mozilla": "#mozilla_.*:matrix.org"
+	    },
+	    "networkNames": {
+	      "matrix:matrix_org": "matrix.org",
+	      "irc:freenode": "Freenode",
+	      "irc:mozilla": "Mozilla",
+	      "gitter": "Gitter"
+	    },
+	    "networkIcons": {
+	      "matrix:matrix_org": "//matrix.org/favicon.ico",
+	      "irc:freenode": "//matrix.org/_matrix/media/v1/download/matrix.org/DHLHpDDgWNNejFmrewvwEAHX",
+	      "irc:mozilla": "//matrix.org/_matrix/media/v1/download/matrix.org/DHLHpDDgWNNejFmrewvwEAHX",
+	      "gitter": "//gitter.im/favicon.ico"
+	    }
+	  }
 	}
 	```
 
