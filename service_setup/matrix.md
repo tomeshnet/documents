@@ -209,15 +209,15 @@ The web client we host at **chat.tomesh.net** is running [Vector Web](https://gi
 
 1. Extract **vector-v0.8.1.tar.gz** into **/var/www/chat.tomesh.net**.
 
-1. Create **config.json** from the sample with `cp config.sample.json config.json`, then edit `default_hs_url` in **config.json** and remove the example entries in `roomDirectory` such that the file looks like:
+1. Create **config.json** from the sample with `cp config.sample.json config.json`, then edit `default_hs_url`, `integrations_ui_url`, and `integrations_rest_url` in **config.json**, remove the example entries in `roomDirectory`, such that the file looks like:
 
 	```
 	{
 	  "default_hs_url": "https://matrix.tomesh.net",
 	  "default_is_url": "https://vector.im",
 	  "brand": "Vector",
-	  "integrations_ui_url": "http://localhost:8081/",
-	  "integrations_rest_url": "http://localhost:5050",
+	  "integrations_ui_url": "https://scalar.vector.im",
+	  "integrations_rest_url": "https://scalar.vector.im/api",
 	  "enableLabs": true,
 	  "roomDirectory": {
 	    "networks": [
