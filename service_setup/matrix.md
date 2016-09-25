@@ -57,6 +57,8 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	- '172.16.0.0/12'
 	- '192.168.0.0/16'
 	```
+	
+	You also need to `pip install lxml` to start Synapse with link preview.
 
 1. To prevent our 1 GB VPS from running out of memory, we need to reduce the cache factor by running:
 
