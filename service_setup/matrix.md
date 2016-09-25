@@ -48,6 +48,16 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 
 1. Enable registration for new users by changing `enable_registration` to `True` in **homeserver.yaml**.
 
+1. Enable link preview by changing `url_preview_enabled` to `True` in **homeserver.yaml** and uncommenting:
+
+	```
+	url_preview_ip_range_blacklist:
+	- '127.0.0.0/8'
+	- '10.0.0.0/8'
+	- '172.16.0.0/12'
+	- '192.168.0.0/16'
+	```
+
 1. To prevent our 1 GB VPS from running out of memory, we need to reduce the cache factor by running:
 
 	```
