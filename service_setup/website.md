@@ -146,3 +146,5 @@ We use webhooks from Github to generate the Jekyll site on our server with [jeky
   ```
 
 1. Launch in background `forever start jekyll-hook.js`. [Noted here](https://github.com/developmentseed/jekyll-hook#launch)
+
+1. Update UFW to allow TCP connections on port 8080 `ufw allow 80/tcp`.
