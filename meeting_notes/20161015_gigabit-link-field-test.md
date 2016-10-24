@@ -31,9 +31,9 @@ On an early Saturday morning, the group met at a coffee shop near Tommy Thompson
 
 # Range Testing
 
-We had one group mount a LiteBeam at about 8 ft on a pole, while the other group moved away from it and stopped at various distances.
+We had one group mount a LiteBeam at about 8 ft on a pole at (43.645771, -79.320951), while the other group moved away from it and stopped at various distances.
 
-## Test Point A (~150 m)
+## Test Point A, 227 m away at (43.643781,-79.321583)
 
 ```
 $ ping 192.168.1.25
@@ -123,7 +123,7 @@ Connecting to host fcfd:cce:14ab:57de:64f7:32e3:19f3:ebdf, port 5201
 - If we introduced a misalignment of about 20 degrees, speed drops to < 100 mbps
 - There were points when we had to restart `cjdroute` for things to work
 
-## Test Point B (~500 m)
+## Test Point B, 596 m away at (43.641396, -79.322121)
 
 ```
 $ iperf3 -c 192.168.1.22
@@ -169,7 +169,7 @@ Connecting to host 192.168.1.22, port 5201
 [  4]   0.00-10.00  sec  81.7 MBytes  68.6 Mbits/sec                  receiver
 ```
 
-## Test Point C (~800 m)
+## Test Point C, 863 m away at (43.638118, -79.322729)
 
 - No line-of-sight, blocked by a bunch of trees, Fresnel zone probably cuts deep into the ground because the antennas are at ground level
 - A few kbps intermittenly, signal dropping all the time
