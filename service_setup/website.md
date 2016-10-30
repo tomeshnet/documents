@@ -23,11 +23,11 @@ We are self-hosting [tomesh.net](https://tomesh.net). This page describes how th
 
 ## Set up HTTPS with Nginx and Let's Encrypt
 
-Follow [these instructions](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04) to set up nginx and letsencrypt.
+Follow [these instructions](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04) to set up Nginx and Let's Encrypt.
 
 ### Configure Nginx
 
-1. Create **/etc/nginx/sites-available/tomesh.net**:
+1. Create `/etc/nginx/sites-available/tomesh.net`:
 
   ```
   server {
@@ -65,27 +65,27 @@ Follow [these instructions](https://www.digitalocean.com/community/tutorials/how
   }
   ```
 
-1. Symlink **/etc/nginx/sites-available/tomesh.net** to **/etc/nginx/sites-enabled**.
+1. Symlink `/etc/nginx/sites-available/tomesh.net` to `/etc/nginx/sites-enabled`.
 
-1. Check your configuration for syntax errors `nginx -t`.
+1. Check your configuration for syntax errors: `nginx -t`.
 
-1. Reload Nginx `service nginx reload`.
+1. Reload Nginx: `service nginx reload`.
 
 ### Configure Let's Encrypt
 
-1. Generate a Deffie-Hellman **.pem** and add the path to `ssl_dhparam` in Nginx configurations.
+1. Generate a Diffie-Hellman `.pem` and add the path to `ssl_dhparam` in Nginx configurations.
 
-1. Run the **letsencrypt-auto** script:
+1. Run the `letsencrypt-auto` script:
 
   ```
   # /opt/letsencrypt/letsencrypt-auto certonly --agree-tos --renew-by-default --email hello@tomesh.net -a webroot --webroot-path=/var/www/html -d tomesh.net -d www.tomesh.net
   ```
 
-1. In Nginx configurations, update `ssl_certificate`, `ssl_certificate_key`, `ssl_trusted_certificate` paths to the generated **.pem** files.
+1. In Nginx configurations, update `ssl_certificate`, `ssl_certificate_key`, `ssl_trusted_certificate` paths to the generated `.pem` files.
 
 1. Reload Nginx `service nginx reload`.
 
-1. Add the following to **crontab**:
+1. Add the following to `crontab`:
 
   ```
   30 2 * * 1 /opt/letsencrypt/letsencrypt-auto renew >> /var/log/le-renew.log
@@ -98,7 +98,7 @@ We use webhooks from Github to generate the Jekyll site on our server with [jeky
 
 ### Clone tomesh.net
 
-1. Clone tomesh.net reprository `git clone https://github.com/tomeshnet/tomesh.net.git`
+1. Clone tomesh.net reprository: `git clone https://github.com/tomeshnet/tomesh.net.git`
 
 1. `cd tomesh.net`
 
@@ -110,7 +110,7 @@ We use webhooks from Github to generate the Jekyll site on our server with [jeky
 
 1. Install jekyll-hook's dependencies as [noted here](https://github.com/developmentseed/jekyll-hook#dependencies-installation).
 
-1. Clone jekyll-hook's reprository (`/var/www/jekyll-hook`) and run `npm install`. [Noted here](https://github.com/developmentseed/jekyll-hook#installation)
+1. Clone jekyll-hook's repository (`/var/www/jekyll-hook`) and run `npm install`. [Noted here](https://github.com/developmentseed/jekyll-hook#installation)
 
 1. Create a symbolic link to `tomesh-build.sh` in jekyll-hook's `scripts` directory:
 
@@ -145,6 +145,6 @@ We use webhooks from Github to generate the Jekyll site on our server with [jeky
   }
   ```
 
-1. Launch in background `forever start jekyll-hook.js`. [Noted here](https://github.com/developmentseed/jekyll-hook#launch)
+1. Launch in `jekyll-hook.js` in the background: `forever start jekyll-hook.js`. [Noted here](https://github.com/developmentseed/jekyll-hook#launch)
 
-1. Update UFW to allow TCP connections on port 8080 `ufw allow 8080/tcp`.
+1. Update UFW to allow TCP connections on port `8080`: `ufw allow 8080/tcp`.
