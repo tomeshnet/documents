@@ -2,12 +2,14 @@
 
 This is the repository where our meeting minutes and other important documents and planning notes live.
 
+You can find out more about Toronto Mesh on [our website](https://tomesh.net)
+
 ## Getting Involved
 
 We are still in the early stages and would love involvement from more people! Please be in touch by:
 * emailing us at [hello@tomesh.net](mailto:hello@tomesh.net)
-* speaking with us on the `#tomesh` channel in [CivicTechTO](http://civictech.ca/)'s slack ([get an invite](https://civictechto-slack-invite.herokuapp.com/))
-* joining us at our weekly [CivicTechTO Hacknight](http://www.meetup.com/Civic-Tech-Toronto/)
+* speaking with us on our chat at [`#tomesh:chat.tomesh.net`](https://chat.tomesh.net/#/room/#tomesh:tomesh.net)
+* joining us at an [upcoming event](https://tomesh.net/events/)
 
 If you notice any errors, would like to submit changes, or add content, please see the [Contributing Guidelines](https://github.com/tomeshnet/documents/blob/master/CONTRIBUTING.md).
 
