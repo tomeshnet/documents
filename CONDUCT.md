@@ -31,8 +31,12 @@ This Code of Conduct applies both within project spaces (both event and online s
 
 ## Enforcement
 
+At events, Toronto Mesh organizers will identify themselves and any incidents can be reported to them directly. Event organizers will be happy to help participants by providing escorts, contacting local law enforcement, or otherwise assisting those experiencing harassment to feel safe for the duration of an event. We value your participation.
+
+In online spaces, Toronto Mesh moderators and administrators have elevated privileges and in order to enforce our standards and pledge.
+
 If a participant engages in harassing behaviour, the organizers may take any action they deem appropriate, including warning the offender or expulsion from events and online forums.
 
 If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of Toronto Mesh immediately.
 
-Toronto Mesh organizers will be happy to help participants by providing escorts, contacting local law enforcement, or otherwise assisting those experiencing harassment to feel safe for the duration of an event. We value your participation.
+Those who wish to report a violation but don't feel comfortable talking to the organizers online or at an event can email `coc@tomesh.net`, which is monitored by two individuals on a rotating basis.
