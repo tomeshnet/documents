@@ -50,4 +50,5 @@ Password:       PASSWORD
 | Email | Use |
 |:--|:--|
 | hello@tomesh.net | Inbound emails from website |
+| coc@tomesh.net | Report Code of Conduct violations |
 | noreply@tomesh.net | Automated outgoing emails |
