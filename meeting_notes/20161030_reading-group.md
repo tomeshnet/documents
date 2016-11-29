@@ -1,5 +1,5 @@
 ---
-title: Toronto Meshnet: Inaugural Reading Group - October 2016
+title: October 2016 Inaugural Reading Group Notes 
 location: HackLab.TO, 1266 Queen St
 attendees: 8
 date: 2016-10-30
