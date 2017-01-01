@@ -67,6 +67,15 @@ Follow [these instructions](https://www.digitalocean.com/community/tutorials/how
 
 1. Symlink `/etc/nginx/sites-available/tomesh.net` to `/etc/nginx/sites-enabled`.
 
+1. Redirect unexpected access to website by overwriting `/etc/nginx/sites-available/default` with:
+
+  ```
+  server {
+    server_name .tomesh.net;
+    return 301 https://tomesh.net;
+  }
+  ```
+
 1. Check your configuration for syntax errors: `nginx -t`.
 
 1. Reload Nginx: `service nginx reload`.

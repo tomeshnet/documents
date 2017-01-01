@@ -76,33 +76,7 @@ We are self-hosting [Wekan](https://github.com/wekan/wekan) to coordinate tasks.
 	server {
 	    listen 80;
 	    server_name wekan.tomesh.net;
-
-	    # Add headers to serve security related headers
-	    add_header X-Content-Type-Options nosniff;
-	    add_header X-Frame-Options "SAMEORIGIN";
-	    add_header X-XSS-Protection "1; mode=block";
-	    add_header X-Robots-Tag none;
-	    add_header X-Download-Options noopen;
-	    add_header X-Permitted-Cross-Domain-Policies none;
-
-	    location / {
-	        proxy_pass http://127.0.0.1:8080/;
-	        proxy_http_version 1.1;
-	        proxy_set_header Upgrade $http_upgrade;
-	        proxy_set_header Connection "upgrade";
-	        proxy_set_header Host $http_host;
-
-	        proxy_set_header X-Real-IP $remote_addr;
-	        proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
-	        proxy_set_header X-Forward-Proto http;
-	        proxy_set_header X-Nginx-Proxy true;
-
-	        proxy_redirect off;
-	    }
-
-	    location ~ /.well-known {
-	        allow all;
-	    }
+	    return 301 https://$host$request_uri;
 	}
 
 	server {
@@ -158,6 +132,15 @@ We are self-hosting [Wekan](https://github.com/wekan/wekan) to coordinate tasks.
 	```
 
 1. Symlink **/etc/nginx/sites-available/wekan.tomesh.net** to **/etc/nginx/sites-enabled**.
+
+1. Redirect unexpected access to website by overwriting `/etc/nginx/sites-available/default` with:
+
+  ```
+  server {
+    server_name .tomesh.net;
+    return 301 https://tomesh.net;
+  }
+  ```
 
 1. Reload nginx `service nginx reload`.
 

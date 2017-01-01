@@ -24,13 +24,13 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	                     libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
 	```
 
-1. Install Synapse homeserver version [v0.18.0](https://github.com/matrix-org/synapse/releases/tag/v0.18.0):
+1. Install Synapse homeserver version [v0.18.6-rc1](https://github.com/matrix-org/synapse/releases/tag/v0.18.6-rc1):
 
 	```
 	# virtualenv -p python2.7 ~/.synapse
 	# source ~/.synapse/bin/activate
 	# pip install --upgrade setuptools
-	# pip install https://github.com/matrix-org/synapse/tarball/v0.18.0
+	# pip install https://github.com/matrix-org/synapse/tarball/v0.18.6-rc1
 	```
 
 	>From now on, each time you want to configure the server, run `cd ~/.synapse && source ./bin/activate` from a root shell.
@@ -190,75 +190,43 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 
 1. Start the Synapse server again with `synctl start`.
 
-## Set Up Vector Web Client
+## Set Up Riot Web Client
 
-The web client we host at **chat.tomesh.net** is running [Vector Web](https://github.com/vector-im/vector-web), and defaults to use our Matrix homeserver.
+The web client we host at **chat.tomesh.net** is running [Riot Web](https://github.com/vector-im/riot-web), and defaults to use our Matrix homeserver.
 
-### Build Vector Web From Source
-
-1. Use [nvm](https://github.com/creationix/nvm) to get these versions of **node.js** and **npm**:
-
-	```
-	$ node -v
-	v6.4.0
-	$ npm -v
-	3.10.3
-	```
-
-1. Follow instructions on the [Vector Web Github repo](https://github.com/vector-im/vector-web/) to build a package of the static files. Basically, run the following commands to build **v0.8.1**:
-
-	```
-	$ git clone https://github.com/vector-im/vector-web.git
-	$ cd vector-web
-	$ git checkout v0.8.1
-	$ npm install
-	$ npm run package
-	```
-
-1. Find the generated package at **packages/vector-v0.8.1.tar.gz**.
-
-### Serve Vector Web at chat.tomesh.net
+### Serve Riot Web at chat.tomesh.net
 
 1. Get a root shell with `sudo -i`.
 
-1. Extract **vector-v0.8.1.tar.gz** into **/var/www/chat.tomesh.net**.
+1. Download the pre-compiled [Riot Web release](https://github.com/vector-im/riot-web/releases):
 
-1. Create **config.json** from the sample with `cp config.sample.json config.json`, then edit `default_hs_url`, `integrations_ui_url`, and `integrations_rest_url` in **config.json**, remove the example entries in `roomDirectory`, such that the file looks like:
+	```
+	# wget https://github.com/vector-im/riot-web/releases/download/v0.9.5/vector-v0.9.5.tar.gz
+	```
+
+1. Extract **vector-v0.9.5.tar.gz** into **/var/www/chat.tomesh.net/public**:
+
+	```
+	# tar xf vector-v0.9.5.tar.gz -C /var/www/chat.tomesh.net/public --strip-components 1
+	```
+
+1. Create **config.json** with the following lines, so it is used in place of the default **config.sample.json**:
 
 	```
 	{
-	  "default_hs_url": "https://matrix.tomesh.net",
-	  "default_is_url": "https://vector.im",
-	  "brand": "Vector",
-	  "integrations_ui_url": "https://scalar.vector.im",
-	  "integrations_rest_url": "https://scalar.vector.im/api",
-	  "enableLabs": true,
-	  "roomDirectory": {
-	    "networks": [
-	      "matrix:matrix_org",
-	      "gitter",
-	      "irc:freenode",
-	      "irc:mozilla"
-	    ],
-	    "networkPatterns": {
-	      "matrix:matrix_org": "#.*:matrix.org",
-	      "gitter": "#gitter_.*:matrix.org",
-	      "irc:freenode": "#freenode_.*:matrix.org",
-	      "irc:mozilla": "#mozilla_.*:matrix.org"
-	    },
-	    "networkNames": {
-	      "matrix:matrix_org": "matrix.org",
-	      "irc:freenode": "Freenode",
-	      "irc:mozilla": "Mozilla",
-	      "gitter": "Gitter"
-	    },
-	    "networkIcons": {
-	      "matrix:matrix_org": "//matrix.org/favicon.ico",
-	      "irc:freenode": "//matrix.org/_matrix/media/v1/download/matrix.org/DHLHpDDgWNNejFmrewvwEAHX",
-	      "irc:mozilla": "//matrix.org/_matrix/media/v1/download/matrix.org/DHLHpDDgWNNejFmrewvwEAHX",
-	      "gitter": "//gitter.im/favicon.ico"
+	    "default_hs_url": "https://matrix.tomesh.net",
+	    "default_is_url": "https://vector.im",
+	    "brand": "Riot",
+	    "integrations_ui_url": "https://scalar.vector.im/",
+	    "integrations_rest_url": "https://scalar.vector.im/api",
+	    "enableLabs": true,
+	    "roomDirectory": {
+	        "servers": [
+	            "tomesh.net",
+	            "nycmesh.net",
+	            "matrix.org"
+	        ]
 	    }
-	  }
 	}
 	```
 
