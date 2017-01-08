@@ -24,13 +24,13 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	                     libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
 	```
 
-1. Install Synapse homeserver version [v0.18.6-rc1](https://github.com/matrix-org/synapse/releases/tag/v0.18.6-rc1):
+1. Install Synapse homeserver version [v0.18.6](https://github.com/matrix-org/synapse/releases/tag/v0.18.6):
 
 	```
 	# virtualenv -p python2.7 ~/.synapse
 	# source ~/.synapse/bin/activate
 	# pip install --upgrade setuptools
-	# pip install https://github.com/matrix-org/synapse/tarball/v0.18.6-rc1
+	# pip install https://github.com/matrix-org/synapse/tarball/v0.18.6
 	```
 
 	>From now on, each time you want to configure the server, run `cd ~/.synapse && source ./bin/activate` from a root shell.
@@ -305,10 +305,10 @@ The web client we host at **chat.tomesh.net** is running [Riot Web](https://gith
 	
 ## Create More RAM
 
-We are running Synapse on a 1 GB VPS that also runs other services. The process often gets dangerously close to being killed by the kernel from memory exhaustion. So we created 1 GB of swap memory on the SSD to handle load spikes:
+We are running Synapse on a 1 GB VPS that also runs other services. The process often gets dangerously close to being killed by the kernel from memory exhaustion. So we created 2 GB of swap memory on the SSD to handle load spikes:
 
 ```
-# dd if=/dev/zero of=/swapfile bs=1M count=1024
+# dd if=/dev/zero of=/swapfile bs=1M count=2048
 # chmod 600 /swapfile
 # mkswap /swapfile
 # swapon /swapfile
