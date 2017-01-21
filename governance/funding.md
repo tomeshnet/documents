@@ -15,8 +15,8 @@ To learn more about our funding activities or donate please email funding@tomesh
 
 `NOTE` Due dates are subject to change.
 
-## Explanation of progress status
+## Explanation of Progress Statuses
 
-- `Investigating`: currently deciding on whether this is an appropriate opportunity
-- **`In progress`**: currently working on completing the application
-- `Submitted`: the application has been successful received
+- `Investigating` Currently deciding on whether this is an appropriate opportunity
+- **`In progress`** Currently working on completing the application
+- `Submitted` The application has been successful received
