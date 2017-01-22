@@ -7,7 +7,7 @@ You can find out more about Toronto Mesh on [our website](https://tomesh.net).
 ## Getting Involved
 
 We are still in the early stages and would love involvement from more people! Please be in touch by:
-* come say hi on our  [`#tomesh:chat.tomesh.net`](https://chat.tomesh.net/#/room/#tomesh:tomesh.net) chat
+* come say hi on our  [`#tomesh:tomesh.net`](https://chat.tomesh.net/#/room/#tomesh:tomesh.net) chat
 * email us at [hello@tomesh.net](mailto:hello@tomesh.net)
 * join us at an [upcoming event](https://tomesh.net/events/)
 
