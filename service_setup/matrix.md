@@ -24,13 +24,13 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	                     libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
 	```
 
-1. Install Synapse homeserver version [v0.18.6](https://github.com/matrix-org/synapse/releases/tag/v0.18.6):
+1. Install Synapse homeserver version [v0.18.7](https://github.com/matrix-org/synapse/releases/tag/v0.18.7):
 
 	```
 	# virtualenv -p python2.7 ~/.synapse
 	# source ~/.synapse/bin/activate
 	# pip install --upgrade setuptools
-	# pip install https://github.com/matrix-org/synapse/tarball/v0.18.6
+	# pip install https://github.com/matrix-org/synapse/tarball/v0.18.7
 	```
 
 	>From now on, each time you want to configure the server, run `cd ~/.synapse && source ./bin/activate` from a root shell.
