@@ -9,7 +9,7 @@ To learn more about our funding activities or donate please email funding@tomesh
 | Opportunity Grant | Metcalf Foundation | November 21, 2016 @ 5pm | @SeaPancakes | `Submitted` |
 | Ontario Budget Talks | Government of Ontario | December 11, 2016 @ 11:59pm | @SeaPancakes | `Submitted` |
 | Seed Grant | Ontario Trillium Foundation | February 1 & February 22, 2017 @ 4pm | @SeaPancakes | **`In progress`** |
-| Beyond the Net Grant | Internet Society | March 17, 2017 | @SeaPancakes |`Investigating` |
+| Beyond the Net Grant | Internet Society | March 17, 2017 | @dcwalk |`Investigating` |
 | Community Investment Program | CIRA | April 3, 2017 | @SeaPancakes | **`In progress`** |
 | Collective Impact Investment Stream | Ontario Trillium Foundation | N/A | | `Investigating` |
 
