@@ -291,7 +291,9 @@ Wiphy phy1
 | `ec:08:6b:1c:76:d6` | TL-WN722N         | Pi 2 running Raspbian Jessie |
 | `ec:17:2f:9d:d7:76` | On-board radio    | TL-WR703N running OpenWrt    |
 
-## 2.4 GHz Mesh `iw dev mesh0 station dump` from `8c:88:2b:00:00:eb`
+## 2.4 GHz Mesh
+
+### `iw dev mesh0 station dump` from `8c:88:2b:00:00:eb`
 
 ```
 Station ec:17:2f:9d:d7:76 (on mesh0)
