@@ -4,12 +4,21 @@
 
 - Uses **rt2800usb** (no driver install step required on Raspbian)
 - The version of **rt2800usb** must be recent, and we could not get this to work on a customized Debian with the drivers (could be our problem)
-- The external antenna is soldered on (we need a RP-SMA version of this)
 - Connected with each other with Mesh Point, and with the TL-WN722N & TL-WR703N, over 2.4 GHz (iperf3 tested between 5 to 45 Mbps, we are likely in a noisy environment)
 - Connected with each other with Mesh Point, over 5 GHz (iperf3 tested 40 to 50 Mbps, much more reliable than the 2.4 GHz results)
 - Played with Monitor mode packet captures and that worked
+- The TOP-GS07 device consumes 1.0 to 1.5 W (one of the Raspberry Pi's with a 1 A power supply shut off after plugging this in, so make sure you use a proper supply)
+- The external antenna is soldered on (we need a RP-SMA version of this)
 
-## Device Capabilities with `iw list`
+## TOP-GS07 USB WiFi Adapter
+
+The [TOP-GS07](http://www.toplinkst.com/html_products/RT5572-dual-band-300Mbps-usb-wifi-adapter-with-external-antenna-52.html) is a USB WiFi adapter with external antenna that supports Mesh Point over 2.4 and 5 GHz. The two devices under test are directly sourced from Toplinkst.
+
+![TOP-GS07 devices](../images/20170208_mesh-point-with-topgs07-rt5572.jpg?raw=true)
+![RT5572 chip](../images/20170208_mesh-point-with-topgs07-rt55722.jpg?raw=true)
+![Power measurement](../images/20170208_mesh-point-with-topgs07-rt55723.jpg?raw=true)
+
+### Device Capabilities with `iw list`
 
 ```
 Wiphy phy1
