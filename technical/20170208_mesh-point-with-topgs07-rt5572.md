@@ -284,15 +284,16 @@ Wiphy phy1
 
 ## Devices Used for Testing
 
-| MAC Address         | Mesh Point Device | Host                      |
-|---------------------|-------------------|---------------------------|
-| `8c:88:2b:00:00:eb` | TOP-GS07          | Pi 3 running Raspbian     |
-| `¯\(°_o)/¯`         | TOP-GS07          | Pi 2 running Raspbian     |
-| `ec:08:6b:1c:76:d6` | TL-WN722N         | Pi 2 running Raspbian     |
-| `ec:17:2f:9d:d7:76` | On-board radio    | TL-WR703N running OpenWrt |
+| MAC Address         | Mesh Point Device | Host                         |
+|---------------------|-------------------|------------------------------|
+| `8c:88:2b:00:00:eb` | TOP-GS07          | Pi 3 running Raspbian Jessie |
+| `¯\(°_o)/¯`         | TOP-GS07          | Pi 2 running Raspbian Jessie |
+| `ec:08:6b:1c:76:d6` | TL-WN722N         | Pi 2 running Raspbian Jessie |
+| `ec:17:2f:9d:d7:76` | On-board radio    | TL-WR703N running OpenWrt    |
 
 ## 2.4 GHz Mesh `iw dev mesh0 station dump` from `8c:88:2b:00:00:eb`
 
+```
 Station ec:17:2f:9d:d7:76 (on mesh0)
         inactive time:  340 ms
         rx bytes:       401091260
@@ -345,6 +346,7 @@ Station ec:08:6b:1c:76:d6 (on mesh0)
         WMM/WME:        yes
         MFP:            no
         TDLS peer:      no
+```
 
 ## 5 GHz Mesh
 
