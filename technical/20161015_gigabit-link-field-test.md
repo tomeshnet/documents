@@ -7,7 +7,9 @@ startTime: 09:00
 endTime: 15:00
 ---
 
-# Test Setup & Objectives
+# Gigabit Link Field Test
+
+## Test Setup & Objectives
 
 A pair of Ubiquiti LiteBeam ac each powered by a ChargeTech 27 Ah portable battery through the PoE injector that the radios ship with. The LAN port of the injector is connected through an ethernet cable to an Ethernet-to-Thunderbolt gigabit adapter to a Mac. These two fully portable setups are largely symmetric. The LiteBeam ac's run AirOS and the Mac's run OS X with cjdns and other networking tools installed. On one of the ChargeTech batteries, we have attached a Kill-a-watt to measure the power draw of the LiteBeam ac units while idling and transmitting.
 
@@ -15,7 +17,7 @@ The objective of this exercise is to determine feasibility of using the LiteBeam
 
 On an early Saturday morning, the group met at a coffee shop near Tommy Thompson Park, where there is a somewhat straight section of a few kilometres of flat land, which unfortunately does not have elevated points, but is a reasonable site for this first test. There we powered up the LiteBeams for the very first time.
 
-# Initial Findings
+## Initial Findings
 
 - The Mac clients need to manually assign an IP to itself, with the router IP at its default **192.168.1.20**
 - Connect with the AirOS web interface at **http://192.168.1.20**
@@ -29,11 +31,11 @@ On an early Saturday morning, the group met at a coffee shop near Tommy Thompson
 - The cjdns link `iperf3` at only 20 Mbps, which remains a mystery because the underlying link is 370 Mbps, and I have seen these Macs do at least 50 Mbps through the `UDPInterface`, limited only by my home Internet speeds, and based on `cjdroute --bench` results I'd expect the Macs to saturate the raw link
 - Since we are primarily interested in the LiteBeam performance over distance, this is when we moved on to Tommy Thompson Park
 
-# Range Testing
+## Range Testing
 
 We had one group mount a LiteBeam at about 8 ft on a pole at (43.645771, -79.320951), while the other group moved away from it and stopped at various distances.
 
-## Test Point A, 227 m away at (43.643781,-79.321583)
+### Test Point A, 227 m away at (43.643781,-79.321583)
 
 ```
 $ ping 192.168.1.25
@@ -123,7 +125,7 @@ Connecting to host fcfd:cce:14ab:57de:64f7:32e3:19f3:ebdf, port 5201
 - If we introduced a misalignment of about 20 degrees, speed drops to < 100 mbps
 - There were points when we had to restart `cjdroute` for things to work
 
-## Test Point B, 596 m away at (43.641396, -79.322121)
+### Test Point B, 596 m away at (43.641396, -79.322121)
 
 ```
 $ iperf3 -c 192.168.1.22
@@ -169,7 +171,7 @@ Connecting to host 192.168.1.22, port 5201
 [  4]   0.00-10.00  sec  81.7 MBytes  68.6 Mbits/sec                  receiver
 ```
 
-## Test Point C, 863 m away at (43.638118, -79.322729)
+### Test Point C, 863 m away at (43.638118, -79.322729)
 
 - No line-of-sight, blocked by a bunch of trees, Fresnel zone probably cuts deep into the ground because the antennas are at ground level
 - A few kbps intermittenly, signal dropping all the time
