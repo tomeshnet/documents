@@ -100,64 +100,74 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 
 1. Create **/etc/nginx/sites-available/matrix.tomesh.net**:
 
-	```
-	server {
-	    listen 80;
-	    server_name matrix.tomesh.net;
-	    return 301 https://$host$request_uri;
-	}
+    ```
+    server {
+        listen 80;
+        server_name matrix.tomesh.net;
+        return 301 https://$host$request_uri;
 
-	server {
-	    listen 443 ssl;
-	    server_name matrix.tomesh.net;
+        location ~ /.well-known {
+          allow all;
+          root /usr/share/nginx/html;
+        }
+    }
 
-	    ssl_certificate /etc/letsencrypt/live/matrix.tomesh.net/fullchain.pem;
-	    ssl_certificate_key /etc/letsencrypt/live/matrix.tomesh.net/privkey.pem;
-	    ssl_trusted_certificate /etc/letsencrypt/live/matrix.tomesh.net/fullchain.pem;
+    server {
+        listen 443 ssl;
+        server_name matrix.tomesh.net;
 
-	    ssl_session_timeout 1d;
-	    ssl_session_cache shared:SSL:50m;
+        ssl_certificate /etc/letsencrypt/live/matrix.tomesh.net/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/matrix.tomesh.net/privkey.pem;
+        ssl_trusted_certificate /etc/letsencrypt/live/matrix.tomesh.net/fullchain.pem;
 
-	    # Diffie-Hellman parameter for DHE ciphersuites, recommended 2048 bits
-	    # Generate with: openssl dhparam -out /etc/nginx/dhparam.pem 4048
-	    ssl_dhparam /etc/ssl/certs/dhparam.pem;
+        ssl_session_timeout 1d;
+        ssl_session_cache shared:SSL:50m;
 
-	    # Mozilla "Intermediate configuration" copied from https://mozilla.github.io/server-side-tls/ssl-config-generator/
-	    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-	    ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA';
-	    ssl_prefer_server_ciphers on;
+        # Diffie-Hellman parameter for DHE ciphersuites, recommended 2048 bits
+        # Generate with: openssl dhparam -out /etc/nginx/dhparam.pem 4048
+        ssl_dhparam /etc/ssl/certs/dhparam.pem;
 
-	    # HSTS (ngx_http_headers_module is required) (15768000 seconds = 6 months)
-	    add_header Strict-Transport-Security max-age=15768000;
+        # Mozilla "Intermediate configuration" copied from https://mozilla.github.io/server-side-tls/ssl-config-generator/
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA';
+        ssl_prefer_server_ciphers on;
 
-	    # OCSP Stapling: fetch OCSP records from URL in ssl_certificate and cache them
-	    ssl_stapling on;
-	    ssl_stapling_verify on;
+        # HSTS (ngx_http_headers_module is required) (15768000 seconds = 6 months)
+        add_header Strict-Transport-Security max-age=15768000;
 
-	    # Add headers to serve security related headers
-	    add_header X-Content-Type-Options nosniff;
-	    add_header X-Frame-Options "SAMEORIGIN";
-	    add_header X-XSS-Protection "1; mode=block";
-	    add_header X-Robots-Tag none;
-	    add_header X-Download-Options noopen;
-	    add_header X-Permitted-Cross-Domain-Policies none;
+        # OCSP Stapling: fetch OCSP records from URL in ssl_certificate and cache them
+        ssl_stapling on;
+        ssl_stapling_verify on;
 
-	    location / {
-	        proxy_pass http://127.0.0.1:8008/;
-	        proxy_http_version 1.1;
-	        proxy_set_header Upgrade $http_upgrade;
-	        proxy_set_header Connection "upgrade";
-	        proxy_set_header Host $http_host;
+        # Add headers to serve security related headers
+        add_header X-Content-Type-Options nosniff;
+        add_header X-Frame-Options "SAMEORIGIN";
+        add_header X-XSS-Protection "1; mode=block";
+        add_header X-Robots-Tag none;
+        add_header X-Download-Options noopen;
+        add_header X-Permitted-Cross-Domain-Policies none;
 
-	        proxy_set_header X-Real-IP $remote_addr;
-	        proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
-	        proxy_set_header X-Forward-Proto http;
-	        proxy_set_header X-Nginx-Proxy true;
+        location ~ /.well-known {
+          allow all;
+          root /usr/share/nginx/html;
+        }
 
-	        proxy_redirect off;
-	    }
-	}
-	```
+        location / {
+            proxy_pass http://127.0.0.1:8008/;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+            proxy_set_header Host $http_host;
+
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forward-Proto http;
+            proxy_set_header X-Nginx-Proxy true;
+
+            proxy_redirect off;
+        }
+    }
+    ```
 
 1. Start serving the site by symlinking:
 
