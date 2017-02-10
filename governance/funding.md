@@ -4,14 +4,14 @@ To learn more about our funding activities or donate please email funding@tomesh
 
 ## Funding Opportunities
 
-| Name of Opportunity | Organization | Due Date | Contact | Progress |
-|---------------------|--------------|----------|---------|----------|
-| Opportunity Grant | Metcalf Foundation | November 21, 2016 @ 5pm | @SeaPancakes | `Submitted` |
-| Ontario Budget Talks | Government of Ontario | December 11, 2016 @ 11:59pm | @SeaPancakes | `Submitted` |
-| Seed Grant | Ontario Trillium Foundation | February 1 & February 22, 2017 @ 4pm | @SeaPancakes | **`In progress`** |
-| Beyond the Net Grant | Internet Society | March 17, 2017 | @dcwalk |`Investigating` |
-| Community Investment Program | CIRA | April 3, 2017 | @SeaPancakes | **`In progress`** |
-| Collective Impact Investment Stream | Ontario Trillium Foundation | N/A | | `Investigating` |
+| Name of Opportunity | Organization | Due Date | Contact | Progress | Notes |
+|---------------------|--------------|----------|---------|----------|-------|
+| Opportunity Grant | Metcalf Foundation | `21 Nov 2016` <br /> `1 Feb 2017` | @SeaPancakes | `Dropped` | Registration submitted but did not reach consensus during review of full application |
+| Ontario Budget Talks | Government of Ontario | `11 Dec 2016` | @SeaPancakes | `Submitted` | |
+| Seed Grant | Ontario Trillium Foundation | `1 Feb 2017` <br /> `22 Feb 2017` | @SeaPancakes | `Dropped` | Did not reach consensus during review of registration document |
+| [Beyond the Net Grant](https://zoomgrants.com/gprop.asp?donorid=2107) | Internet Society | `23 Mar 2017` | @dcwalk |`Investigating` | |
+| Community Investment Program | CIRA | `1 Mar 2017` | @udit |`Investigating` | |
+| Collective Impact Investment Stream | Ontario Trillium Foundation | N/A | | `Investigating` | |
 
 `NOTE` Due dates are subject to change.
 
@@ -20,3 +20,4 @@ To learn more about our funding activities or donate please email funding@tomesh
 - `Investigating` Currently deciding on whether this is an appropriate opportunity.
 - **`In progress`** Currently working on completing the application.
 - `Submitted` The application has been successfully received.
+- `Dropped` The application has been dropped as a result of active decision or nothing got submitted past the due date.
