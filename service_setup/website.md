@@ -105,6 +105,15 @@ Follow [these instructions](https://www.digitalocean.com/community/tutorials/how
 
 We use webhooks from Github to generate the Jekyll site on our server with [jekyll-hook](https://github.com/developmentseed/jekyll-hook).
 
+### Installing Jekyll
+
+Jekyll requires that Ruby 2.0 or above is installed. The latest release of Ruby 2.0 and [RVM](https://rvm.io/) can be installed with the following command:
+
+```
+curl -L https://get.rvm.io | bash -s stable --ruby=2.4.0
+```
+Once Ruby is installed the Jekyll gem can be installed: `gem install jekyll`
+
 ### Clone tomesh.net
 
 1. Clone tomesh.net reprository: `git clone https://github.com/tomeshnet/tomesh.net.git`
