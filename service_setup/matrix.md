@@ -24,13 +24,13 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	                     libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
 	```
 
-1. Install Synapse homeserver version [v0.18.7](https://github.com/matrix-org/synapse/releases/tag/v0.18.7):
+1. Install Synapse homeserver version [v0.19.2](https://github.com/matrix-org/synapse/releases/tag/v0.19.2):
 
 	```
 	# virtualenv -p python2.7 ~/.synapse
 	# source ~/.synapse/bin/activate
 	# pip install --upgrade setuptools
-	# pip install https://github.com/matrix-org/synapse/tarball/v0.18.7
+	# pip install https://github.com/matrix-org/synapse/tarball/v0.19.2
 	```
 
 	>From now on, each time you want to configure the server, run `cd ~/.synapse && source ./bin/activate` from a root shell.
@@ -199,6 +199,31 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	```
 
 1. Start the Synapse server again with `synctl start`.
+
+### Migrate Database to PostgreSQL
+
+At some point we migrated our SQLite database to PostgreSQL for better performance:
+
+1. Back up a snapshot of the VM, and then copy the Synapse files, including the SQLite database, to another directory.
+
+1. [Install PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04) on the VM and [verify its security settings](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps).
+
+1. Create the `synapse_user` PostgreSQL user, set a `PASSWORD` and give it permissions to the `synapse` database.
+
+1. Follow the [migration instructions from Synapse](https://github.com/matrix-org/synapse/blob/master/docs/postgres.rst#synapse-config), replacing the `database` section in **homeserver.yaml** with:
+
+	```
+	# Postgres database configuration
+	database:
+	    name: psycopg2
+	    args:
+	        user: synapse_user
+	        password: PASSWORD
+	        database: synapse
+	        host: localhost
+	        cp_min: 5
+	        cp_max: 10
+	```
 
 ## Set Up Riot Web Client
 
