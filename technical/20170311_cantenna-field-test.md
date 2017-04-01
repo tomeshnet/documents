@@ -17,7 +17,7 @@ A pair of 2.4 GHz cantennas and pigtail cables were made following these resourc
 
 They were tested at [this event](https://tomesh.net/2017-03-11/cantenna-field-test/). Here are the results of our tests and photos of our setups and their making of.
 
-## Making Of
+## Making Of Cantenna
 
 ### Parts
 
