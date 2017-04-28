@@ -35,7 +35,7 @@ Excerpted from [Planning Meeting Notes - November 12, 2016](https://github.com/t
 | **Website** (_ongoing_) | dcwalk |
 | **Virtual Mesh** (_ongoing_) |  |
 | **Deployment** (_ongoing_) | Pedro.S |
-| **node.tech** (_ongoing_) | benhylau |
+| **Hardware** aka **node.tech** (_ongoing_) | udit |
 | **Code of Conduct** (_ongoing_) | dcwalk |
 
 ### Cycle III (2016 November)
