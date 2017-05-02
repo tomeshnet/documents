@@ -24,8 +24,8 @@ Toronto Mesh uses voting to determine whether we have reached consensus:
 
 ### Cycle IV (2017 April)
 
-Third working groups with leads established at November 12 Planning Meeting.
-Excerpted from [Planning Meeting Notes - November 12, 2016](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20161112_planning-meeting-notes.md)
+Third working groups with leads established at April 24 Planning Meeting.
+Excerpted from [Planning Meeting Notes - April 24, 2016](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20170424_planning-meeting-notes.md)
 
 | Working Group | Lead |
 | --- | --- |
