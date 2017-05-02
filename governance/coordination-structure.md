@@ -22,6 +22,22 @@ Toronto Mesh uses voting to determine whether we have reached consensus:
 
 ## Working Groups
 
+### Cycle IV (2017 April)
+
+Third working groups with leads established at April 24 Planning Meeting.
+Excerpted from [Planning Meeting Notes - April 24, 2017](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20170424_planning-meeting-notes.md)
+
+| Working Group | Lead |
+| --- | --- |
+| **Central Org** (_ongoing_) | dasanchez |
+| (Welcome/Intros) **Onboarding** (_ongoing_) | Pedro.S |
+| **Tools** (_ongoing_) | co-lead benhylau, dasanchez, Pedro.S, udit |
+| **Website** (_ongoing_) | dcwalk |
+| **Virtual Mesh** (_ongoing_) |  |
+| **Deployment** (_ongoing_) | Pedro.S |
+| **Hardware** aka **node.tech** (_ongoing_) | udit |
+| **Code of Conduct** (_ongoing_) | dcwalk |
+
 ### Cycle III (2016 November)
 
 Third working groups with leads established at November 12 Planning Meeting.
