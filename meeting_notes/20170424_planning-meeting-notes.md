@@ -170,7 +170,7 @@ _What are the key milestones?_
 1. test network (2 nodes with physical link >100m)
 
 _Who needs to be added to what services?_ (Tools working group)
-	- hello@tomesh.net
+  - hello@tomesh.net
   - github admins
   - ssh keys servers
   - moderators in chat rooms
