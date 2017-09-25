@@ -12,11 +12,18 @@ The tomesh tools team is responsible for managing the following:
 - Server: All the files are hosted on the tomesh1 [Digital Ocean](https://www.digitalocean.com) droplet.
 - DNS: [hover](www.hover.com) is the DNS service provider. This service allows us to map tomesh.net to the IP address of the tomesh1 droplet.
 - Github: The [tomesh.net repository](https://github.com/tomeshnet/tomesh.net) hosts the website files.
+- Build A Node page is pulled from (prototype-cjdns-pi)[https://github.com/tomeshnet/prototype-cjdns-pi] README.md
 
 Webhook is configured in Github to ping the server on push. 
 The droplet pulls its content from the Github repository periodically and whenever it is pinged.  
 The droplet uses nginx and Let's Encrypt to serve content over HTTPS.  
 nginx decides what content to serve depending on what domain the request is coming from.
+
+#### Map on Website 
+- Map Uses GOOGLE MAP API 
+- Current Google API Key: AIzaSyDfjIeSSWeDLOYt7f_cHHG4GtgOowvQFBs
+- New key can be obtained from [Google](https://developers.google.com/maps/documentation/javascript/get-api-key)
+- Nodes are populated from Github repository [node-list](https://github.com/tomeshnet/node-list)
 
 ### Collaboration: Chat
 tomesh uses a Matrix chat server to provide a communication platform.
