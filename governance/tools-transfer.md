@@ -12,7 +12,7 @@ The tomesh tools team is responsible for managing the following:
 - Server: All the files are hosted on the tomesh1 [Digital Ocean](https://www.digitalocean.com) droplet.
 - DNS: [hover](www.hover.com) is the DNS service provider. This service allows us to map tomesh.net to the IP address of the tomesh1 droplet.
 - Github: The [tomesh.net repository](https://github.com/tomeshnet/tomesh.net) hosts the website files.
-- Build A Node page is pulled from (prototype-cjdns-pi)[https://github.com/tomeshnet/prototype-cjdns-pi] README.md
+- Build A Node page is pulled from [prototype-cjdns-pi](https://github.com/tomeshnet/prototype-cjdns-pi) README.md
 
 Webhook is configured in Github to ping the server on push. 
 The droplet pulls its content from the Github repository periodically and whenever it is pinged.  
