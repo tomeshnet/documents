@@ -225,6 +225,47 @@ At some point we migrated our SQLite database to PostgreSQL for better performan
 	        cp_max: 10
 	```
 
+### Synapse Performance Bug
+
+Our version of Synapse homeserver accumulates forward extremities over time due to [a known bug](https://github.com/matrix-org/synapse/issues/1760). The current workaround is to perform the following steps when performance suffers noticably:
+
+1. SSH into **tomesh0**
+
+1. Switch to Synapse Postgres user `sudo -i -u synapse_user`
+
+1. Load CLI and connect to Synapse database `psql -d synapse`
+
+1. Run query and look for rooms with more than 3 forward extremities:
+
+	```
+	select room_id, count(*) c from event_forward_extremities group by room_id order by c desc limit 5;`
+	```
+
+1. Run the following for each of the high extremities room:
+
+	```
+	DELETE FROM event_forward_extremities AS e
+	USING ( 
+	    SELECT DISTINCT ON (room_id)
+	    room_id,
+	    last_value(event_id) OVER w AS event_id
+	    FROM event_forward_extremities
+	    NATURAL JOIN events
+	    WINDOW w AS (
+	        PARTITION BY room_id
+	        ORDER BY stream_ordering
+	        range between unbounded preceding and unbounded following
+	    )
+	    ORDER BY room_id, stream_ordering
+	) AS s
+	WHERE
+	    s.room_id = e.room_id
+	    AND e.event_id != s.event_id
+	    AND e.room_id = '!jpZMojebDLgJdJzFWn:matrix.org';
+	```
+
+1. Run the select again to confirm that forward extremities counts are cleared up for all those rooms. Restart Synapse and the Droplet dashboard should show much lower resource usage.
+
 ## Set Up Riot Web Client
 
 The web client we host at **chat.tomesh.net** is running [Riot Web](https://github.com/vector-im/riot-web), and defaults to use our Matrix homeserver.
