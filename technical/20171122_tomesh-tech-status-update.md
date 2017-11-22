@@ -4,20 +4,20 @@ location: Toronto
 date: 2017-11-22
 ---
 
+# Overview
+
 This document is a general overview of the technical pieces associate with Toronto Mesh (tomesh). It is intended for those trying to learn more about tomesh, presenting at a high level the pieces that we hope one day will fit together into a community mesh network, and the current statuses on these initiatives.
 
-# Overview
+A **node** is a bundle of free and open-source software running on off-the-shelf and reproducible low-cost hardware. These nodes, each one owned and operated by a user who **peers** with neighbouring nodes, form the **mesh network**. This network is analogous to our often privately-owned last-mile networks, except it is maintained by the community of users. We use the network for private and secure communication, including real-time use cases (e.g. instant messaging, voice and video chats) and hosting persistent services (e.g. a blog, a web application, peer-to-peer services).
 
 ![Nodes](../images/20171122_tomesh-tech-status-update.jpg?raw=true)
 
-A **node** is a bundle of free and open-source software running on off-the-shelf and reproducible low-cost hardware. These nodes, each one owned and operated by a user who **peers** with neighbouring nodes, form the **mesh network**. This network is analogous to our often privately-owned last-mile networks, except it is maintained by the community of users. We use the network for private and secure communication, including real-time use cases (e.g. instant messaging, voice and video chats) and hosting persistent services (e.g. a blog, a web application, peer-to-peer services).
- 
 # Design Goals
 
  * protocol-level guarantees of private and secure communication among nodes
  * protocol-level guarantees that ownership of the network never becomes centralized
  * resilient operations without central points of failure
- * easily deployable and self-maintainable in other regions (distribution of knowledge and accessible support channel are key considerations that affect technical roadmap)
+ * easily deployable and self-maintainable in other regions, not just Toronto (distribution of knowledge and accessible support channel are key considerations that affect technical roadmap)
  * eventually have low-cost fast Internet access over the mesh network by a provider of the user's choosing
 
 # Hardware
@@ -26,7 +26,7 @@ A **node** is a bundle of free and open-source software running on off-the-shelf
 
 ## Single-board Computer
 
-This is the physical board of a tomesh node. The boards we are currently using are Raspberry Pi 3 or Orange Pi Zero. Both boards have strengths and weaknesses, other boards can work as well but these are the two main ones that we actively test with.
+This is the physical board of a tomesh node. The boards we are currently using are Raspberry Pi 3 or Orange Pi Zero. Both boards have strengths and weaknesses. Other boards can work as well but these are the two main ones that we actively test with.
 
 ### Raspberry Pi 3
 
@@ -56,7 +56,7 @@ The radio is used to establish a wireless link to your neighbouring nodes. On-bo
  * Dual-band 2.4 GHz & 5GHz radios, supports 802.11s Mesh Point at about 45 Mbps
  * Dual antennas 2T2R (can be detachable with board modifications)
  * Small form factor
- * Gets very got and requires cooling
+ * Gets very hot and requires a fan for cooling
  * Fairly cheap radio at USD 7 + shipping cost from China (not locally available)
 
 # Software
@@ -64,7 +64,7 @@ The radio is used to establish a wireless link to your neighbouring nodes. On-bo
 We have two software projects that create a node with the above listed hardware:
 
  * [prototype-cjdns-pi](https://github.com/tomeshnet/prototype-cjdns-pi)
- * [mesh-orange](https://github.com/tomeshnet/mesh-orange).
+ * [mesh-orange](https://github.com/tomeshnet/mesh-orange)
 
 The first one is as the name states, a prototype, where we move fast and add many optional features to try them out. You can, for example, turn on [IPFS](https://ipfs.io) for distributed content hosting on your node. There are detailed instructions on how to install this on your hardware, and you can [hop on to our chat](https://chat.tomesh.net/#/room/#tomesh:tomesh.net) for help.
 
@@ -86,7 +86,7 @@ cjdns is also a recent addition to the family of mesh networking protocols. Whil
 
 ### Addressing
 
-cjdns uses a self-addressing scheme by using the hashing of the node's public key to assign an IPv6 address. The addresses on a cjdns network start with **fc** in the **fc00::/8** space and that is why sometimes it is called the *fc00 network*. Since the system is self-addressing, no DHCP server or any other central authority is required.
+cjdns uses a self-addressing scheme by using the hash of the node's public key to assign an IPv6 address. The addresses on a cjdns network start with **fc** in the **fc00::/8** space and that is why sometimes it is called the *fc00 network*. Since the system is self-addressing, no DHCP server or any other central authority is required.
 
 ### Interfaces
 
@@ -94,7 +94,7 @@ cjdns currently supports UDP and ETH interfaces. The first one is what we use to
 
 ### IP Tunnel
 
-This is a feature to allow cjdns nodes that do not have a ISP connection to tunnel Internet traffic through the mesh network, by choosing an Internet-to-cjdns gateway node. This requires a gateway node to be set up, and then configurations on the client side to elect to use that gateway, much like how you would use a VPN. We have this working and will soon incorporate this into the prototype release.
+This is a feature to allow cjdns nodes that do not have an ISP connection to tunnel Internet traffic through the mesh network, by choosing an Internet-to-cjdns gateway node. This requires a gateway node to be set up, and then configurations on the client side to elect to use that gateway, much like how you would use a VPN. We have this working and will soon incorporate this into the prototype release.
 
 ## Monitoring
 
