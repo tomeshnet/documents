@@ -12,10 +12,12 @@ A **node** is a bundle of free and open-source software running on off-the-shelf
 
 ![Nodes](../images/20171122_tomesh-tech-status-update.jpg?raw=true)
 
+_A couple tomesh nodes currently active in our test net._
+
 # Design Goals
 
- * protocol-level guarantees of private and secure communication among nodes
- * protocol-level guarantees that ownership of the network never becomes centralized
+ * private and secure communication among nodes
+ * ownership of the network never becomes centralized
  * resilient operations without central points of failure
  * easily deployable and self-maintainable in other regions, not just Toronto (distribution of knowledge and accessible support channel are key considerations that affect technical roadmap)
  * eventually have low-cost fast Internet access over the mesh network by a provider of the user's choosing
@@ -23,6 +25,8 @@ A **node** is a bundle of free and open-source software running on off-the-shelf
 # Hardware
 
 ![Hardware](../images/20171122_tomesh-tech-status-update2.jpg?raw=true)
+
+_An Orange Pi Zero node attached to two Toplinkst TOP-GS07 WiFi radios in a 3D printed case._
 
 ## Single-board Computer
 
@@ -38,8 +42,8 @@ This is the physical board of a tomesh node. The boards we are currently using a
 
  * Slower processor sends and receives encrypted traffic at about 66 Mbps
  * On-board 2.4 GHz Wifi Access Point (weak signals and speeds < 10 Mbps)
- * Smaller than the Raspbery Pi 3
- * Fairly cheap board at USD 9 + shipping cost from China (not locally available)
+ * Smaller than the Raspberry Pi 3
+ * Fairly cheap board at CAD 11 + shipping cost from China (not locally available)
 
 ## WiFi Radio
 
@@ -49,7 +53,7 @@ The radio is used to establish a wireless link to your neighbouring nodes. On-bo
 
  * 2.4 GHz radio, supports 802.11s Mesh Point at about 20 Mbps
  * Detachable Antenna
- * Available locally for about CAD 15
+ * Available locally for about CAD 18
 
 ### Toplinkst TOP-GS07
 
@@ -57,7 +61,7 @@ The radio is used to establish a wireless link to your neighbouring nodes. On-bo
  * Dual antennas 2T2R (can be detachable with board modifications)
  * Small form factor
  * Gets very hot and requires a fan for cooling
- * Fairly cheap radio at USD 7 + shipping cost from China (not locally available)
+ * Fairly cheap radio at CAD 9 + shipping cost from China (not locally available)
 
 # Software
 
@@ -68,7 +72,7 @@ We have two software projects that create a node with the above listed hardware:
 
 The first one is as the name states, a prototype, where we move fast and add many optional features to try them out. You can, for example, turn on [IPFS](https://ipfs.io) for distributed content hosting on your node. There are detailed instructions on how to install this on your hardware, and you can [hop on to our chat](https://chat.tomesh.net/#/room/#tomesh:tomesh.net) for help.
 
-The other repository, mesh-orange, is designed for production use. It is a minimal operating system for the same hardware, and gives a lot more thought to consistent configurations and upgrade paths. This is currently a work-in-progress.
+The other repository, mesh-orange, is designed for production use. It is a minimal operating system for the same hardware, where we give a lot more thought to consistent configurations and upgrade paths. This is currently a work-in-progress.
 
 Almost all existing nodes are running the prototype, as our current network of 20 nodes is considered an early test net. The long-term plan is to transition to flashing SD cards with images of mesh-orange, rather than our current process of flashing Raspbian/Armbian then running prototype install scripts on top of that.
 
@@ -80,13 +84,13 @@ Finding radios that support this standard has been a challenge, and the Toplinks
 
 ## Mesh with cjdns
 
-For routing across the mesh network, we use cjdns. The philosophy behind cjdns is that networks should be easy to set up, protocols should scale up smoothly and security should be ubiquitous. Autonomous addressing and security guarantees are the primary reasons for choosing cjdns as our mesh software, but its end-to-end encryption of all network traffic also means we cannot run this on traditonal routers that have very limited CPU capabilities. This is one reason why we run nodes on single-board computers.
+For routing across the mesh network, we use [cjdns](https://github.com/cjdelisle/cjdns/blob/master/doc/Whitepaper.md). The philosophy behind cjdns is that networks should be easy to set up, protocols should scale up smoothly and security should be ubiquitous. Autonomous addressing and security guarantees are the primary reasons for choosing cjdns as our mesh software, but its end-to-end encryption of all network traffic also means we cannot run this on traditional routers that have very limited CPU capabilities. This is one reason why we run nodes on single-board computers.
 
 cjdns is also a recent addition to the family of mesh networking protocols. While it addresses some pain points of other protocols, it also comes with its own set of technical challenges, such as poor routes in certain scenarios. There is also no existing large deployment of a *physical* cjdns mesh network (nodes being meshed over peer-to-peer wireless links). Existing cjdns networks are mostly formed by tunneled connections over the internet to simulate a physical link. So tomesh may also serve as a test net to improve the cjdns project itself.
 
 ### Addressing
 
-cjdns uses a self-addressing scheme by using the hash of the node's public key to assign an IPv6 address. The addresses on a cjdns network start with **fc** in the **fc00::/8** space and that is why sometimes it is called the *fc00 network*. Since the system is self-addressing, no DHCP server or any other central authority is required.
+cjdns uses a self-addressing scheme by using the hash of the node's public key to assign an IPv6 address. The addresses on a cjdns network start with **fc** in the **fc00::/8** space and that is why sometimes it is called the [fc00 network](https://www.fc00.org). Since the system is self-addressing, no DHCP server or any other central authority is required.
 
 ### Interfaces
 
@@ -98,10 +102,30 @@ This is a feature to allow cjdns nodes that do not have an ISP connection to tun
 
 ## Monitoring
 
-Nodes may voluntarily report metrics over HTTP, and anyone can run a server to scrape all that public data to track the status of the network. Both reporting (Prometheus Node Exporter) and the collection (Prometheus Server) have recently been added to the prototype repo and can be switched on with flags, along with the fancy Grafana graphing UI.
+Nodes may voluntarily report metrics over HTTP, and anyone can run a server to scrape all that public data to track the status of the network. Both reporting ([Prometheus](https://prometheus.io) Node Exporter) and the collection (Prometheus Server) have recently been added to the prototype repo and can be switched on with flags, along with the fancy Grafana graphing UI.
 
 ![Metrics](../images/20171122_tomesh-tech-status-update3.png?raw=true)
 
-Currently we are working on automatic node discovery and drawing the metric data onto our tomesh node map.
+Currently we are working on automatic node discovery and drawing the metric data onto our [tomesh node map](https://tomesh.net/map).
 
 ![Map](../images/20171122_tomesh-tech-status-update4.png?raw=true)
+
+# Next Steps
+
+Actively being worked on:
+
+ * Hardware design and board modifications (heating issues, external antennas)
+ * Add cjdns IP tunnel capability to tomesh nodes (in prototype)
+ * cjdns performance (routing, multi-hop bottlenecks, IP tunnel bottlenecks, optimizations on SBCs)
+ * Test net deployment with nodes peered over the Internet
+ * Improve network status monitoring and mapping (using test net)
+ * Android app to allow mobile devices to work as mesh nodes
+
+Planned or proposed:
+
+ * Make mesh-orange image usable as a minimal mesh node
+ * Script deployment of common applications that can run on mesh nodes as local services
+ * Design reproducible long-range antennas
+ * Design solar power solution
+ * Technical workshop series at public libraries
+ * 5 GHz mesh network deployment at Maker Festival 2018
