@@ -32,7 +32,7 @@ We will use voting in this meeting to reach consensus and help keep to time:
 - dante, interested in solar-powered node, been organizing
 - milan, long range links and potential sites
 - tristan, campus co-op interested in building ISPs, DDJC work, community-owned infrastructure
-- darkdrgn2k (yurko)
+- darkdrgn2k
 - garry
 - ben, interested in hardware/software, thinking about maintenance and monitoring
 - dawn/dcwalk, stuff about outreach
@@ -124,7 +124,7 @@ Which partnerships do we want to pursue?
 
 **Key milestones**
 
-1. 5GHz mesh @ Makerfest **2018 JUL** (Yurko will lead)
+1. 5GHz mesh @ Makerfest **2018 JUL** (darkdrgn2k will lead)
 - Test multiple node, wireless-only network
 - Risks:
     - have to purchase nodes
@@ -150,7 +150,7 @@ Tools: benhylau
 
 Central Org: dasanchez
 
-Deployment: darkdragon2k
+Deployment: darkdrgn2k
 
 Website: garry
 
