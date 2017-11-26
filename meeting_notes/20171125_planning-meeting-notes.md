@@ -124,7 +124,7 @@ Which partnerships do we want to pursue?
 
 **Key milestones**
 
-1. 5GHz mesh @ Makerfest **2018 JUL** (Yurko to lead leading)
+1. 5GHz mesh @ Makerfest **2018 JUL** (Yurko will lead)
 - Test multiple node, wireless-only network
 - Risks:
     - have to purchase nodes
