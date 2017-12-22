@@ -4,7 +4,7 @@ attendees: 1
 date: 2017-12-16
 ---
 # Ubiquity Winter Test
-The test was to place a short term perminent node link between two balconies through the cold winter season. Test the resiliance of the node in the winter, and gather data.
+The test was to place a short term permanent node link between two balconies through the cold winter season. Test the resilience of the node in the winter, and gather data.
 
 ## Deployment - 12/16/2017
 
@@ -12,7 +12,7 @@ Two TOMesh Ubiquity LiteBeam 5AC 23A Antennas where placed on to balconies with 
 
 ![NodeMap](../images/20171216-ubiquiti_winter_test_map1.png?raw=true)
 
-The distance between the two nodes as approximatly 375 meters. At that distance the antennas are almost not visible.This made pointing the antennas a bit of a guessing game.  A signal lick of about -40dBm was established
+The distance between the two nodes as approximately 375 meters. At that distance the antennas are almost not visible to the naked eye. This made pointing the antennas a bit of a guessing game.  A signal lick of about -40dBm was established
 
 ![NodeMap](../images/20171216-ubiquiti_winter_test_distance.png?raw=true)
 
@@ -25,22 +25,22 @@ The antennas where mounted on a ABS pipe stuck to a cinder block for support.
 ![NodeMap](../images/20171216-ubiquiti_winter_test_node1.png?raw=true)
 ![NodeMap](../images/20171216-ubiquiti_winter_test_node2.png?raw=true)
 
-Each antenna had an  ORANGE PI ZERO with a 5ghz TSOP mesh antenna as a companion CJDNS device. These devices were connected together via Etherent Cable
+Each antenna had an ORANGE PI ZERO with a 5ghz TSOP mesh antenna as a companion CJDNS device. These devices were connected together via Ethernet Cable
 
-The Ubiqity was set to PTP with network set to Bridge mode.
+The Ubiqiti was set to PTP with network set to Bridge mode.
 
-On the far end of the link, the  Orange Pi, and POE connector where placed inside the unit with the flat ethernet cable sliding under the balcony weather stripping and door while the antenna was left outside.
+On the far end of the link, the  Orange Pi, and POE connector where placed inside the unit with the flat Ethernet cable sliding under the balcony weather stripping and door while the antenna was left outside.
 
-The other side, the Orange Pi was placed in a dollar store tupperware container plugged into outside power outlets.  The cables came out the bottom of the container and the container was tapped shut and with  the openning angled downward.
+The other side, the Orange Pi was placed in a dollar store Tupperware container plugged into outside power outlets.  The cables came out the bottom of the container and the container was tapped shut and with the opening angled downward.
 
 ![NodeMap](../images/20171216-ubiquiti_winter_test_weather_proof.png?raw=true)
 
-The near side node meshed over wifi and cjdns to the node located indoors.  That node in turn meshed with the Internet Enabled Atom computer with wifi capabilities. This provided a path to hyperborea and the internet.
+The near side node meshed over wifi and CJDNS to the node located indoors.  That node in turn meshed with the Internet Enabled Atom computer with wifi capabilities. This provided a path to hyperborea and the internet.
 
 ![NodeMap](../images/20171216-ubiquiti_winter_test_map2.png?raw=true)
 
 ### Test
-Signal Strenght ~ 40 dBm
+Signal Strength ~ 40 dBm
 ```
 ### Clear IPV4
 [ ID] Interval           Transfer     Bandwidth       Retr
@@ -58,15 +58,15 @@ Test between radio showed speed of 275Mbps
 
 ## Things Learned
 
-* Both Ubiquity antennas where set to the same lan ip address of 192.168.1.20, this created an ip conflict on the bridged interface. One was changed to 192.168.1.21
+* Both Ubiquity antennas where set to the same LAN IP address of 192.168.1.20, this created an IP conflict on the bridged interface. One was changed to 192.168.1.21
 
 * A bad power brick for the orange pi would prevent the WIFI and MESHPOINT from working. Rebooting would bring it up for a very short period of time
 
 * So far the outdoor node preformed fairly well with outside temp dropping to -10 but node core temp not dropping below +8
 
-* ABS Tube is not very ridgid and bend with the went fairly easly making the antenna sway slightly in windy conditions
+* ABS Tube is not very ridged and bend with the went fairly easily making the antenna sway slightly in windy conditions
 
-* wireless throught a balcony door and screen has a decent signal strength but horrible throughput... After testing it could be the outside node
+* wireless through a balcony door and screen has a decent signal strength but horrible throughput... After testing it could be the outside node
 
 ## Performance Deterioration test
 
@@ -83,12 +83,12 @@ Test between radio showed speed of 275Mbps
 [  4]   0.00-60.00  sec  8.98 MBytes  1.26 Mbits/sec                  receiver
 ```
 
-### Analyisis
+### Analysis
 * Found that slowdown between outside node and 1st inside node
-* Replaced inside node with new node and tplink adapter, no improvemnt
+* Replaced inside node with new node and tplink adapter, no improvement
 * Moved inside node outside, no improvement
 * Moved node inside - VERY slight improvement (3-4 mbps)
-* Took off top of tupper ware container - no improvemeet
+* Took off top of Tupperware container - no improvement
 
 ```
 [ ID] Interval           Transfer     Bandwidth       Retr
@@ -96,8 +96,8 @@ Test between radio showed speed of 275Mbps
 [  4]   0.00-10.00  sec  6.41 MBytes  5.38 Mbits/sec                  receiver
 ```
 
-Signal strenght durring this whole time has been over -55 dBm
-Confirmed speed test against differnt node slightly farther, speeds where 15Mbps, 
+Signal strength during this whole time has been over -55 dBm
+Confirmed speed test against different node slightly farther, speeds where 15Mbps, 
 
 ####  Testing
 Possible Cause - bad radio
@@ -112,22 +112,18 @@ DRASTIC CHANGE
 * One of the "inside nodes"
 * low profile Small Case ( no fan )
 * TPLink instead of TSOP usb wifi adapter
-* Kept SD Card to preserv settings
+* Kept SD Card to preserve settings
 * Issue Remains
 
 ## Link Metrics Recording
 Patched a Node Exporter hack to collect Ubiquiti data from SNMP using the orange pi nodes.
 Data can be found on this (Grafana Server)[http://node1.e-mesh.net:3000/dashboard/db/ubiqiuty] (12/16/2017)
 
-
 ## Modification - 12/20/2017
 The orange pi node was moved inside, link quality improved. Metrics now recording correctly
 
-
 ## Bench Test - 12/22/2017
 
-Further testing of nodes found that there may be an issues with the 3d pritned casing. when hardware is OUT of the case the speed is near 30mbps, placing it back in the case the speed drops to 5mbps
+Further testing of nodes found that there may be an issues with the 3d printed casing. when hardware is OUT of the case the speed is near 30mbps, placing it back in the case the speed drops to 5mbps
 
 Further testing needed
-
-
