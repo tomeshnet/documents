@@ -22,7 +22,6 @@ The distance between the two nodes as approximatly 375 meters. At that distance 
 
 The antennas where mounted on a ABS pipe stuck to a cinder block for support.
 
-
 ![NodeMap](../images/20171216-ubiquiti_winter_test_node1.png?raw=true)
 ![NodeMap](../images/20171216-ubiquiti_winter_test_node2.png?raw=true)
 
@@ -41,19 +40,21 @@ The near side node meshed over wifi and cjdns to the node located indoors.  That
 ![NodeMap](../images/20171216-ubiquiti_winter_test_map2.png?raw=true)
 
 ### Test
-First tests - 
+Signal Strenght ~ 40 dBm
 ```
-Cleanr ipv4
+### Clear IPV4
 [ ID] Interval           Transfer     Bandwidth       Retr
 [  4]   0.00-60.00  sec   661 MBytes  92.5 Mbits/sec  106             sender
 [  4]   0.00-60.00  sec   661 MBytes  92.4 Mbits/sec                  receiver
-CJDNS
+#### CJDNS
  [ ID] Interval           Transfer     Bandwidth       Retr
 [  4]   0.00-10.00  sec  61.1 MBytes  51.3 Mbits/sec   94             sender
 [  4]   0.00-10.00  sec  60.5 MBytes  50.7 Mbits/sec                  receiver
 ```
-Signal Strenght ~ 40 dBm
+#### Internal Antenna to Antenna test
+Test between radio showed speed of 275Mbps
 
+![NodeMap](../images/20171216-ubiquiti_winter_test_antenna_speed_test.png)
 
 ## Things Learned
 
@@ -98,7 +99,7 @@ Signal Strenght ~ 40 dBm
 Signal strenght durring this whole time has been over -55 dBm
 Confirmed speed test against differnt node slightly farther, speeds where 15Mbps, 
 
-#### Testing
+####  Testing
 Possible Cause - bad radio
 * Replaced usb radio with new module
 * Issue seems to remains
@@ -114,11 +115,16 @@ DRASTIC CHANGE
 * Kept SD Card to preserv settings
 * Issue Remains
 
+## Link Metrics Recording
+Patched a Node Exporter hack to collect Ubiquiti data from SNMP using the orange pi nodes.
+Data can be found on this (Grafana Server)[http://node1.e-mesh.net:3000/dashboard/db/ubiqiuty] (12/16/2017)
+
+
 ## Modification - 12/20/2017
 The orange pi node was moved inside, link quality improved. Metrics now recording correctly
 
 
-## Bench Test - 12/20/2017
+## Bench Test - 12/22/2017
 
 Further testing of nodes found that there may be an issues with the 3d pritned casing. when hardware is OUT of the case the speed is near 30mbps, placing it back in the case the speed drops to 5mbps
 
