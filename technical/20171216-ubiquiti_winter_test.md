@@ -127,3 +127,9 @@ The orange pi node was moved inside, link quality improved. Metrics now recordin
 Further testing of nodes found that there may be an issues with the 3d printed casing. when hardware is OUT of the case the speed is near 30mbps, placing it back in the case the speed drops to 5mbps
 
 Further testing needed
+
+## Balcony Test - 12/23/2017
+
+Moved one of the reciever down to below the balcony line. The signal was goind THROUGH the glass balcony.
+
+Signal degredation minimal speed consistent
