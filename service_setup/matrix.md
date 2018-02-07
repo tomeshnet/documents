@@ -238,7 +238,7 @@ Our version of Synapse homeserver accumulates forward extremities over time due 
 1. Run query and look for rooms with more than 3 forward extremities:
 
 	```
-	select room_id, count(*) c from event_forward_extremities group by room_id order by c desc limit 5;`
+	select room_id, count(*) c from event_forward_extremities group by room_id order by c desc limit 5;
 	```
 
 1. Run the following for each of the high extremities room:
