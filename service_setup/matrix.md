@@ -295,13 +295,22 @@ The web client we host at **chat.tomesh.net** is running [Riot Web](https://gith
 	    "brand": "Riot",
 	    "integrations_ui_url": "https://scalar.vector.im/",
 	    "integrations_rest_url": "https://scalar.vector.im/api",
-	    "enableLabs": true,
+	    "bug_report_endpoint_url": "https://riot.im/bugreports/submit",
+	    "features": {
+	        "feature_groups": "labs",
+	        "feature_pinning": "labs"
+	    },
+	    "default_federate": true,
 	    "roomDirectory": {
 	        "servers": [
 	            "tomesh.net",
-	            "nycmesh.net",
 	            "matrix.org"
 	        ]
+	    },
+	    "welcomeUserId": "@riot-bot:matrix.org",
+	    "piwik": {
+	        "url": "https://piwik.riot.im/",
+	        "siteId": 1
 	    }
 	}
 	```
