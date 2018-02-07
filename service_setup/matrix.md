@@ -192,7 +192,7 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	```
 1. Stop the Synapse server with `synctl stop`.
 
-1. Update with the following command where `VERSION` can be a branch like `master` or `develop`, or a release tag like `v0.17.1`, or a commit hash:
+1. Update with the following command where `VERSION` can be a branch like `master` or `develop`, or a release tag like `v0.26.0`, or a commit hash:
 
 	```
 	# pip install --upgrade --process-dependency-links https://github.com/matrix-org/synapse/tarball/VERSION
