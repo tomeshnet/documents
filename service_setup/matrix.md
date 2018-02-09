@@ -192,7 +192,7 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	```
 1. Stop the Synapse server with `synctl stop`.
 
-1. Update with the following command where `VERSION` can be a branch like `master` or `develop`, or a release tag like `v0.17.1`, or a commit hash:
+1. Update with the following command where `VERSION` can be a branch like `master` or `develop`, or a release tag like `v0.26.0`, or a commit hash:
 
 	```
 	# pip install --upgrade --process-dependency-links https://github.com/matrix-org/synapse/tarball/VERSION
@@ -277,13 +277,13 @@ The web client we host at **chat.tomesh.net** is running [Riot Web](https://gith
 1. Download the pre-compiled [Riot Web release](https://github.com/vector-im/riot-web/releases):
 
 	```
-	# wget https://github.com/vector-im/riot-web/releases/download/v0.9.5/vector-v0.9.5.tar.gz
+	# wget https://github.com/vector-im/riot-web/releases/download/v0.13.4/riot-v0.13.4.tar.gz
 	```
 
-1. Extract **vector-v0.9.5.tar.gz** into **/var/www/chat.tomesh.net/public**:
+1. Extract **riot-v0.13.4.tar.gz** into **/var/www/chat.tomesh.net/public**:
 
 	```
-	# tar xf vector-v0.9.5.tar.gz -C /var/www/chat.tomesh.net/public --strip-components 1
+	# tar xf riot-v0.13.4.tar.gz -C /var/www/chat.tomesh.net/public --strip-components 1
 	```
 
 1. Create **config.json** with the following lines, so it is used in place of the default **config.sample.json**:
@@ -295,13 +295,22 @@ The web client we host at **chat.tomesh.net** is running [Riot Web](https://gith
 	    "brand": "Riot",
 	    "integrations_ui_url": "https://scalar.vector.im/",
 	    "integrations_rest_url": "https://scalar.vector.im/api",
-	    "enableLabs": true,
+	    "bug_report_endpoint_url": "https://riot.im/bugreports/submit",
+	    "features": {
+	        "feature_groups": "labs",
+	        "feature_pinning": "labs"
+	    },
+	    "default_federate": true,
 	    "roomDirectory": {
 	        "servers": [
 	            "tomesh.net",
-	            "nycmesh.net",
 	            "matrix.org"
 	        ]
+	    },
+	    "welcomeUserId": "@riot-bot:matrix.org",
+	    "piwik": {
+	        "url": "https://piwik.riot.im/",
+	        "siteId": 1
 	    }
 	}
 	```
