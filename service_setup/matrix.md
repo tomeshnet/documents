@@ -277,13 +277,13 @@ The web client we host at **chat.tomesh.net** is running [Riot Web](https://gith
 1. Download the pre-compiled [Riot Web release](https://github.com/vector-im/riot-web/releases):
 
 	```
-	# wget https://github.com/vector-im/riot-web/releases/download/v0.13.4/riot-v0.13.4.tar.gz
+	# wget https://github.com/vector-im/riot-web/releases/download/v0.13.5/riot-v0.13.5.tar.gz
 	```
 
-1. Extract **riot-v0.13.4.tar.gz** into **/var/www/chat.tomesh.net/public**:
+1. Extract **riot-v0.13.5.tar.gz** into **/var/www/chat.tomesh.net/public**:
 
 	```
-	# tar xf riot-v0.13.4.tar.gz -C /var/www/chat.tomesh.net/public --strip-components 1
+	# tar xf riot-v0.13.5.tar.gz -C /var/www/chat.tomesh.net/public --strip-components 1
 	```
 
 1. Create **config.json** with the following lines, so it is used in place of the default **config.sample.json**:
