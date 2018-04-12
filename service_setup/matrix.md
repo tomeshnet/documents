@@ -48,7 +48,9 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 
 1. Enable registration for new users by changing `enable_registration` to `True` in **homeserver.yaml**.
 
-1. Enable guest access to public rooms by changing `allow_guest_access` to True` in **homeserver.yaml**.
+1. Enable guest access to public rooms by changing `allow_guest_access` to `True` in **homeserver.yaml**.
+
+1. Enable community group creation by adding `enable_group_creation: true` in **homeserver.yaml**.
 
 1. Enable link preview by changing `url_preview_enabled` to `True` in **homeserver.yaml** and uncommenting:
 
