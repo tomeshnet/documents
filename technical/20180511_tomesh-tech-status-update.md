@@ -33,6 +33,8 @@ We want a long-term sustainable mesh network with minimal need for centralized g
 
 ### Radio Systems
 
+Toronto Mesh is currently pursuing a couple opportunities to install this radio system on building rooftops near Dufferin and Queen. This effort is mostly led by [@Pedro-on-a-bike](https://github.com/Pedro-on-a-bike) and [@darkdrgn2k](https://github.com/darkdrgn2k).
+
 ```
 +-------------+
 | Radio with  |
@@ -154,7 +156,7 @@ Here is a comparison between our two main software projects:
 
 |               | Prototype                   | Mesh Orange                 |
 |:--------------|:----------------------------|:----------------------------|
-| OS            | Raspbian/Armbian            | Mesh Orange (Debian-based)  |
+| OS            | Raspbian or Armbian         | Mesh Orange (Debian-based)  |
 | OS image size | 250 - 350 MB                | 50 - 100 MB                 |
 | Installation  | 15 min, requires Internet   | 1 min, self-contained image |
 | Development   | Writing bash scripts        | Building OSs for ARM boards |
@@ -186,7 +188,7 @@ We have the distributed file store _Interplanetary File System (IPFS)_ running o
 
 Now that we have IPFS running on Mesh Orange in a docker container, we want to do the same for many peer-to-peer applications. [@benhylau](https://github.com/benhylau) and [@darkdrgn2k](https://github.com/darkdrgn2k) are working to get _Secure Scuttlebutt (SSB)_ running on the SBCs and part of the workshop series. This could be a major use case that rely only on in-mesh traffic. This work is supported by a [grant by the Secure Scuttlebutt Consortium](https://github.com/benhylau/ssbc-grants-scuttlemesh).
 
-## Mapping & Monitoring Project
+## Mapping & Monitoring
 
 Our mesh nodes voluntarily report metrics using [Node Exporter](https://github.com/prometheus/node_exporter) and monitors use [Prometheus](https://prometheus.io) to poll for these metrics across the network. [Grafana](https://grafana.com) is used to display the data points graphically:
 
