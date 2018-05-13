@@ -104,7 +104,7 @@ Radios connect two nodes and allow for single-hop traffic. In order to _mesh_, w
 
 #### Althea Deployment
 
-![Mesh Network](../images/20180511_tomesh-tech-status-update2.svg?raw=true)
+![Mesh Network](../images/20180511_tomesh-tech-status-update2.png?raw=true)
 
 * [Althea](https://altheamesh.com) nodes create a mesh network to access the Internet via _exit nodes_
 * Includes cost metric to available routes and use microtransactions to incentivize people to put up nodes and sell bandwidth
@@ -115,7 +115,7 @@ Radios connect two nodes and allow for single-hop traffic. In order to _mesh_, w
 
 #### Mesh Networking with SBCs
 
-![Content Mesh Network](../images/20180511_tomesh-tech-status-update3.svg?raw=true)
+![Content Mesh Network](../images/20180511_tomesh-tech-status-update3.png?raw=true)
 
 * Brings the web content to the local mesh network, stored and accessed via peer-to-peer protocols and applications (e.g. IPFS, SSB)
 * Addresses issues associated with _data aggregation_ (e.g. massive data breaches, state censorships) and our Internet _walled gardens_ (e.g. Google, Facebook)
