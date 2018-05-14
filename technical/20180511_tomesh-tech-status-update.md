@@ -168,7 +168,7 @@ Here is a comparison between our two main software projects:
 
 ![SBC Mesh Node](../images/20180511_tomesh-tech-status-update4.jpg?raw=true)
 
-While USB WiFi dongles (e.g. [TOP-GS07](https://github.com/tomeshnet/documents/blob/master/technical/20170208_mesh-point-with-topgs07-rt5572.md)) have served us very well forming 802.11s mesh links in a small areas, these radio devices have limited range, bandwidth, and sometimes stability issues. [LibreRouter](https://librerouter.org) has already been tackling the issue with finding low-cost mesh-friendly directional radios with Linux-friendly drivers, our plan is to take their radio + antenna package and put that on a SBC with mPCIe interfaces, such as:
+We have worked with [Phillymesh](https://phillymesh.net) to document a [list of mesh-friendly WiFi adapters](https://github.com/phillymesh/802.11s-adapters). While USB WiFi dongles (e.g. [TOP-GS07](https://github.com/tomeshnet/documents/blob/master/technical/20170208_mesh-point-with-topgs07-rt5572.md)) have served us very well forming 802.11s mesh links in a small areas, these radio devices have limited range, bandwidth, and sometimes stability issues. [LibreRouter](https://librerouter.org) has already been tackling the issue with finding low-cost mesh-friendly directional radios with Linux-friendly drivers, our plan is to take their radio + antenna package and put that on a SBC with mPCIe interfaces, such as:
 
 * [ESPRESSObin](http://espressobin.net) _CAD 70_
 * [ClearFog Pro](https://www.solid-run.com/marvell-armada-family/clearfog/) _CAD 250_
