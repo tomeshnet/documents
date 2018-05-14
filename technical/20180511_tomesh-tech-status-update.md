@@ -158,7 +158,7 @@ Here is a comparison between our two main software projects:
 |:--------------|:----------------------------|:----------------------------|
 | OS            | Raspbian or Armbian         | Mesh Orange (Debian-based)  |
 | OS image size | 250 - 350 MB                | 50 - 100 MB                 |
-| Installation  | 15 min, requires Internet   | 1 min, self-contained image |
+| Installation  | 10 min, requires Internet   | 1 min, self-contained image |
 | Development   | Writing bash scripts        | Building OSs for ARM boards |
 | Use case      | New devices and prototyping | Reproducible & reliable     |
 
