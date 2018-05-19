@@ -34,7 +34,7 @@ Excerpted from [Planning Meeting Notes - May 17, 2017](https://github.com/tomesh
 | **Deployment** (_ongoing_) | Pedro.S |
 | **Website** (_ongoing_) | garry |
 | **Social Outreach** (_ongoing_) | Kumash |
-| **E-mail Monitoring** (ongoing) | Hank |
+| **Email Monitoring** (ongoing) | Hank |
 | **Code of Conduct** (_ongoing_) | Hank, benhylau |
 
 ### Cycle V (2017 November)
