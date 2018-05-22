@@ -10,13 +10,13 @@ endTime: 21:00
 ## Attendees
 
 dasanchez  
-Nicolas from AlterMundi/LibreMesh  
+Nicolas Pace from Alter Mundi / Libre Router  
 Kumash  
 darkdrgn2k  
 HeavyMetal  
 Erica  
 Allen  
-Pedro 
+Pedro  
 Hank  
 benhylau  
 Jay  
@@ -100,7 +100,7 @@ We have some outstanding development to work on before a deployment model can be
 
 Work areas:
 1. Incentivized mesh
-2. Single-board + p2p apps
+2. Single-board + p2p apps (HLS over IPFS, SSB integration)
 3. Testbed infrastructure (monitoring + management interface)
 4. Long term deployment at partners' sites
 5. Workshop
@@ -124,28 +124,34 @@ Workshop
 - benhylau will upload worksheets and other missing content to the repo
 - lead: benhylau 
 - contributors: udit, pissko, darkdrgn2k, dasanchez
+- room: `#reading-networks:tomesh.net`
 
 Website
 
 - Information structure overhaul: schedule a meeting to discuss further
 - lead: garry
 - contributors: Hank, Erica, darkdrgn2k, Kumash
+- room: `#design:tomesh.net`
 
 Free Geek <---> HackLab link
 - Follow up with a visit to HackLab on open house night
 - Allen will provide guidance and access
 - lead: Pedro
 - contributors: darkdrgn2k, Jay, Erica
+- room: `#deployment:tomesh.net`
 
 LibreRouter Antenna
 - Packaging and installation (weatherproofing, wiring, mounting) concerns need to be resolved
 - Nico gave a presentation on LibreRouter
 - darkdrgn2k will continue testing
+- room: `#hardware:tomesh.net`
 
 Incentivized Mesh
 
 - Pending development and further discussion
+- room: `#deployment:tomesh.net`
 
 Single-board + P2P Apps
 
 - benhylau, darkdrgn2k, chrisbarless will continue developing
+- room: `#software:tomesh.net`
