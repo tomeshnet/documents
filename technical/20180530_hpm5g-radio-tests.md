@@ -181,3 +181,225 @@ Using the 5 V power from the ESPRESSObin's hard drive connecter, we were able to
 ![Externally powered setup](../images/20180530_hpm5g-radio-tests17.jpg?raw=true)
 
 After removing the regulatory lockout in Linux, we were able to bring the radio module up to 26 dBm and run an endurance test for 10 minutes using iperf3 in both directions without the ESPRESSObin rebooting. This shows the earlier issue was indeed power related and the modification successfully fixed it. The power levels observed here is inline with what was reported by LibreRouter in [their earlier tests](https://librerouter.org/article/first-outdoor-radio-and-antenna-test/), which took the HPM5G to 27 dBm TX power.
+
+## Testing externally Powered HPM5G on ESPRESSObin
+
+Repeating the same 220 m antenna test with two fully powered ESPRESSObin and HPM5G using external power module.
+![Antenna test map](../images/20180530_hpm5g-radio-tests7.jpg?raw=true)
+
+Pictures taking by placing the camera flat against the front of the antenna (point of view of the antenna)
+![Far side antenna view](../images/20180530_hpm5g-radio-fullpower-2.jpg?raw=true)
+![Near side antenna view](../images/20180530_hpm5g-radio-fullpower-1.jpg?raw=true)
+
+The ESPRESSObin where configured for 26dBm.
+
+Remote side
+```
+        signal:         -60 [-62, -65] dBm
+        signal avg:     -60 [-62, -64] dBm
+        tx bitrate:     243.0 MBit/s MCS 14 40MHz
+        rx bitrate:     135.0 MBit/s MCS 6 40MHz short GI
+        expected throughput:    53.557Mbps
+```
+Near side
+```
+        signal:         -62 [-70, -63] dBm
+        signal avg:     -59 [-67, -60] dBm
+        tx bitrate:     121.5 MBit/s MCS 6 40MHz
+        rx bitrate:     243.0 MBit/s MCS 14 40MHz
+        expected throughput:    42.388Mbps
+```
+
+iperf3 Forward Test
+```
+root@tomesh-fd90:~# iperf3 -c 192.168.100.2 -t 60
+Connecting to host 192.168.100.2, port 5201
+[  4] local 192.168.100.99 port 35900 connected to 192.168.100.2 port 5201
+[ ID] Interval           Transfer     Bandwidth       Retr  Cwnd
+[  4]   0.00-1.00   sec  8.04 MBytes  67.4 Mbits/sec    0    308 KBytes
+[  4]   1.00-2.00   sec  9.91 MBytes  83.2 Mbits/sec    0    376 KBytes
+[  4]   2.00-3.00   sec  11.6 MBytes  96.8 Mbits/sec    0    826 KBytes
+[  4]   3.00-4.00   sec  12.0 MBytes   101 Mbits/sec    0    826 KBytes
+[  4]   4.00-5.00   sec  11.9 MBytes  99.5 Mbits/sec    0    826 KBytes
+[  4]   5.00-6.00   sec  12.0 MBytes   100 Mbits/sec    0    826 KBytes
+[  4]   6.00-7.00   sec  10.1 MBytes  84.7 Mbits/sec    0    826 KBytes
+[  4]   7.00-8.00   sec  11.1 MBytes  92.9 Mbits/sec    0    826 KBytes
+[  4]   8.00-9.00   sec  12.9 MBytes   108 Mbits/sec    0    826 KBytes
+[  4]   9.00-10.00  sec  11.3 MBytes  95.0 Mbits/sec    0    826 KBytes
+[  4]  10.00-11.00  sec  12.4 MBytes   104 Mbits/sec    0    826 KBytes
+...
+[  4]  50.00-51.00  sec  10.7 MBytes  89.6 Mbits/sec    0   2.10 MBytes
+[  4]  51.00-52.00  sec  12.4 MBytes   104 Mbits/sec    0   2.10 MBytes
+[  4]  52.00-53.00  sec  11.9 MBytes  99.9 Mbits/sec    0   2.10 MBytes
+[  4]  53.00-54.00  sec  13.2 MBytes   111 Mbits/sec    0   2.10 MBytes
+[  4]  54.00-55.00  sec  13.9 MBytes   117 Mbits/sec    0   2.10 MBytes
+[  4]  55.00-56.00  sec  13.5 MBytes   113 Mbits/sec    0   2.10 MBytes
+[  4]  56.00-57.00  sec  12.9 MBytes   108 Mbits/sec    0   2.10 MBytes
+[  4]  57.00-58.00  sec  13.8 MBytes   116 Mbits/sec    0   2.36 MBytes
+[  4]  58.00-59.00  sec  12.8 MBytes   107 Mbits/sec    0   2.36 MBytes
+[  4]  59.00-60.00  sec  13.9 MBytes   117 Mbits/sec    0   2.36 MBytes
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bandwidth       Retr
+[  4]   0.00-60.00  sec   727 MBytes   102 Mbits/sec    0             sender
+[  4]   0.00-60.00  sec   725 MBytes   101 Mbits/sec                  receiver
+
+iperf Done.
+```
+
+iperf3 Reverse Test
+```
+Reverse mode, remote host 192.168.100.2 is sending
+[  4] local 192.168.100.99 port 35904 connected to 192.168.100.2 port 5201
+[ ID] Interval           Transfer     Bandwidth
+[  4]   0.00-1.00   sec  15.6 MBytes   131 Mbits/sec
+[  4]   1.00-2.00   sec  18.3 MBytes   154 Mbits/sec
+[  4]   2.00-3.00   sec  17.6 MBytes   147 Mbits/sec
+[  4]   3.00-4.00   sec  17.2 MBytes   144 Mbits/sec
+[  4]   4.00-5.00   sec  18.2 MBytes   152 Mbits/sec
+[  4]   5.00-6.00   sec  17.9 MBytes   150 Mbits/sec
+[  4]   6.00-7.00   sec  18.6 MBytes   156 Mbits/sec
+[  4]   7.00-8.00   sec  18.8 MBytes   158 Mbits/sec
+[  4]   8.00-9.00   sec  19.2 MBytes   161 Mbits/sec
+[  4]   9.00-10.00  sec  18.4 MBytes   154 Mbits/sec
+...
+[  4]  51.00-52.00  sec  18.9 MBytes   159 Mbits/sec
+[  4]  52.00-53.00  sec  18.1 MBytes   152 Mbits/sec
+[  4]  53.00-54.00  sec  18.7 MBytes   157 Mbits/sec
+[  4]  54.00-55.00  sec  18.3 MBytes   154 Mbits/sec
+[  4]  55.00-56.00  sec  18.4 MBytes   154 Mbits/sec
+[  4]  56.00-57.00  sec  17.2 MBytes   144 Mbits/sec
+[  4]  57.00-58.00  sec  17.8 MBytes   149 Mbits/sec
+[  4]  58.00-59.00  sec  18.9 MBytes   159 Mbits/sec
+[  4]  59.00-60.00  sec  18.7 MBytes   157 Mbits/sec
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bandwidth       Retr
+[  4]   0.00-60.00  sec  1.07 GBytes   154 Mbits/sec    0             sender
+[  4]   0.00-60.00  sec  1.07 GBytes   154 Mbits/sec                  receiver
+
+iperf Done.
+```
+
+iperf UDP jitter test
+```
+[  5]  50.00-51.00  sec   128 KBytes  1.05 Mbits/sec  0.542 ms  0/16 (0%)
+[  5]  51.00-52.00  sec   128 KBytes  1.05 Mbits/sec  0.577 ms  0/16 (0%)
+[  5]  52.00-53.00  sec   128 KBytes  1.05 Mbits/sec  1.735 ms  0/16 (0%)
+[  5]  53.00-54.00  sec   128 KBytes  1.05 Mbits/sec  1.295 ms  0/16 (0%)
+[  5]  54.00-55.00  sec   128 KBytes  1.05 Mbits/sec  0.757 ms  0/16 (0%)
+[  5]  55.00-56.00  sec   128 KBytes  1.05 Mbits/sec  0.566 ms  0/16 (0%)
+[  5]  56.00-57.00  sec   128 KBytes  1.05 Mbits/sec  0.556 ms  0/16 (0%)
+[  5]  57.00-58.00  sec   128 KBytes  1.05 Mbits/sec  0.663 ms  0/16 (0%)
+[  5]  58.00-59.00  sec   128 KBytes  1.05 Mbits/sec  0.880 ms  0/16 (0%)
+[  5]  59.00-60.00  sec   128 KBytes  1.05 Mbits/sec  0.689 ms  0/16 (0%)
+[  5]  60.00-60.04  sec  8.00 KBytes  1.50 Mbits/sec  0.668 ms  0/1 (0%)
+```
+
+Noticing the discrepancy of the First and Second test the antenna was repositioned tilting it downwards a few degrees.  The link quality and speed test improved.
+
+```
+        signal:         -54 [-57, -57] dBm
+        signal avg:     -58 [-61, -62] dBm
+        Toffset:        273322777 us
+        tx bitrate:     240.0 MBit/s MCS 13 40MHz short GI
+        rx bitrate:     300.0 MBit/s MCS 15 40MHz short GI
+        expected throughput:    53.557Mbps
+```
+
+```
+root@tomesh-fd90:~# iperf3 -c 192.168.100.2 -t 30
+Connecting to host 192.168.100.2, port 5201
+[  4] local 192.168.100.99 port 35926 connected to 192.168.100.2 port 5201
+[ ID] Interval           Transfer     Bandwidth       Retr  Cwnd
+[  4]   0.00-1.00   sec  15.9 MBytes   134 Mbits/sec    0    945 KBytes
+[  4]   1.00-2.00   sec  17.6 MBytes   147 Mbits/sec    0   1000 KBytes
+[  4]   2.00-3.00   sec  17.4 MBytes   146 Mbits/sec    0   1000 KBytes
+[  4]   3.00-4.00   sec  17.3 MBytes   146 Mbits/sec    0   1000 KBytes
+[  4]   4.00-5.00   sec  17.8 MBytes   150 Mbits/sec    0   1000 KBytes
+[  4]   5.00-6.00   sec  17.2 MBytes   145 Mbits/sec    0   1000 KBytes
+[  4]   6.00-7.00   sec  17.1 MBytes   144 Mbits/sec    0   1000 KBytes
+[  4]   7.00-8.00   sec  17.6 MBytes   148 Mbits/sec    0   1.09 MBytes
+[  4]   8.00-9.00   sec  17.4 MBytes   146 Mbits/sec    0   1.22 MBytes
+[  4]   9.00-10.00  sec  18.7 MBytes   158 Mbits/sec    0   1.22 MBytes
+[  4]  10.00-11.00  sec  18.0 MBytes   151 Mbits/sec    0   1.22 MBytes
+...
+[  4]  21.00-22.00  sec  19.0 MBytes   159 Mbits/sec    0   1.77 MBytes
+[  4]  22.00-23.00  sec  17.9 MBytes   150 Mbits/sec    0   1.77 MBytes
+[  4]  23.00-24.00  sec  18.7 MBytes   157 Mbits/sec    0   1.77 MBytes
+[  4]  24.00-25.00  sec  18.2 MBytes   152 Mbits/sec    0   1.77 MBytes
+[  4]  25.00-26.00  sec  19.0 MBytes   160 Mbits/sec    0   1.85 MBytes
+[  4]  26.00-27.00  sec  18.9 MBytes   158 Mbits/sec    0   1.85 MBytes
+[  4]  27.00-28.00  sec  18.9 MBytes   159 Mbits/sec    0   1.85 MBytes
+[  4]  28.00-29.00  sec  18.1 MBytes   151 Mbits/sec    0   2.20 MBytes
+[  4]  29.00-30.00  sec  18.9 MBytes   159 Mbits/sec    0   2.20 MBytes
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bandwidth       Retr
+[  4]   0.00-30.00  sec   543 MBytes   152 Mbits/sec    0             sender
+[  4]   0.00-30.00  sec   542 MBytes   151 Mbits/sec                  receiver
+```
+
+At this point I was going to test lowering TXPower however a van pulled up next to me. Although the LOS was not obstructed, however the frenzel zone must have been impacted as the speeds dropped to about 80Mbps.
+
+```
+[  4]   0.00-1.00   sec  8.43 MBytes  70.7 Mbits/sec    0    297 KBytes
+[  4]   1.00-2.00   sec  9.65 MBytes  80.8 Mbits/sec    0    522 KBytes
+[  4]   2.00-3.00   sec  9.44 MBytes  79.4 Mbits/sec    0    522 KBytes
+[  4]   3.00-4.00   sec  9.10 MBytes  76.4 Mbits/sec    0    522 KBytes
+[  4]   4.00-5.00   sec  9.20 MBytes  77.2 Mbits/sec    0    617 KBytes
+[  4]   5.00-6.00   sec  9.79 MBytes  82.1 Mbits/sec    0    617 KBytes
+[  4]   6.00-7.00   sec  10.6 MBytes  89.3 Mbits/sec    0    617 KBytes
+[  4]   7.00-8.00   sec  9.44 MBytes  79.2 Mbits/sec    0   1.37 MBytes
+```
+
+I found a new spot closer to the antenna that was not obstructed and preformed the TXPower test there. This position was only about 74 meters from the antenna.
+
+The TX Power was adjusted on both radios at the same time by running the iwconfig command.  The signal quality did not drop slowly.
+
+```iwconfig wlan0 txpower 24```
+```
+        signal:         -52 [-55, -55] dBm
+        signal avg:     -52 [-55, -55] dBm
+```
+```iwconfig wlan0 txpower 20```
+```
+        signal:         -54 [-57, -57] dBm
+        signal avg:     -52 [-55, -56] dBm
+```
+```
+[  4]   0.00-1.00   sec  18.4 MBytes   154 Mbits/sec    0   1.71 MBytes
+[  4]   1.00-2.00   sec  18.8 MBytes   158 Mbits/sec    0   1.71 MBytes
+[  4]   2.00-2.68   sec  12.9 MBytes   160 Mbits/sec    0   2.66 MBytes
+```
+
+```iwconfig wlan0 txpower 15```
+```
+       signal:         -59 [-61, -61] dBm
+       signal avg:     -59 [-60, -60] dBm
+``` 
+```
+[  4]   0.00-1.00   sec  15.0 MBytes   126 Mbits/sec    0    527 KBytes
+[  4]   1.00-2.00   sec  16.8 MBytes   141 Mbits/sec    0    792 KBytes
+[  4]   2.00-3.00   sec  16.8 MBytes   141 Mbits/sec    0    792 KBytes
+[  4]   3.00-4.00   sec  17.3 MBytes   145 Mbits/sec    0    905 KBytes
+[  4]   4.00-5.00   sec  17.1 MBytes   143 Mbits/sec    0    945 KBytes
+[  4]   5.00-6.00   sec  17.2 MBytes   144 Mbits/sec    0    945 KBytes
+[  4]   6.00-7.00   sec  16.8 MBytes   141 Mbits/sec    0    945 KBytes
+[  4]   7.00-8.00   sec  17.0 MBytes   142 Mbits/sec    0    945 KBytes
+[  4]   8.00-9.00   sec  16.6 MBytes   139 Mbits/sec    0    945 KBytes
+[  4]   9.00-10.00  sec  16.3 MBytes   136 Mbits/sec    0   1.63 MBytes
+[  4]  10.00-11.00  sec  17.3 MBytes   145 Mbits/sec    0   1.63 MBytes
+```
+```iwconfig wlan0 txpower 11```
+```
+[  4]   0.00-1.00   sec  10.7 MBytes  89.5 Mbits/sec    0    385 KBytes
+[  4]   1.00-2.00   sec  12.4 MBytes   104 Mbits/sec    0    699 KBytes
+[  4]   2.00-3.00   sec  11.9 MBytes  99.7 Mbits/sec    0    996 KBytes
+[  4]   3.00-4.00   sec  9.17 MBytes  76.8 Mbits/sec    0    996 KBytes
+[  4]   4.00-5.00   sec  8.68 MBytes  72.7 Mbits/sec    0    996 KBytes
+[  4]   5.00-6.00   sec  12.5 MBytes   105 Mbits/sec    0    996 KBytes
+[  4]   6.00-7.00   sec  11.6 MBytes  96.9 Mbits/sec    0    996 KBytes
+[  4]   7.00-8.00   sec  9.78 MBytes  82.2 Mbits/sec    0    996 KBytes
+[  4]   8.00-9.00   sec  12.1 MBytes   101 Mbits/sec    0    996 KBytes
+[  4]   9.00-10.00  sec  10.7 MBytes  89.5 Mbits/sec    0    996 KBytes
+[  4]  10.00-11.00  sec  11.4 MBytes  95.8 Mbits/sec    0    996 KBytes
+[  4]  11.00-12.00  sec  11.0 MBytes  92.5 Mbits/sec    0    996 KBytes
+```
