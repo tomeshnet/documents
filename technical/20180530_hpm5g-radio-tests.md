@@ -52,14 +52,14 @@ sudo cp /var/lib/dbus/machine-id /etc/machine-id
 
 This issue is specific to the sample units and will not be an issue when the HPM5G is manufactured for production.
 
-## Sending to an Omnidirectional TOP-GS07 USB Radio Through Walls
+## Sending to an Omnidirectional Toplinkst TOP-S5 USB Radio Through Walls
 
-The first test we did to confirm the device was functioning was to connect an ESPRESSObin + HPM5G node to a Orange Pi Zero + TOP-GS07 node, using 802.11s mesh point. These two devices were about 25 feet apart separated by three drywalls, without line-of-sight, and with desks and file cabinets in between. The ESPRESSObin has the HPM5G transmitting at 15 dBm, its 12 dBi antenna pointed in the general direction towards the omnidirectional antennas on the Orange Pi Zero.
+The first test we did to confirm the device was functioning was to connect an ESPRESSObin + HPM5G node to a Orange Pi Zero + [TOP-S5](https://github.com/phillymesh/802.11s-adapters/blob/master/toplinkst-top-s5/toplinkst-top-s5.md) node, using 802.11s mesh point. These two devices were about 25 feet apart separated by three drywalls, without line-of-sight, and with desks and file cabinets in between. The ESPRESSObin has the HPM5G transmitting at 15 dBm, its 12 dBi antenna pointed in the general direction towards the omnidirectional antennas on the Orange Pi Zero.
 
 ![Office Map](../images/20180530_hpm5g-radio-tests3.png?raw=true)
 ![Receiving Node](../images/20180530_hpm5g-radio-tests4.jpg?raw=true)
 
-The results of this first test were very impressive. The HPM5G was the transmitter, and the TOP-GS07 was the receiver:
+The results of this first test were very impressive. The HPM5G was the transmitter, and the TOP-S5 was the receiver:
 
 ```
 Connecting to host 192.168.100.4, port 5201
@@ -83,7 +83,7 @@ Connecting to host 192.168.100.4, port 5201
 iperf Done.
 ```
 
-These are the highest speeds we have observed from the TOP-GS07. The HPM5G is transmitting a very strong signal through all these physical barriers, and with low jitter:
+These are the highest speeds we have observed from the TOP-S5. The HPM5G is transmitting a very strong signal through all these physical barriers, and with low jitter:
 
 ```
 Accepted connection from 192.168.100.2, port 43694
@@ -109,7 +109,7 @@ signal:         -75 [-75, -77] dBm
 signal avg:     -72 [-73, -75] dBm
 ```
 
-TOP-GS07 reported RX:
+TOP-S5 reported RX:
 
 ```
 signal:         -50 dBm
@@ -122,7 +122,7 @@ Placing two ESPRESSObins with HPM5Gs about 20 cm from each other, and lowering t
 
 ## Testing the LibreRouter Antennas
 
-We married an Orange Pi Zero with a TOP-GS07 USB radio to the 12 dBi LibreRouter antenna for a long distance test. In the past, we have not had good range or speeds with this board, but since the board supported 5 Ghz and was 2x2 MIMO it was a good test.
+We married an Orange Pi Zero with a TOP-S5 USB radio to the 12 dBi LibreRouter antenna for a long distance test. In the past, we have not had good range or speeds with this board, but since the board supported 5 Ghz and was 2x2 MIMO it was a good test.
 
 We mounted the device with antenna outside to test, with the ESPRESSObin + HPM5G at the other end of the connection to compare RX quality:
 
@@ -133,7 +133,7 @@ The devices were about 220 m apart:
 
 ![Antenna test map](../images/20180530_hpm5g-radio-tests7.jpg?raw=true)
 
-The positioning of the antennas were not optimal, however with this quick test the TOP-GS07 was able to see the HPM5G with -70 dBm, while the HPM5G could see the TOP-GS07 with -54 dBm. Speed was only 10 Mbps, however the link was very stable.
+The positioning of the antennas were not optimal, however with this quick test the TOP-S5 was able to see the HPM5G with -70 dBm, while the HPM5G could see the TOP-S5 with -54 dBm. Speed was only 10 Mbps, however the link was very stable.
 
 The antenna case can even be modified to fit the Orange Pi Zero inside.
 
