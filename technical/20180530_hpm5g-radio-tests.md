@@ -154,7 +154,7 @@ When fully charged the battery put out 12.5 V (12.6 V being the absolute max) an
 
 ### Test Setup and Results
 
-We split up into two teams and connected a laptop to the USB port of the ESPRESSObin to record results, pointing the antenna in the general direction of the other team. One device had TX power of 15 dBm (but it occasionally reboots due to drawing too much power over the mPCIe) and iperf3 recorded speeds close to 100 Mbps. The other device with TX power of 14 dBm never reboote, but it does not reach the same speeds when it's the one transmitting.
+We split up into two teams and connected a laptop to the USB port of the ESPRESSObin to record results, pointing the antenna in the general direction of the other team. One device had TX power of 15 dBm (but it occasionally reboots due to drawing too much power over the mPCIe) and iperf3 recorded speeds close to 100 Mbps. The other device with TX power of 14 dBm never rebooted, but it does not reach the same speeds when it's the one transmitting.
 
 This is what one side looks like: 
 
@@ -180,4 +180,4 @@ Using the 5 V power from the ESPRESSObin's hard drive connecter, we were able to
 ![Modified cable](../images/20180530_hpm5g-radio-tests16.jpg?raw=true)
 ![Externally powered setup](../images/20180530_hpm5g-radio-tests17.jpg?raw=true)
 
-After Removing the regulatory lockout in Linux, we were able to bring the radio module up to 26 dBm and run an endurance test for 10 minutes using iperf3 in both directions without the ESPRESSObin rebooting. This shows the earlier issue was indeed power related and the modification successfully fixed it. The power levels observed here is inline with what was reported by LibreRouter in [their earlier tests](https://librerouter.org/article/first-outdoor-radio-and-antenna-test/), which took the HPM5G to 27 dBm TX power.
+After removing the regulatory lockout in Linux, we were able to bring the radio module up to 26 dBm and run an endurance test for 10 minutes using iperf3 in both directions without the ESPRESSObin rebooting. This shows the earlier issue was indeed power related and the modification successfully fixed it. The power levels observed here is inline with what was reported by LibreRouter in [their earlier tests](https://librerouter.org/article/first-outdoor-radio-and-antenna-test/), which took the HPM5G to 27 dBm TX power.
