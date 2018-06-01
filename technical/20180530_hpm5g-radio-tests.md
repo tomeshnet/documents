@@ -133,7 +133,7 @@ The devices were about 220 m apart:
 
 ![Antenna test map](../images/20180530_hpm5g-radio-tests7.jpg?raw=true)
 
-The positioning of the antennas were not optimal, however with this quick test the TO_GS07 was able to see the HPM5G with -70 dBm, while the HPM5G could see the TOP-GS07 with -54 dBm. Speed was only 10 Mbps, however the link was very stable.
+The positioning of the antennas were not optimal, however with this quick test the TOP-GS07 was able to see the HPM5G with -70 dBm, while the HPM5G could see the TOP-GS07 with -54 dBm. Speed was only 10 Mbps, however the link was very stable.
 
 The antenna case can even be modified to fit the Orange Pi Zero inside.
 
@@ -171,7 +171,7 @@ Dragino confirmed that what we were experiencing sounded like it could be a powe
 ![Power instructions](../images/20180530_hpm5g-radio-tests13.png?raw=true)
 ![Power modifications](../images/20180530_hpm5g-radio-tests14.jpg?raw=true)
 
-The modified HPM5G look like:
+The modified HPM5Gs look like:
 
 ![Modified HPM5G](../images/20180530_hpm5g-radio-tests15.jpg?raw=true)
 
