@@ -9,6 +9,17 @@ date: 2018-05-30
 
 This document summarizes a series of tests on the **Dragino HPM5G mPCIe radio module** and the **LibreRouter's 12 dBi antenna** that are expected to ship with the soon-to-be-released LibreRouter bundle. Toronto Mesh acquired six radio boards and antennas from Dragino, and in this test, used a pair of the [Marvell ESPRESSObin](http://espressobin.net) running [prototype](https://github.com/tomeshnet/prototype-cjdns-pi) to test the radios.
 
+We conducted many tests that are described in detail below, but our key findings are as follow:
+
+* The radio and antenna combo creates stable links over hundreds of metres at 150 Mbps
+* Wall penetration is excellent even when a client node has an omnidirectional antenna on a radio with average sensitivity
+* Continuous transmission for 10 minutes at 26 dBm show no performance drop or heating-related issues
+* Not all boards with a mPCIe interface can source enough current to this board, but external power input works great
+* The 12 dBi antenna makes an excellent 5G antenna even for other radios
+* Linux driver support is trivial, as expected from a `ath9k` device
+
+Toronto Mesh is overall very impressed with the performance of these devices.
+
 ![Dragino HPM5G mPCIe radio module](../images/20180530_hpm5g-radio-tests.jpg?raw=true)
 ![LibreRouter's 12 dBi antenna](../images/20180530_hpm5g-radio-tests2.jpg?raw=true)
 
@@ -28,7 +39,7 @@ We did run into an issue where the TX power would not be persistent after being 
 
 **Long-term Solution**
 
-This issue is specific to the ESPRESSObin, since the LibreRouter mPCIe interfaces are designed to meet the power requirements of the HPM5G at 19 dBm. In later parts of this document, we will also describe a board modification that will allow us to power the HPM5G properly on the ESPRESSObin.
+This issue will occur on the ESPRESSObin and other boards that do not source enough current through its mPCIe interface. The LibreRouter mPCIe interfaces are designed to meet the power requirements of the HPM5G at 19 dBm. In later parts of this document, we will also describe a board modification that will allow us to power the HPM5G properly on the ESPRESSObin.
 
 ### Uninitialized MAC Addresses on the HPM5G
 
@@ -38,7 +49,12 @@ Additionally, the ESPRESSObin interfaces themselves seemed to be the same as wel
 
 **Work Around**
 
-Setting the MAC address manually allowed the two devices to mesh together.
+Setting the MAC address manually allowed the two devices to mesh together. For example:
+
+```
+sudo ip link set dev wlan0 address 00:28:C7:0A:42:A2
+sudo ifconfig wlan0 hw ether 00:28:C7:0A:42:A2
+```
 
 The ESPRESSObin interface issue was resolved by regenerating a unique machine ID and rebooting:
 
@@ -52,14 +68,14 @@ sudo cp /var/lib/dbus/machine-id /etc/machine-id
 
 This issue is specific to the sample units and will not be an issue when the HPM5G is manufactured for production.
 
-## Sending to an Omnidirectional Toplinkst TOP-S5 USB Radio Through Walls
+## Sending to an Omnidirectional Toplinkst TOP-4M02 USB Radio Through Walls
 
-The first test we did to confirm the device was functioning was to connect an ESPRESSObin + HPM5G node to a Orange Pi Zero + [TOP-S5](https://github.com/phillymesh/802.11s-adapters/blob/master/toplinkst-top-s5/toplinkst-top-s5.md) node, using 802.11s mesh point. These two devices were about 25 feet apart separated by three drywalls, without line-of-sight, and with desks and file cabinets in between. The ESPRESSObin has the HPM5G transmitting at 15 dBm, its 12 dBi antenna pointed in the general direction towards the omnidirectional antennas on the Orange Pi Zero.
+The first test we did to confirm the device was functioning was to connect an ESPRESSObin + HPM5G node to a Orange Pi Zero + [TOP-4M02](https://github.com/phillymesh/802.11s-adapters/blob/master/toplinkst-top-s5/toplinkst-top-s5.md) node, using 802.11s mesh point. These two devices were about 25 feet apart separated by three drywalls, without line-of-sight, and with desks and file cabinets in between. The ESPRESSObin has the HPM5G transmitting at 15 dBm, its 12 dBi antenna pointed in the general direction towards the omnidirectional antennas on the Orange Pi Zero.
 
 ![Office Map](../images/20180530_hpm5g-radio-tests3.png?raw=true)
 ![Receiving Node](../images/20180530_hpm5g-radio-tests4.jpg?raw=true)
 
-The results of this first test were very impressive. The HPM5G was the transmitter, and the TOP-S5 was the receiver:
+The results of this first test were very impressive. The HPM5G was the transmitter, and the TOP-4M02 was the receiver:
 
 ```
 Connecting to host 192.168.100.4, port 5201
@@ -83,7 +99,7 @@ Connecting to host 192.168.100.4, port 5201
 iperf Done.
 ```
 
-These are the highest speeds we have observed from the TOP-S5. The HPM5G is transmitting a very strong signal through all these physical barriers, and with low jitter:
+These are the highest speeds we have observed from the TOP-4M02. The HPM5G is transmitting a very strong signal through all these physical barriers, and with low jitter:
 
 ```
 Accepted connection from 192.168.100.2, port 43694
@@ -109,7 +125,7 @@ signal:         -75 [-75, -77] dBm
 signal avg:     -72 [-73, -75] dBm
 ```
 
-TOP-S5 reported RX:
+TOP-4M02 reported RX:
 
 ```
 signal:         -50 dBm
@@ -122,7 +138,7 @@ Placing two ESPRESSObins with HPM5Gs about 20 cm from each other, and lowering t
 
 ## Testing the LibreRouter Antennas
 
-We married an Orange Pi Zero with a TOP-S5 USB radio to the 12 dBi LibreRouter antenna for a long distance test. In the past, we have not had good range or speeds with this board, but since the board supported 5 Ghz and was 2x2 MIMO it was a good test.
+We married an Orange Pi Zero with a TOP-4M02 USB radio to the 12 dBi LibreRouter antenna for a long distance test. In the past, we have not had good range or speeds with this board, but since the board supported 5 Ghz and was 2x2 MIMO it was a good test.
 
 We mounted the device with antenna outside to test, with the ESPRESSObin + HPM5G at the other end of the connection to compare RX quality:
 
@@ -133,9 +149,9 @@ The devices were about 220 m apart:
 
 ![Antenna test map](../images/20180530_hpm5g-radio-tests7.jpg?raw=true)
 
-The positioning of the antennas were not optimal, however with this quick test the TOP-S5 was able to see the HPM5G with -70 dBm, while the HPM5G could see the TOP-S5 with -54 dBm. Speed was only 10 Mbps, however the link was very stable.
+The positioning of the antennas were not optimal, however with this quick test the TOP-4M02 was able to see the HPM5G with -70 dBm, while the HPM5G could see the TOP-4M02 with -54 dBm. Speed was only 10 Mbps, however the link was very stable.
 
-The antenna case can even be modified to fit the Orange Pi Zero inside.
+The antenna case can even be modified to fit the Orange Pi Zero inside:
 
 ![Orange Pi Zero antenna assembly 2](../images/20180530_hpm5g-radio-tests8.jpg?raw=true)
 ![Orange Pi Zero antenna assembly 3](../images/20180530_hpm5g-radio-tests9.jpg?raw=true)
@@ -164,7 +180,9 @@ And looking out to the peer:
 
 ![Bridge test peer](../images/20180530_hpm5g-radio-tests12.jpg?raw=true)
 
-## Powering the HPM5G Externally
+## Externally-powered HPM5G Test
+
+### Modifying the HPM5G for External Power Input
 
 Dragino confirmed that what we were experiencing sounded like it could be a power issue, where the radio was draining more power from the ESPRESSObin than it could provide. After speaking with the engineer they provided a hardware modification to power the radio module externally, instead of via the mPCIe interface. It involves disabling of the 3.3 V to 5 V up-conversion circuit so that we could apply our own 5 V external power, by removing a surface mount resistor and grounding one of the pads.
 
@@ -182,35 +200,41 @@ Using the 5 V power from the ESPRESSObin's hard drive connecter, we were able to
 
 After removing the regulatory lockout in Linux, we were able to bring the radio module up to 26 dBm and run an endurance test for 10 minutes using iperf3 in both directions without the ESPRESSObin rebooting. This shows the earlier issue was indeed power related and the modification successfully fixed it. The power levels observed here is inline with what was reported by LibreRouter in [their earlier tests](https://librerouter.org/article/first-outdoor-radio-and-antenna-test/), which took the HPM5G to 27 dBm TX power.
 
-## Testing externally Powered HPM5G on ESPRESSObin
+### Testing the Externally-powered HPM5G on ESPRESSObin
 
-Repeating the same 220 m antenna test with two fully powered ESPRESSObin and HPM5G using external power module.
+Repeating the same 220 m antenna test with two fully powered ESPRESSObins and HPM5Gs using external power:
+
 ![Antenna test map](../images/20180530_hpm5g-radio-tests7.jpg?raw=true)
 
-Pictures taking by placing the camera flat against the front of the antenna (point of view of the antenna)
-![Far side antenna view](../images/20180530_hpm5g-radio-fullpower-2.jpg?raw=true)
-![Near side antenna view](../images/20180530_hpm5g-radio-fullpower-1.jpg?raw=true)
+These pictures are taken by placing the camera flat against the front of the antenna (point-of-view from the antenna):
 
-The ESPRESSObin where configured for 26dBm.
+![Remote side antenna view](../images/20180530_hpm5g-radio-tests18.jpg?raw=true)
+![Near side antenna view](../images/20180530_hpm5g-radio-tests19.jpg?raw=true)
 
-Remote side
+The ESPRESSObins were configured at 26 dBm TX power:
+
+Remote side:
+
 ```
-        signal:         -60 [-62, -65] dBm
-        signal avg:     -60 [-62, -64] dBm
-        tx bitrate:     243.0 MBit/s MCS 14 40MHz
-        rx bitrate:     135.0 MBit/s MCS 6 40MHz short GI
-        expected throughput:    53.557Mbps
-```
-Near side
-```
-        signal:         -62 [-70, -63] dBm
-        signal avg:     -59 [-67, -60] dBm
-        tx bitrate:     121.5 MBit/s MCS 6 40MHz
-        rx bitrate:     243.0 MBit/s MCS 14 40MHz
-        expected throughput:    42.388Mbps
+signal:         -60 [-62, -65] dBm
+signal avg:     -60 [-62, -64] dBm
+tx bitrate:     243.0 MBit/s MCS 14 40MHz
+rx bitrate:     135.0 MBit/s MCS 6 40MHz short GI
+expected throughput:    53.557Mbps
 ```
 
-iperf3 Forward Test
+Near side:
+
+```
+signal:         -62 [-70, -63] dBm
+signal avg:     -59 [-67, -60] dBm
+tx bitrate:     121.5 MBit/s MCS 6 40MHz
+rx bitrate:     243.0 MBit/s MCS 14 40MHz
+expected throughput:    42.388Mbps
+```
+
+iperf3 forward test:
+
 ```
 root@tomesh-fd90:~# iperf3 -c 192.168.100.2 -t 60
 Connecting to host 192.168.100.2, port 5201
@@ -226,9 +250,7 @@ Connecting to host 192.168.100.2, port 5201
 [  4]   7.00-8.00   sec  11.1 MBytes  92.9 Mbits/sec    0    826 KBytes
 [  4]   8.00-9.00   sec  12.9 MBytes   108 Mbits/sec    0    826 KBytes
 [  4]   9.00-10.00  sec  11.3 MBytes  95.0 Mbits/sec    0    826 KBytes
-[  4]  10.00-11.00  sec  12.4 MBytes   104 Mbits/sec    0    826 KBytes
 ...
-[  4]  50.00-51.00  sec  10.7 MBytes  89.6 Mbits/sec    0   2.10 MBytes
 [  4]  51.00-52.00  sec  12.4 MBytes   104 Mbits/sec    0   2.10 MBytes
 [  4]  52.00-53.00  sec  11.9 MBytes  99.9 Mbits/sec    0   2.10 MBytes
 [  4]  53.00-54.00  sec  13.2 MBytes   111 Mbits/sec    0   2.10 MBytes
@@ -246,7 +268,8 @@ Connecting to host 192.168.100.2, port 5201
 iperf Done.
 ```
 
-iperf3 Reverse Test
+iperf3 reverse test:
+
 ```
 Reverse mode, remote host 192.168.100.2 is sending
 [  4] local 192.168.100.99 port 35904 connected to 192.168.100.2 port 5201
@@ -279,7 +302,8 @@ Reverse mode, remote host 192.168.100.2 is sending
 iperf Done.
 ```
 
-iperf UDP jitter test
+iperf UDP jitter test:
+
 ```
 [  5]  50.00-51.00  sec   128 KBytes  1.05 Mbits/sec  0.542 ms  0/16 (0%)
 [  5]  51.00-52.00  sec   128 KBytes  1.05 Mbits/sec  0.577 ms  0/16 (0%)
@@ -294,15 +318,15 @@ iperf UDP jitter test
 [  5]  60.00-60.04  sec  8.00 KBytes  1.50 Mbits/sec  0.668 ms  0/1 (0%)
 ```
 
-Noticing the discrepancy of the First and Second test the antenna was repositioned tilting it downwards a few degrees.  The link quality and speed test improved.
+Noticing the discrepancy between the forward and reverse tests, the antenna was repositioned tilting it downwards a few degrees. The link quality and speed test improved:
 
 ```
-        signal:         -54 [-57, -57] dBm
-        signal avg:     -58 [-61, -62] dBm
-        Toffset:        273322777 us
-        tx bitrate:     240.0 MBit/s MCS 13 40MHz short GI
-        rx bitrate:     300.0 MBit/s MCS 15 40MHz short GI
-        expected throughput:    53.557Mbps
+signal:         -54 [-57, -57] dBm
+signal avg:     -58 [-61, -62] dBm
+Toffset:        273322777 us
+tx bitrate:     240.0 MBit/s MCS 13 40MHz short GI
+rx bitrate:     300.0 MBit/s MCS 15 40MHz short GI
+expected throughput:    53.557Mbps
 ```
 
 ```
@@ -320,7 +344,6 @@ Connecting to host 192.168.100.2, port 5201
 [  4]   7.00-8.00   sec  17.6 MBytes   148 Mbits/sec    0   1.09 MBytes
 [  4]   8.00-9.00   sec  17.4 MBytes   146 Mbits/sec    0   1.22 MBytes
 [  4]   9.00-10.00  sec  18.7 MBytes   158 Mbits/sec    0   1.22 MBytes
-[  4]  10.00-11.00  sec  18.0 MBytes   151 Mbits/sec    0   1.22 MBytes
 ...
 [  4]  21.00-22.00  sec  19.0 MBytes   159 Mbits/sec    0   1.77 MBytes
 [  4]  22.00-23.00  sec  17.9 MBytes   150 Mbits/sec    0   1.77 MBytes
@@ -337,7 +360,7 @@ Connecting to host 192.168.100.2, port 5201
 [  4]   0.00-30.00  sec   542 MBytes   151 Mbits/sec                  receiver
 ```
 
-At this point I was going to test lowering TXPower however a van pulled up next to me. Although the LOS was not obstructed, however the frenzel zone must have been impacted as the speeds dropped to about 80Mbps.
+At this point I was going to test lowering the TX power, but a van pulled up next to me. Although the line-of-sight was not obstructed, the fresnel zone must have been impacted as the speeds dropped to about 80 Mbps:
 
 ```
 [  4]   0.00-1.00   sec  8.43 MBytes  70.7 Mbits/sec    0    297 KBytes
@@ -350,31 +373,26 @@ At this point I was going to test lowering TXPower however a van pulled up next 
 [  4]   7.00-8.00   sec  9.44 MBytes  79.2 Mbits/sec    0   1.37 MBytes
 ```
 
-I found a new spot closer to the antenna that was not obstructed and preformed the TXPower test there. This position was only about 74 meters from the antenna.
+I found a new spot closer to the antenna that was not obstructed and performed the TX power test there. This position was only about 74 m from the antenna.
 
-The TX Power was adjusted on both radios at the same time by running the iwconfig command.  The signal quality did not drop slowly.
+The TX power was adjusted on both radios at the same time by running the `iwconfig wlan0 txpower <txpower>` command:
 
-```iwconfig wlan0 txpower 24```
-```
-        signal:         -52 [-55, -55] dBm
-        signal avg:     -52 [-55, -55] dBm
-```
-```iwconfig wlan0 txpower 20```
-```
-        signal:         -54 [-57, -57] dBm
-        signal avg:     -52 [-55, -56] dBm
-```
+| TX power | Signal avg         |
+|:---------|:-------------------|
+| 24 dBm   | -52 [-55, -55] dBm |
+| 20 dBm   | -52 [-55, -56] dBm |
+| 15 dBm   | -59 [-60, -60] dBm |
+
+At 20 dBm:
+
 ```
 [  4]   0.00-1.00   sec  18.4 MBytes   154 Mbits/sec    0   1.71 MBytes
 [  4]   1.00-2.00   sec  18.8 MBytes   158 Mbits/sec    0   1.71 MBytes
 [  4]   2.00-2.68   sec  12.9 MBytes   160 Mbits/sec    0   2.66 MBytes
 ```
 
-```iwconfig wlan0 txpower 15```
-```
-       signal:         -59 [-61, -61] dBm
-       signal avg:     -59 [-60, -60] dBm
-``` 
+At 15 dBm:
+ 
 ```
 [  4]   0.00-1.00   sec  15.0 MBytes   126 Mbits/sec    0    527 KBytes
 [  4]   1.00-2.00   sec  16.8 MBytes   141 Mbits/sec    0    792 KBytes
@@ -386,9 +404,10 @@ The TX Power was adjusted on both radios at the same time by running the iwconfi
 [  4]   7.00-8.00   sec  17.0 MBytes   142 Mbits/sec    0    945 KBytes
 [  4]   8.00-9.00   sec  16.6 MBytes   139 Mbits/sec    0    945 KBytes
 [  4]   9.00-10.00  sec  16.3 MBytes   136 Mbits/sec    0   1.63 MBytes
-[  4]  10.00-11.00  sec  17.3 MBytes   145 Mbits/sec    0   1.63 MBytes
 ```
-```iwconfig wlan0 txpower 11```
+
+At 11 dBm:
+
 ```
 [  4]   0.00-1.00   sec  10.7 MBytes  89.5 Mbits/sec    0    385 KBytes
 [  4]   1.00-2.00   sec  12.4 MBytes   104 Mbits/sec    0    699 KBytes
@@ -400,6 +419,4 @@ The TX Power was adjusted on both radios at the same time by running the iwconfi
 [  4]   7.00-8.00   sec  9.78 MBytes  82.2 Mbits/sec    0    996 KBytes
 [  4]   8.00-9.00   sec  12.1 MBytes   101 Mbits/sec    0    996 KBytes
 [  4]   9.00-10.00  sec  10.7 MBytes  89.5 Mbits/sec    0    996 KBytes
-[  4]  10.00-11.00  sec  11.4 MBytes  95.8 Mbits/sec    0    996 KBytes
-[  4]  11.00-12.00  sec  11.0 MBytes  92.5 Mbits/sec    0    996 KBytes
 ```
