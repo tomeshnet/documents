@@ -9,6 +9,9 @@ date: 2018-05-30
 
 This document summarizes a series of tests on the **Dragino HPM5G mPCIe radio module** and the **LibreRouter's 12 dBi antenna** that are expected to ship with the soon-to-be-released LibreRouter bundle. Toronto Mesh acquired six radio boards and antennas from Dragino, and in this test, used a pair of the [Marvell ESPRESSObin](http://espressobin.net) running [prototype](https://github.com/tomeshnet/prototype-cjdns-pi) to test the radios.
 
+![Dragino HPM5G mPCIe radio module](../images/20180530_hpm5g-radio-tests.jpg?raw=true)
+![LibreRouter's 12 dBi antenna](../images/20180530_hpm5g-radio-tests2.jpg?raw=true)
+
 We conducted many tests that are described in detail below, but our key findings are as follow:
 
 * The radio and antenna combo creates stable links over hundreds of metres at 150 Mbps
@@ -19,9 +22,6 @@ We conducted many tests that are described in detail below, but our key findings
 * Linux driver support is trivial, as expected from a `ath9k` device
 
 Toronto Mesh is overall very impressed with the performance of these devices.
-
-![Dragino HPM5G mPCIe radio module](../images/20180530_hpm5g-radio-tests.jpg?raw=true)
-![LibreRouter's 12 dBi antenna](../images/20180530_hpm5g-radio-tests2.jpg?raw=true)
 
 ## Issues
 
@@ -211,7 +211,7 @@ These pictures are taken by placing the camera flat against the front of the ant
 ![Remote side antenna view](../images/20180530_hpm5g-radio-tests18.jpg?raw=true)
 ![Near side antenna view](../images/20180530_hpm5g-radio-tests19.jpg?raw=true)
 
-The ESPRESSObins were configured at 26 dBm TX power:
+The ESPRESSObins were configured at 26 dBm TX power.
 
 Remote side:
 
