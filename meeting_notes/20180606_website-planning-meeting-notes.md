@@ -53,13 +53,13 @@ garry
     - _Building the Peer-to-Peer Internet_ Workshop
     - IPFS streaming
     - `prototype-cjdns-pi`
+        - Move _Build a Node_ to the prototype project page
     - Website
 - Ideas on content to attach to each project on page:
     - Matrix project channel
     - Categorizing icons
     - Skill cards
     - State of the project
-- Investigate adding _Build a Node_ in this page
 
 ### Contact Updates
 
@@ -75,7 +75,7 @@ garry
 - Opportunity to address questions and help with onboarding through a FAQ
 - Answer general inquiries about mesh networking and terminology
 - Could be part of _About_ or _Projects_
-- Follow up is needed
+- Follow-up is needed
 
 ### Vision Updating
 
