@@ -70,14 +70,12 @@ garry
     - Footer (as text): IRC
 - Hank to follow-up on designs
 
-
 ### Frequently Asked Questions
 
 - Opportunity to address questions and help with onboarding through a FAQ
 - Answer general inquiries about mesh networking and terminology
 - Could be part of _About_ or _Projects_
 - Follow up is needed
-
 
 ### Vision Updating
 
