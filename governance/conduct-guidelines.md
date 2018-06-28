@@ -4,7 +4,7 @@ Toronto Mesh consensed to actively use our first version of our code of conduct 
 
 ## Code of Conduct
 
-The Code of Conduct language is in our [documents](https://github.com/tomeshnet/documents/blob/master/CONDUCT.md) github repository and on our website at [tomesh.net/code-of-conduct/](https://tomesh.net/code-of-conduct/https://tomesh.net/code-of-conduct/)
+The Code of Conduct language is in our [documents](https://github.com/tomeshnet/documents/blob/master/CONDUCT.md) github repository and on our website at [tomesh.net/code-of-conduct/](https://tomesh.net/code-of-conduct/)
 
 ## Enforcement
 
