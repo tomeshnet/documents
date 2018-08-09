@@ -1,8 +1,13 @@
-Updates from Decentralized Web Summit & Protocol Labs Support
-=============================================================
-Time: August 8, 7-8 pm EST
-Location: https://appear.in/tomeshnet
-Attendees:
+---
+title: Updates from Decentralized Web Summit & Protocol Labs Support
+location: https://appear.in/tomeshnet
+attendees: 5
+date: 2018-08-08
+startTime: 19:00
+endTime: 20:00
+---
+
+## Attendees
 - benhylau
 - darkdrgn2k
 - elon
