@@ -28,7 +28,7 @@ Toronto Mesh partnered with [Free Geek Toronto](https://www.freegeektoronto.org/
 
 ## IPFS File Sharing
 
-**Lead**: @makeworld-the-better-one
+**Lead**: makeworld
 
 We demonstrated how IPFS can be used to send files from one node to another using a simple web page:
 
@@ -43,11 +43,11 @@ We demonstrated how IPFS can be used to send files from one node to another usin
 - Power cord extension to hold demo outside.
 - Optional: Two laptops (smartphones are OK too).
 
-Visit @makeworld-the-better-one's [repo](https://github.com/makeworld-the-better-one/ipfs-demo) for further details.
+Visit makeworld's [repo](https://github.com/makeworld-the-better-one/ipfs-demo) for further details.
 
 ## Long-Distance Wireless Mesh Link
 
-**Lead**: @darkdrgn2k
+**Lead**: darkdrgn2k
 
 We showcased a solution for linking an internet exit node with a mesh network over a long distance wireless connection. See below for reference:
 
