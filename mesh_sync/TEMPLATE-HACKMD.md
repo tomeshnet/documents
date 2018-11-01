@@ -2,8 +2,8 @@ Mesh Sync
 =========
 *This pad is recycled for each sync meeting. Meeting notes are kept and moved to [tomeshnet/documents/mesh_sync](https://github.com/tomeshnet/documents/tree/master/mesh_sync) by the meeting host of that meeting.*
 
-📍 https://appear.in/tomeshnet
-📅 Monday,  
+📍 https://appear.in/tomeshnet  
+📅 Monday,   
 
 | Timezone | Workshop | General  |
 |:---------|:---------|:---------|
