@@ -21,7 +21,7 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	```
 	sudo apt-get install build-essential python2.7-dev libffi-dev \
 	                     python-pip python-setuptools sqlite3 \
-	                     libssl-dev python-virtualenv libjpeg-dev libxslt1-dev
+	                     libssl-dev python-virtualenv libjpeg-dev libxslt1-dev ntp
 	```
 
 1. Install Synapse homeserver version [v0.19.2](https://github.com/matrix-org/synapse/releases/tag/v0.19.2):
@@ -194,7 +194,7 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	```
 1. Stop the Synapse server with `synctl stop`.
 
-1. Update with the following command where `VERSION` can be a branch like `master` or `develop`, or a release tag like `v0.26.0`, or a commit hash:
+1. Update with the following command where `VERSION` can be a branch like `master` or `develop`, or a release tag like `v0.33.8`, or a commit hash:
 
 	```
 	# pip install --upgrade --process-dependency-links https://github.com/matrix-org/synapse/tarball/VERSION
@@ -390,6 +390,66 @@ The web client we host at **chat.tomesh.net** is running [Riot Web](https://gith
 	# /opt/letsencrypt/letsencrypt-auto certonly --agree-tos --renew-by-default --email hello@tomesh.net -a webroot --webroot-path=/usr/share/nginx/html -d chat.tomesh.net
 	```
 	
+### Update Riot Web Client
+1. Get a root shell with `sudo -i`.
+
+1. Download the pre-compiled [Riot Web release](https://github.com/vector-im/riot-web/releases):
+
+	```
+	# wget https://github.com/vector-im/riot-web/releases/download/v0.17.3/riot-v0.17.3.tar.gz
+	```
+
+1. Remove old Riot Client
+	```
+	# rm -r /var/www/chat.tomesh.net/public/*
+	```
+1. Extract **riot-v0.17.3.tar.gz** into **/var/www/chat.tomesh.net/public**:
+
+	```
+	# tar xf riot-v0.17.3.tar.gz -C /var/www/chat.tomesh.net/public --strip-components 1
+	```
+
+1. Create **config.json** with the following lines, so it is used in place of the default **config.sample.json**:
+
+	```
+	{
+	    "default_hs_url": "https://matrix.tomesh.net",
+	    "default_is_url": "https://vector.im",
+	    "disable_custom_urls": false,
+	    "disable_guests": false,
+	    "disable_login_language_selector": false,
+	    "disable_3pid_login": false,
+	    "brand": "Riot",
+	    "integrations_ui_url": "https://scalar.vector.im/",
+	    "integrations_rest_url": "https://scalar.vector.im/api",
+	    "integrations_jitsi_widget_url": "https://scalar.vector.im/api/widgets/jitsi.html",
+	    "bug_report_endpoint_url": "https://riot.im/bugreports/submit",
+	    "features": {
+	        "feature_groups": "labs",
+	        "feature_pinning": "labs"
+	    },
+	    "default_federate": true,
+	    "welcomePageUrl": "home.html",
+	    "default_theme": "light",
+	    "roomDirectory": {
+	        "servers": [
+	            "tomesh.net",
+	            "matrix.org"
+	        ]
+	    },
+	    "welcomeUserId": "@riot-bot:matrix.org",
+	    "piwik": {
+	        "url": "https://piwik.riot.im/",
+	        "siteId": 1
+	    }
+	    "enable_presence_by_hs_url": {
+	    	"https://matrix.org": false
+	    }
+	}
+	```
+
+1. Run `chmod 755 /var/www` to ensure we have the right permissions.
+
 ## Create More RAM
 
 We are running Synapse on a 1 GB VPS that also runs other services. The process often gets dangerously close to being killed by the kernel from memory exhaustion. So we created 2 GB of swap memory on the SSD to handle load spikes:
