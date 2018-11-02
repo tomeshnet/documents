@@ -21,7 +21,8 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 	```
 	sudo apt-get install build-essential python2.7-dev libffi-dev \
 	                     python-pip python-setuptools sqlite3 \
-	                     libssl-dev python-virtualenv libjpeg-dev libxslt1-dev ntp
+	                     libssl-dev python-virtualenv libjpeg-dev \
+			     libxslt1-dev ntp
 	```
 
 1. Install Synapse homeserver version [v0.19.2](https://github.com/matrix-org/synapse/releases/tag/v0.19.2):
@@ -51,6 +52,23 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 1. Enable guest access to public rooms by changing `allow_guest_access` to `True` in **homeserver.yaml**.
 
 1. Enable community group creation by adding `enable_group_creation: true` in **homeserver.yaml**.
+
+1. Enable IPv6 for Synapse by changing the `bind_addresses` section in **homeserver.yaml** to:
+	```
+	bind_addresses:
+	  - '0.0.0.0'
+	  - 'IPv6:ADDRESS'
+	```
+	Where IPV6:ADDRSS is your public IPv6 address of your server.
+
+1. Set the non HTTP port (8008) to localhost only by changing the following in **homeserver.yaml**:
+	```
+	bind_addresses:
+	  - '127.0.0.1'
+	  - '::1'
+	```
+
+1. Enable X-Forwarded-For header from NGINX reverse proxy by changing `x_forwarded` to `true` in **homeserver.yaml** for port 8008.
 
 1. Enable link preview by changing `url_preview_enabled` to `True` in **homeserver.yaml** and uncommenting:
 
@@ -105,6 +123,7 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
     ```
     server {
         listen 80;
+        listen [::]:80;
         server_name matrix.tomesh.net;
         return 301 https://$host$request_uri;
 
@@ -116,6 +135,7 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 
     server {
         listen 443 ssl;
+        listen [::]:443 ssl;
         server_name matrix.tomesh.net;
 
         ssl_certificate /etc/letsencrypt/live/matrix.tomesh.net/fullchain.pem;
@@ -161,8 +181,7 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
             proxy_set_header Connection "upgrade";
             proxy_set_header Host $http_host;
 
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-For $remote_addr;
             proxy_set_header X-Forward-Proto http;
             proxy_set_header X-Nginx-Proxy true;
 
@@ -294,25 +313,37 @@ The web client we host at **chat.tomesh.net** is running [Riot Web](https://gith
 	{
 	    "default_hs_url": "https://matrix.tomesh.net",
 	    "default_is_url": "https://vector.im",
+	    "disable_custom_urls": false,
+	    "disable_guests": false,
+	    "disable_login_language_selector": false,
+	    "disable_3pid_login": false,
 	    "brand": "Riot",
 	    "integrations_ui_url": "https://scalar.vector.im/",
 	    "integrations_rest_url": "https://scalar.vector.im/api",
+	    "integrations_jitsi_widget_url": "https://scalar.vector.im/api/widgets/jitsi.html",
 	    "bug_report_endpoint_url": "https://riot.im/bugreports/submit",
 	    "features": {
-	        "feature_groups": "labs",
-	        "feature_pinning": "labs"
+		"feature_groups": "labs",
+		"feature_pinning": "labs"
 	    },
 	    "default_federate": true,
+	    "welcomePageUrl": "home.html",
+	    "default_theme": "light",
 	    "roomDirectory": {
-	        "servers": [
-	            "tomesh.net",
-	            "matrix.org"
-	        ]
+		"servers": [
+		    "tomesh.net",
+		    "matrix.org"
+		]
 	    },
 	    "welcomeUserId": "@riot-bot:matrix.org",
 	    "piwik": {
-	        "url": "https://piwik.riot.im/",
-	        "siteId": 1
+		"url": "https://piwik.riot.im/",
+		"whitelistedHSUrls": ["https://matrix.org"],
+		"whitelistedISUrls": ["https://vector.im", "https://matrix.org"],
+		"siteId": 1
+	    },
+	    "enable_presence_by_hs_url": {
+		"https://matrix.org": false
 	    }
 	}
 	```
@@ -328,12 +359,14 @@ The web client we host at **chat.tomesh.net** is running [Riot Web](https://gith
 	```
 	server {
 	    listen 80;
+	    listen [::]:80;
 	    server_name chat.tomesh.net;
 	    return 301 https://$host$request_uri;
 	}
 
 	server {
 	    listen 443 ssl;
+	    listen [::]:443 ssl;
 	    server_name chat.tomesh.net;
 
 	    root /var/www/chat.tomesh.net/public;
