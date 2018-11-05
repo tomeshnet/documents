@@ -145,3 +145,28 @@ the one thing that needs to happen is more PTP links, and a final decision on wh
 2. Share and educate peeple about tomesh and engage them with live demos and what they need to get setup.
 3. Discuss with fellow members in the group and collaborate on current solutions we use and how we can make them better.
 4. Want to have a a digital connection with the community and use 100% FOSS software and hardware as much as possible.
+
+---
+
+### dcwalk
+
+
+1. Talk about your motivation for joining Toronto Mesh.
+
+When Toronto Mesh started I was excited about working to create alternatives (maybe not total replacements or feature-for-feature swaps) to existing patterns of infrastructure, ownership (and the exclusion that does with them). I wanted to, and remain interested in, _building_ and _troubleshooting_ the use of those alternatives.
+
+I also saw this as a way to learn about those technologies and meet other people interested in them as well as beginning to grow a community of practice! Sort of a "pretend you are bigger than you are" and folks will think you are a movement. Like the Queercore scene in Toronto. Further, I wanted to also make sure we thought about demystifying technologies and be inviting for those not usually included and interested-- something I don't think we have succeeded at.
+
+2. Talk about what you want Toronto Mesh to focus on- this will be distilled into a Vision for the group.
+
+I want Toronto Mesh to be the name around which a functioning networks is created in Toronto. I honestly don't think that will come out of the cjdns prototype work or libre router in the near term. I wonder if taking up more mature software and hardware that can work in parallel would be one way to focus on that.
+
+
+3. Provide three different mission statements.
+
+(I'm writing these based on Toronto Mesh's existing scope and activities)
+
+- Toronto Mesh is prototyping the next generation of the internet
+- Toronto Mesh empowers people to create better networks, relying on peer-to-peer and mesh technologies, digital literacy, and open hardware
+- Toronto Mesh is imagining better network futures 
+
