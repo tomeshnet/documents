@@ -153,14 +153,13 @@ the one thing that needs to happen is more PTP links, and a final decision on wh
 
 1. Talk about your motivation for joining Toronto Mesh.
 
-When Toronto Mesh started I was excited about working to create alternatives (maybe not total replacements or feature-for-feature swaps) to existing patterns of infrastructure, ownership (and the exclusion that does with them). I wanted to, and remain interested in, _building_ and _troubleshooting_ the use of those alternatives.
+When Toronto Mesh started I was excited about working to create alternatives (maybe not total replacements or feature-for-feature swaps) to existing patterns of infrastructure, ownership (and the exclusion that goes with them). I wanted to, and remain interested in, _building_ and _troubleshooting_ the use of those alternatives.
 
-I also saw this as a way to learn about those technologies and meet other people interested in them as well as beginning to grow a community of practice! Sort of a "pretend you are bigger than you are" and folks will think you are a movement. Like the Queercore scene in Toronto. Further, I wanted to also make sure we thought about demystifying technologies and be inviting for those not usually included and interested-- something I don't think we have succeeded at.
+I also saw this as a way to learn about those technologies and meet other people interested in them as well as beginning to grow a community of practice! Sort of a "pretend you are bigger than you are" and folks will think you are a movement that you might eventually grow into. Further, I wanted to make sure we thought about demystifying technologies and be inviting for those not usually included and interested-- something I don't think we have always succeeded at.
 
 2. Talk about what you want Toronto Mesh to focus on- this will be distilled into a Vision for the group.
 
-I want Toronto Mesh to be the name around which a functioning networks is created in Toronto. I honestly don't think that will come out of the cjdns prototype work or libre router in the near term. I wonder if taking up more mature software and hardware that can work in parallel would be one way to focus on that.
-
+I want Toronto Mesh to be the name around which a functioning networks is created in Toronto. I honestly don't think thatin the near term it will come out of the protype node work with cjdnsor libre router. I wonder if taking up more mature software and hardware that can work in parallel would be one way to focus on that. However I think that those explorations are exiciting and I am happy that Toronto Mesh has been a place for people to work on those projects.
 
 3. Provide three different mission statements.
 
