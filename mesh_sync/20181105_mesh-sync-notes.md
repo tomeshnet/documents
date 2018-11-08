@@ -93,7 +93,7 @@ Lastly, please scope your session within a 20 minute time block. If more time is
   - benhylau: Since need is immediate, use commercial router, plug Pi into it
   - hank, yurko: LibreRouter
   - Resiliency and opportunity to experiment with p2p-web are the objectives
-- guifipedro: eXO.cat of the guifi foundation
+- guifipedro: eXO.cat of the guifi community
   - RetroShare (compared to SSB, with metadata protection)
   - Running WiFi network with static IPs, flash router with final configurations, compatible with idea of flashing routers + plug in Raspberry / Orange Pi
   - Freifunk random address assignment: https://github.com/freifunk-bielefeld/firmware/tree/master/package/simple-radvd
