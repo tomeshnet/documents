@@ -85,7 +85,7 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 1. To prevent our 1 GB VPS from running out of memory, we need to reduce the cache factor by running:
 
 	```
-	echo "synctl_cache_factor: 0.02" >> homeserver.yaml
+	echo "synctl_cache_factor: 0.01" >> homeserver.yaml
 	```
 
 1. Synapse keeps a lot of logs by default. Open up **tomesh.net.log.config**, find `handlers:file:backupCount` and change the value to `1`.
