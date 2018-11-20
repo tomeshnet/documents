@@ -299,21 +299,21 @@ Our version of Synapse homeserver accumulates forward extremities over time due 
 	UPDATE users SET admin=1 WHERE name LIKE '@USERNAME:tomesh.net';
 	```
 
-### Synapse Purging Old Posts and Media Files From One Year Ago.
+### Purging Old Posts and Media Files From One Year Ago
 1. Login as an admin user at https://matrix.tomesh.net/ and copy your `Access token`
 
 1. SSH into **tomesh0**
 
-1. Switch to root shell `sudo -i`.
+1. Switch to root shell `sudo -i`
 
-1. cd ~/.synapse/
+1. `cd ~/.synapse/`
 
 1. Put your `Access token` into an variable called `access_token`
 	```
 	# access_token=ABCD1234...
 	```
 
-1. Run the API call to purge old posts ex. #tomesh:tomesh.net channel with the `Internal room ID:` !FsFLbKGMcUXEMBxZdu:tomesh.net. To purge another room replace the ID with that room's ID:
+1. Run the API call to purge old posts e.g. `#tomesh:tomesh.net` channel with the `Internal room ID:` `!FsFLbKGMcUXEMBxZdu:tomesh.net`. To purge another room replace the ID with that room's ID:
 
 	```
 	# curl -XPOST -d '{"delete_local_events": true, "purge_up_to_ts": '$(echo $(($(date --date="1 year ago" -u +%s%N)/1000000)))' }' 'http://localhost:8008/_matrix/client/r0/admin/purge_history/!FsFLbKGMcUXEMBxZdu:tomesh.net?access_token='$access_token
@@ -330,7 +330,7 @@ Our version of Synapse homeserver accumulates forward extremities over time due 
 
 1. Run the command `VACUUM;`
 
-1. Logout of the database and the Synapse user and return back to root shell.
+1. Logout of the database and the Synapse user and return back to root shell
 
 1. Delete old media files by running the following commands:
 	```
