@@ -9,7 +9,8 @@ We reflected and discussed on governance during the [November 12 Planning Meetin
   - Monthly check-ins (casual, social and roughly an hour) for an update from working group leads
   - Six-month planning meeting, where we review previous roadmap and establish a new one, establish new leads and address any other issues
 - Make use of our decentralized **collaboration tools**:
-  - Working group areas on our chat and GitHub.
+  - Applicable rooms on [our chat](https://chat.tomesh.net/)
+  - Our [GitHub organization](https://github.com/tomeshnet).
 
 As per the 2018 November Planning Meeting:
 
