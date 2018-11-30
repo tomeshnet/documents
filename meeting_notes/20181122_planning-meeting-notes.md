@@ -129,7 +129,7 @@ Node / tech development
 
 - Adding SSB (patchfoo) to the prototype stack
 - See v0.4 roadmap: Yggdrasil + Install Profiles in prototype
-- Contact at Alpha Networks if anyone's interested in buying from them
+- Contact at [Alfa Network](https://www.alfa.com.tw) if anyone's interested in buying from them
 - Some people are in the process of organizing a cooperative to support some of the work related to node tech and workshop development
   - [Planning notes and project board](https://github.com/cryptographydog) (working name temporary)
 
