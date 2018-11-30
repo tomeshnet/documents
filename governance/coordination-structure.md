@@ -6,11 +6,15 @@ We reflected and discussed on governance during the [November 12 Planning Meetin
   - Rotating leads who steer work and strategy within working groups, leads are _required_ to rotate out every planning meeting
   - Leads responsible and main point of contact for coordinating
 - Stick to an established **meeting schedule**:
-  - Monthly check-ins(casual, social and roughly an hour) for an update from working group leads
+  - Monthly check-ins (casual, social and roughly an hour) for an update from working group leads
   - Six-month planning meeting, where we review previous roadmap and establish a new one, establish new leads and address any other issues
 - Make use of our decentralized **collaboration tools**:
-  - Tracking working groups projects with Wekan
-  - Working group areas on our chat and github
+  - Applicable rooms on [our chat](https://chat.tomesh.net/)
+  - Our [GitHub organization](https://github.com/tomeshnet).
+
+As per the 2018 November Planning Meeting:
+
+- Only people who have been involved with Toronto Mesh for one cycle or longer will be assigned lead roles.
 
 ## Decision Making
 
@@ -22,9 +26,23 @@ Toronto Mesh uses voting to determine whether we have reached consensus:
 
 ## Working Groups
 
+### Cycle VII (2018 November)
+
+Working group leads established at the November 2018 Planning Meeting:
+
+| Working Group | Lead |
+| --- | --- |
+| **Central Org** (_ongoing_) | dasanchez |
+| **Tools** (_ongoing_) | HeavyMetal |
+| **Deployment** (_ongoing_) | Pedro.S |
+| **Website** (_ongoing_) | garry |
+| **Outreach** (_ongoing_) | benhylau, Tim, Hank |
+| **hello@tomesh.net Monitoring** (ongoing) | Hank, benhylau |
+| **Code of Conduct Monitoring** (_ongoing_) | Hank |
+
 ### Cycle VI (2018 May)
 
-Fifth working groups with leads established at May 17 Planning Meeting.
+Sixth working groups with leads established at May 17 Planning Meeting.
 Excerpted from [Planning Meeting Notes - May 17, 2017](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20180517_planning-meeting-notes.md)
 
 | Working Group | Lead |
@@ -39,7 +57,7 @@ Excerpted from [Planning Meeting Notes - May 17, 2017](https://github.com/tomesh
 
 ### Cycle V (2017 November)
 
-Fourth working groups with leads established at November 23 Planning Meeting.
+Fifth working groups with leads established at November 23 Planning Meeting.
 Excerpted from [Planning Meeting Notes - November 23, 2017](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20171123_planning-meeting-notes.md)
 
 | Working Group | Lead |
@@ -52,7 +70,7 @@ Excerpted from [Planning Meeting Notes - November 23, 2017](https://github.com/t
 
 ### Cycle IV (2017 April)
 
-Third working groups with leads established at April 24 Planning Meeting.
+Fourth working groups with leads established at April 24 Planning Meeting.
 Excerpted from [Planning Meeting Notes - April 24, 2017](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20170424_planning-meeting-notes.md)
 
 | Working Group | Lead |
