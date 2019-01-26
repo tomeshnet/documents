@@ -5,14 +5,14 @@ attendees: 8
 date: 2018-05-30
 ---
 
-# Overview 
+# Overview
 
 This document summarizes a series of tests on the **Dragino HPM5G mPCIe radio module** and the **LibreRouter's 12 dBi antenna** that are expected to ship with the soon-to-be-released LibreRouter bundle. Toronto Mesh acquired six radio boards and antennas from Dragino, and in this test, used a pair of the [Marvell ESPRESSObin](http://espressobin.net) running [prototype](https://github.com/tomeshnet/prototype-cjdns-pi) to test the radios.
 
 ![Dragino HPM5G mPCIe radio module](../images/20180530_hpm5g-radio-tests.jpg?raw=true)
 ![LibreRouter's 12 dBi antenna](../images/20180530_hpm5g-radio-tests2.jpg?raw=true)
 
-We conducted many tests that are described in detail below, but our key findings are as follow:
+We conducted many tests that are described in detail below, but our key findings are as follows:
 
 * The radio and antenna combo creates stable links over hundreds of metres at 150 Mbps
 * Wall penetration is excellent even when a client node has an omnidirectional antenna on a radio with average sensitivity
@@ -172,7 +172,7 @@ When fully charged the battery put out 12.5 V (12.6 V being the absolute max) an
 
 We split up into two teams and connected a laptop to the USB port of the ESPRESSObin to record results, pointing the antenna in the general direction of the other team. One device had TX power of 15 dBm (but it occasionally reboots due to drawing too much power over the mPCIe) and iperf3 recorded speeds close to 100 Mbps. The other device with TX power of 14 dBm never rebooted, but it does not reach the same speeds when it's the one transmitting.
 
-This is what one side looks like: 
+This is what one side looks like:
 
 ![Bridge test self](../images/20180530_hpm5g-radio-tests11.jpg?raw=true)
 
@@ -392,7 +392,7 @@ At 20 dBm:
 ```
 
 At 15 dBm:
- 
+
 ```
 [  4]   0.00-1.00   sec  15.0 MBytes   126 Mbits/sec    0    527 KBytes
 [  4]   1.00-2.00   sec  16.8 MBytes   141 Mbits/sec    0    792 KBytes
