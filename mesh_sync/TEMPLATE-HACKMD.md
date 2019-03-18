@@ -5,24 +5,20 @@ Mesh Sync
 📍 https://appear.in/tomeshnet  
 📅 Monday,   
 
-| Timezone | Workshop | General  |
-|:---------|:---------|:---------|
-| PST      |`07:00 am`|`08:00 am`|
-| EST      |`10:00 am`|`11:00 am`|
-| CEST     |`04:00 pm`|`05:00 pm`|
-| HKT      |`10:00 pm`|`11:00 pm`|
+| Timezone | Start time |
+|:---------|:-----------|
+| PST      | `07:00 am` |
+| EST      | `10:00 am` |
+| CEST     | `04:00 pm` |
+| HKT      | `10:00 pm` |
 
 ## What is this?
 
-Biweekly standing open-call for remote parties to sync up on topics of mutual interest. The hours are selected to make it possible for parties of different timezones to attend.
+Biweekly open calls to sync up on topics relating to the global Community Network movement. The hours are selected to make it possible for parties of different timezones to attend.
 
-Anyone may propose a topic on [this open-edit pad](https://hackmd.io/HSOK15u7TnS6Oz1RH0McGg), taking one of six timeslots by putting yourself as _Facilitator_ and filling the corresponding [_Agenda_](#Agenda) section.
+Anyone may propose a topic on [this open-edit pad](https://hackmd.io/HSOK15u7TnS6Oz1RH0McGg), taking one of five session timeslots by putting yourself as _Facilitator_ and filling the corresponding [_Agenda_](#Agenda) section. You can see previous meeting notes on [tomeshnet/documents/mesh_sync](https://github.com/tomeshnet/documents/tree/master/mesh_sync) to get an idea of what type of topics have been discussed in the past.
 
-The _Course_ hour is for topics relating to the [Building the Peer-to-Peer Internet workshop series](https://tomeshnet.github.io/p2p-internet-workshop/), such as discussing about workshop facilitation at a new location, the logistics of getting the hardware and software set up, funding opportunities for curriculum development, etc.
-
-The _General_ hour is for all other issues, such as [Prototype](https://github.com/tomeshnet/prototype-cjdns-pi) or [Mesh Orange](https://github.com/tomeshnet/mesh-orange) updates, IPFS live streaming discussions, showcasing your new project, or collective brainstorming of collaboration opportunities with Toronto Mesh.
-
-Lastly, please scope your session within a 20 minute time block. If more time is needed, it is probably best to use the 20 minutes to give an overview then schedule separate meetings with interested parties. The hope is that these standing hours can be well attended and everyone participating gets a general idea of the things going on :satellite: 
+Please scope your session within a 20 minute time block. If more time is needed, it is probably best to use the 20 minutes to give an overview, then schedule separate meetings with interested parties. The hope is that these standing hours can be well attended and everyone participating gets a general idea of global initiatives relating to the Community Network movement :satellite:
 
 ## Attending
 
@@ -36,37 +32,44 @@ Lastly, please scope your session within a 20 minute time block. If more time is
 
 | Start time   | 20-min timeslot | Facilitator |
 |:-------------|:----------------|:------------|
-|`10:00 am EST`| Course 1        |             |
-|              | Course 2        |             |
-|              | Course 3        |             |
-|`11:00 am EST`| General 1       |             |
-|              | General 2       |             |
-|              | General 3       |             |
+|`10:00 am EST`| Intros          |             |
+|              | Session 1       |             |
+|              | Session 2       |             |
+|`11:00 pm EST`| Session 3       |             |
+|              | Session 4       |             |
+|              | Session 5       |             |
 
-### Course 1: 
+### Session 0: Intros
 #### Objectives
+- Introduce and connect with each other on the call
+#### Notes
+
+### Session 1: 
+#### Objectives
+#### Notes
 #### Links
 
-### Course 2: 
+### Session 2: 
 #### Objectives
+#### Notes
 #### Links
 
-### Course 3: 
+### Session 3: 
 #### Objectives
+#### Notes
 #### Links
 
-### General 1: 
+### Session 4: 
 #### Objectives
+#### Notes
 #### Links
 
-### General 2: 
+### Session 5: 
 #### Objectives
+#### Notes
 #### Links
 
-### General 3: 
-#### Objectives
-#### Links
+## Communications load balancing
 
-## Meeting notes
-
-...
+| Organization | Toronto Mesh contact | Subject | Status |
+|:-------------|:---------------------|:--------|:-------|
