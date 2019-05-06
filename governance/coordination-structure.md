@@ -30,16 +30,19 @@ Central Org
   - Post event details to the tomesh.net website 
 
 Tools
-  - Maintain the tomesh.net website server 
-  - Maintain the Matrix server
+  - Maintain the following infrastructure services:
+    - tomesh.net website server
+    - chat.tomesh.net Riot UI server for Matrix chat
+    - matrix.tomesh.net Matrix server 
+    - webmail.tomesh.net Email web client
+    - y.mirror.tomesh.net and h.mirror.tomesh.net mesh mirrors
 
 Deployment
   - Coordinate node deployment efforts
 
 Website
   - Maintain the tomesh.net website
-    - Update whenever security issues are found
-    - Review pull requests to the tomeshnet repo
+    - Review pull requests to the [tomesh.net](https://github.com/tomeshnet/tomesh.net) repo
 
 Outreach
   - Identify outreach opportunities and share with the rest of the group
