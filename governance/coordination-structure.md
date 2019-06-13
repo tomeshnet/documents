@@ -54,6 +54,22 @@ hello@tomesh.net Monitoring
 Code of Conduct Monitoring
   - Monitor coc@tomesh.net and meetups to make sure members and attendees are following the Code of Conduct
 
+### Cycle VIII (2019 May)
+
+Working group leads established at the May 2019 Planning Meeting:
+
+| Working Group                              | Lead                |
+|--------------------------------------------|---------------------|
+| **Central Org** (_ongoing_)                | Tim                 |
+| **Tools** (_ongoing_)                      | HeavyMetal          |
+| **Node Tech** (_ongoing_)                  | darkdragon2k        |
+| **Deployment** (_ongoing_)                 | Tim                 |
+| **Website** (_ongoing_)                    | dasanchez           |
+| **Outreach** (_ongoing_)                   | benhylau, Tim, Ryan |
+| **hello@tomesh.net Monitoring** (ongoing)  | Hank,Tim            |
+| **Code of Conduct Monitoring** (_ongoing_) | Hank                |
+
+
 
 ### Cycle VII (2018 November)
 
