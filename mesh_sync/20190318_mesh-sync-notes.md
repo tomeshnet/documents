@@ -32,7 +32,7 @@ Please scope your session within a 20 minute time block. If more time is needed,
 👥 Please add your name to this list if attending:
 - ben (benhylau)
 - caleb (cjd)
-- yurko (darkdrgn2k)
+- yurko
 - tim
 - pedro (guifipedro)
 
