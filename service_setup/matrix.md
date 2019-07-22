@@ -14,252 +14,35 @@ We currently run the Python-implemented [Synapse](https://github.com/matrix-org/
 
 ### Install Synapse Homeserver
 
-1. Get a root shell with `sudo -i`.
-
-1. Install the tools:
-
-	```
-	sudo apt-get install build-essential python2.7-dev libffi-dev \
-	                     python-pip python-setuptools sqlite3 \
-	                     libssl-dev python-virtualenv libjpeg-dev \
-			     libxslt1-dev ntp
-	```
-
-1. Install Synapse homeserver version [v0.19.2](https://github.com/matrix-org/synapse/releases/tag/v0.19.2):
-
-	```
-	# virtualenv -p python2.7 ~/.synapse
-	# source ~/.synapse/bin/activate
-	# pip install --upgrade setuptools
-	# pip install https://github.com/matrix-org/synapse/tarball/v0.19.2
-	```
-
-	>From now on, each time you want to configure the server, run `cd ~/.synapse && source ./bin/activate` from a root shell.
-
-1. Set up the homeserver in our virtualenv:
-
-	```
-	# cd ~/.synapse
-	# python -m synapse.app.homeserver \
-	    --server-name tomesh.net \
-	    --config-path homeserver.yaml \
-	    --generate-config \
-	    --report-stats=no
-	```
-
-1. Enable registration for new users by changing `enable_registration` to `True` in **homeserver.yaml**.
-
-1. Enable guest access to public rooms by changing `allow_guest_access` to `True` in **homeserver.yaml**.
-
-1. Enable community group creation by adding `enable_group_creation: true` in **homeserver.yaml**.
-
-1. Enable IPv6 for Synapse by changing the `bind_addresses` section in **homeserver.yaml** to:
-	```
-	bind_addresses:
-	  - '0.0.0.0'
-	  - 'IPv6:ADDRESS'
-	```
-	Where IPV6:ADDRSS is your public IPv6 address of your server.
-
-1. Set the non HTTP port (8008) to localhost only by changing the following in **homeserver.yaml**:
-	```
-	bind_addresses:
-	  - '127.0.0.1'
-	  - '::1'
-	```
-
-1. Enable X-Forwarded-For header from NGINX reverse proxy by changing `x_forwarded` to `true` in **homeserver.yaml** for port 8008.
-
-1. Enable link preview by changing `url_preview_enabled` to `True` in **homeserver.yaml** and uncommenting:
-
-	```
-	url_preview_ip_range_blacklist:
-	- '127.0.0.0/8'
-	- '10.0.0.0/8'
-	- '172.16.0.0/12'
-	- '192.168.0.0/16'
-	```
-	
-	You also need to `pip install lxml` to start Synapse with link preview.
-
-1. To prevent our 1 GB VPS from running out of memory, we need to reduce the cache factor by running:
-
-	```
-	echo "synctl_cache_factor: 0.02" >> homeserver.yaml
-	```
-
-1. Synapse keeps a lot of logs by default. Open up **tomesh.net.log.config**, find `handlers:file:backupCount` and change the value to `1`.
-
-1. Start the server with `synctl start`.
-
-	>If you want to stop the server at some point, run `synctl stop`.
-
-### Set Up Federation
-
-1. Due to a current IPv6 limitation in a Synapse dependency, we must resolve DNS through IPv4 for federation to work. Edit **/etc/network/interfaces** and comment out the `dns-nameservers` line, then add a line with only the IPv4 DNS nameserver:
-
-    ```
-    #        dns-nameservers 2001:4860:4860::8844 2001:4860:4860::8888 8.8.8.8
-            dns-nameservers 8.8.8.8
-    ```
-
-1. Reboot the server with `sudo reboot`. Then verify **/etc/resolv.conf** only contains IPv4 DNS servers.
-
-1. Create a SRV record and publish it in DNS:
-
-	```
-	$ dig -t srv _matrix._tcp.tomesh.net
-	_matrix._tcp    IN      SRV     10 0 8448 matrix.tomesh.net.
-	```
-
-1. Open up firewall for federation over port 8448 `ufw allow 8448`.
-
-### Set up HTTPS with nginx and letsencrypt
-
-1. If nginx and letsencrypt aren't already installed on the server, see [our Wekan setup](https://github.com/tomeshnet/documents/blob/master/service_setup/wekan.md) to configure the basics.
-
-1. Create **/etc/nginx/sites-available/matrix.tomesh.net**:
-
-    ```
-    server {
-        listen 80;
-        listen [::]:80;
-        server_name matrix.tomesh.net;
-        return 301 https://$host$request_uri;
-
-        location ~ /.well-known {
-          allow all;
-          root /usr/share/nginx/html;
-        }
-    }
-
-    server {
-        listen 443 ssl;
-        listen [::]:443 ssl;
-        server_name matrix.tomesh.net;
-
-        ssl_certificate /etc/letsencrypt/live/matrix.tomesh.net/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/matrix.tomesh.net/privkey.pem;
-        ssl_trusted_certificate /etc/letsencrypt/live/matrix.tomesh.net/fullchain.pem;
-
-        ssl_session_timeout 1d;
-        ssl_session_cache shared:SSL:50m;
-
-        # Diffie-Hellman parameter for DHE ciphersuites, recommended 2048 bits
-        # Generate with: openssl dhparam -out /etc/nginx/dhparam.pem 4048
-        ssl_dhparam /etc/ssl/certs/dhparam.pem;
-
-        # Mozilla "Intermediate configuration" copied from https://mozilla.github.io/server-side-tls/ssl-config-generator/
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-        ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA';
-        ssl_prefer_server_ciphers on;
-
-        # HSTS (ngx_http_headers_module is required) (15768000 seconds = 6 months)
-        add_header Strict-Transport-Security max-age=15768000;
-
-        # OCSP Stapling: fetch OCSP records from URL in ssl_certificate and cache them
-        ssl_stapling on;
-        ssl_stapling_verify on;
-
-        # Add headers to serve security related headers
-        add_header X-Content-Type-Options nosniff;
-        add_header X-Frame-Options "SAMEORIGIN";
-        add_header X-XSS-Protection "1; mode=block";
-        add_header X-Robots-Tag none;
-        add_header X-Download-Options noopen;
-        add_header X-Permitted-Cross-Domain-Policies none;
-
-        location ~ /.well-known {
-          allow all;
-          root /usr/share/nginx/html;
-        }
-
-        location / {
-            proxy_pass http://127.0.0.1:8008/;
-            proxy_http_version 1.1;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection "upgrade";
-            proxy_set_header Host $http_host;
-
-            proxy_set_header X-Forwarded-For $remote_addr;
-            proxy_set_header X-Forward-Proto http;
-            proxy_set_header X-Nginx-Proxy true;
-
-            proxy_redirect off;
-        }
-    }
-    ```
-
-1. Start serving the site by symlinking:
-
-	```
-	ln -s /etc/nginx/sites-available/matrix.tomesh.net /etc/nginx/sites-enabled/matrix.tomesh.net
-	```
-1. Reload nginx `service nginx reload`.
-
-1. Assuming Diffie-Hellman **.pem** and **crontab** for letsencrypt renewals are already configured, just run:
-
-	```
-	# /opt/letsencrypt/letsencrypt-auto certonly --agree-tos --renew-by-default --email hello@tomesh.net -a webroot --webroot-path=/usr/share/nginx/html -d matrix.tomesh.net
-	```
+We are using Terraform to provision our Synapse Homeserver.
+The instructions can be found on our [mesh-services repository](https://github.com/tomeshnet/mesh-services/tree/master/matrix-synapse-riot)
 
 ### Update Synapse Version
 
-1. Enter the virtualenv from a root shell:
+1. SSH into matrix.tomesh.net
 
-	```
-	# cd ~/.synapse
-	# source ./bin/activate
-	```
-1. Stop the Synapse server with `synctl stop`.
+1. Update Synapse using Debian's apt command
 
-1. Update with the following command where `VERSION` can be a branch like `master` or `develop`, or a release tag like `v0.33.8`, or a commit hash:
-
-	```
-	# pip install --upgrade --process-dependency-links https://github.com/matrix-org/synapse/tarball/VERSION
-	```
-
-1. Start the Synapse server again with `synctl start`.
-
-### Migrate Database to PostgreSQL
-
-At some point we migrated our SQLite database to PostgreSQL for better performance:
-
-1. Back up a snapshot of the VM, and then copy the Synapse files, including the SQLite database, to another directory.
-
-1. [Install PostgreSQL](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-14-04) on the VM and [verify its security settings](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps).
-
-1. Create the `synapse_user` PostgreSQL user, set a `PASSWORD` and give it permissions to the `synapse` database.
-
-1. Follow the [migration instructions from Synapse](https://github.com/matrix-org/synapse/blob/master/docs/postgres.rst#synapse-config), replacing the `database` section in **homeserver.yaml** with:
-
-	```
-	# Postgres database configuration
-	database:
-	    name: psycopg2
-	    args:
-	        user: synapse_user
-	        password: PASSWORD
-	        database: synapse
-	        host: localhost
-	        cp_min: 5
-	        cp_max: 10
-	```
+       sudo apt update && sudo apt dist-upgrade -y
 
 ### Synapse Performance Bug
 
-Our version of Synapse homeserver accumulates forward extremities over time due to [a known bug](https://github.com/matrix-org/synapse/issues/1760). The current workaround is to perform the following steps when performance suffers noticably:
+Our version of Synapse homeserver accumulates forward extremities over time due to [a known bug](https://github.com/matrix-org/synapse/issues/1760).
+Without the workaround the performance will suffer noticably.
+The current workaround is enabling `cleanup_extremities_with_dummy_events` but if that is not working follow steps below:
 
-1. SSH into **tomesh0**
+1. SSH into matrix.tomesh.net
 
-1. Switch to Synapse Postgres user `sudo -i -u synapse_user`
+1. Stop the synapse service `sudo systemctl stop matrix-synapse`
+
+1. Switch to Synapse Postgres user `sudo -i -u postgres`
 
 1. Load CLI and connect to Synapse database `psql -d synapse`
 
 1. Run query and look for rooms with more than 3 forward extremities:
 
 	```
-	select room_id, count(*) c from event_forward_extremities group by room_id order by c desc limit 5;
+	select room_id, count(*) c from event_forward_extremities group by room_id order by c desc limit 30;
 	```
 
 1. Run the following for each of the high extremities room:
@@ -285,12 +68,14 @@ Our version of Synapse homeserver accumulates forward extremities over time due 
 	    AND e.room_id = '!jpZMojebDLgJdJzFWn:matrix.org';
 	```
 
-1. Run the select again to confirm that forward extremities counts are cleared up for all those rooms. Restart Synapse and the Droplet dashboard should show much lower resource usage.
+1. Run the select again to confirm that forward extremities counts are cleared up for all those rooms.
+ 
+1. Start Synapse `sudo systemctl start matrix-synapse` and the you should see improved performance and system load of the VM will drop.
 
 ### Grant Synapse User Admin Rights
-1. SSH into **tomesh0**
+1. SSH into matrix.tomesh.net
 
-1. Switch to Synapse Postgres user `sudo -i -u synapse_user`
+1. Switch to Postgres user `sudo -i -u postgres`
 
 1. Load CLI and connect to Synapse database `psql -d synapse`
 
@@ -300,248 +85,66 @@ Our version of Synapse homeserver accumulates forward extremities over time due 
 	```
 
 ### Purging Old Posts and Media Files From One Year Ago
-1. Login as an admin user at https://matrix.tomesh.net/ and copy your `Access token`
+1. Login as an admin user at https://chat.tomesh.net and copy your `Access token`
 
-1. SSH into **tomesh0**
+1. SSH into **matrix.tomesh.net**
 
-1. Switch to root shell `sudo -i`
+1. Put your `Access token` into a variable called `access_token`:
 
-1. `cd ~/.synapse/`
+       access_token=ABCD1234...
 
-1. Put your `Access token` into an variable called `access_token`
-	```
-	# access_token=ABCD1234...
-	```
+1. Run the API call to purge old posts (e.g. `#tomesh:tomesh.net` channel with the `Internal room ID:` `!FsFLbKGMcUXEMBxZdu:tomesh.net`).
+    To purge another room, replace the ID with that room's ID:
 
-1. Run the API call to purge old posts e.g. `#tomesh:tomesh.net` channel with the `Internal room ID:` `!FsFLbKGMcUXEMBxZdu:tomesh.net`. To purge another room replace the ID with that room's ID:
-
-	```
-	# curl -XPOST -d '{"delete_local_events": true, "purge_up_to_ts": '$(echo $(($(date --date="1 year ago" -u +%s%N)/1000000)))' }' 'http://localhost:8008/_matrix/client/r0/admin/purge_history/!FsFLbKGMcUXEMBxZdu:tomesh.net?access_token='$access_token
-	```
+       curl -XPOST -d '{"delete_local_events": true, "purge_up_to_ts": '$(echo $(($(date --date="1 year ago" -u +%s%N)/1000000)))' }' 'http://localhost:8008/_matrix/client/r0/admin/purge_history/!FsFLbKGMcUXEMBxZdu:tomesh.net?access_token='$access_token
 
 1. Optionally you can remove all remote content by running:
-	```
-	curl -XPOST -d '{}' "http://localhost:8008/_matrix/client/r0/admin/purge_media_cache?before_ts=$(echo $(($(date -u +%s%N)/1000000)))&access_token=$access_token"`
-	```
 
-1. Switch to Synapse Postgres user `sudo -i -u synapse_user`
+       curl -XPOST -d '{}' "http://localhost:8008/_matrix/client/r0/admin/purge_media_cache?before_ts=$(echo $(($(date -u +%s%N)/1000000)))&access_token=$access_token"
+
+1. Switch to Postgres user `sudo -i -u postgres`
 
 1. Load CLI and connect to Synapse database `psql -d synapse`
 
 1. Run the command `VACUUM;`
 
-1. Logout of the database and the Synapse user and return back to root shell
+1. Logout of the database and the Postgres user and return back to your shell
+
+1. Switch to the root user `sudo -i`
+
+1. Go into Synapse's media storage directory
+
+       cd /var/lib/matrix-synapse/media/local_content/
 
 1. Delete old media files by running the following commands:
-	```
-	cd ~/.synapse/media_store/local_content
-	find * -mindepth 1 -mtime +365 -delete
-	```
 
-## Set Up Riot Web Client
+       cd /var/lib/matrix-synapse/media/local_content/
+       find * -mindepth 1 -mtime +365 -delete
 
-The web client we host at **chat.tomesh.net** is running [Riot Web](https://github.com/vector-im/riot-web), and defaults to use our Matrix homeserver.
 
-### Serve Riot Web at chat.tomesh.net
-
-1. Get a root shell with `sudo -i`.
-
-1. Download the pre-compiled [Riot Web release](https://github.com/vector-im/riot-web/releases):
-
-	```
-	# wget https://github.com/vector-im/riot-web/releases/download/v0.13.5/riot-v0.13.5.tar.gz
-	```
-
-1. Extract **riot-v0.13.5.tar.gz** into **/var/www/chat.tomesh.net/public**:
-
-	```
-	# tar xf riot-v0.13.5.tar.gz -C /var/www/chat.tomesh.net/public --strip-components 1
-	```
-
-1. Create **config.json** with the following lines, so it is used in place of the default **config.sample.json**:
-
-	```
-	{
-	    "default_hs_url": "https://matrix.tomesh.net",
-	    "default_is_url": "https://vector.im",
-	    "disable_custom_urls": false,
-	    "disable_guests": false,
-	    "disable_login_language_selector": false,
-	    "disable_3pid_login": false,
-	    "brand": "Riot",
-	    "integrations_ui_url": "https://scalar.vector.im/",
-	    "integrations_rest_url": "https://scalar.vector.im/api",
-	    "integrations_jitsi_widget_url": "https://scalar.vector.im/api/widgets/jitsi.html",
-	    "bug_report_endpoint_url": "https://riot.im/bugreports/submit",
-	    "features": {
-		"feature_groups": "labs",
-		"feature_pinning": "labs"
-	    },
-	    "default_federate": true,
-	    "welcomePageUrl": "home.html",
-	    "default_theme": "light",
-	    "roomDirectory": {
-		"servers": [
-		    "tomesh.net",
-		    "matrix.org"
-		]
-	    },
-	    "welcomeUserId": "@riot-bot:matrix.org",
-	    "piwik": {
-		"url": "https://piwik.riot.im/",
-		"whitelistedHSUrls": ["https://matrix.org"],
-		"whitelistedISUrls": ["https://vector.im", "https://matrix.org"],
-		"siteId": 1
-	    },
-	    "enable_presence_by_hs_url": {
-		"https://matrix.org": false
-	    }
-	}
-	```
-
-1. Run `chmod 755 /var/www` to ensure we have the right permissions.
-
-### Set up HTTPS with nginx and letsencrypt
-
-1. If nginx and letsencrypt aren't already installed on the server, see [our Wekan setup](https://github.com/tomeshnet/documents/blob/master/service_setup/wekan.md) to configure the basics.
-
-1. Create **/etc/nginx/sites-available/chat.tomesh.net**:
-
-	```
-	server {
-	    listen 80;
-	    listen [::]:80;
-	    server_name chat.tomesh.net;
-	    return 301 https://$host$request_uri;
-	}
-
-	server {
-	    listen 443 ssl;
-	    listen [::]:443 ssl;
-	    server_name chat.tomesh.net;
-
-	    root /var/www/chat.tomesh.net/public;
-	    index index.html index.htm;
-
-	    ssl_certificate /etc/letsencrypt/live/chat.tomesh.net/fullchain.pem;
-	    ssl_certificate_key /etc/letsencrypt/live/chat.tomesh.net/privkey.pem;
-	    ssl_trusted_certificate /etc/letsencrypt/live/chat.tomesh.net/fullchain.pem;
-
-	    ssl_session_timeout 1d;
-	    ssl_session_cache shared:SSL:50m;
-
-	    # Diffie-Hellman parameter for DHE ciphersuites, recommended 2048 bits
-	    # Generate with: openssl dhparam -out /etc/nginx/dhparam.pem 4048
-	    ssl_dhparam /etc/ssl/certs/dhparam.pem;
-
-	    # Mozilla "Intermediate configuration" copied from https://mozilla.github.io/server-side-tls/ssl-config-generator/
-	    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-	    ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA';
-	    ssl_prefer_server_ciphers on;
-
-	    # HSTS (ngx_http_headers_module is required) (15768000 seconds = 6 months)
-	    add_header Strict-Transport-Security max-age=15768000;
-
-	    # OCSP Stapling: fetch OCSP records from URL in ssl_certificate and cache them
-	    ssl_stapling on;
-	    ssl_stapling_verify on;
-
-	    # Add headers to serve security related headers
-	    add_header X-Content-Type-Options nosniff;
-	    add_header X-Frame-Options "SAMEORIGIN";
-	    add_header X-XSS-Protection "1; mode=block";
-	    add_header X-Robots-Tag none;
-	    add_header X-Download-Options noopen;
-	    add_header X-Permitted-Cross-Domain-Policies none;
-
-	    location / {
-	        try_files $uri $uri/ =404;
-	    }
-	}
-	```
-
-1. Start serving the site by symlinking:
-
-	```
-	ln -s /etc/nginx/sites-available/chat.tomesh.net /etc/nginx/sites-enabled/chat.tomesh.net
-	```
-
-1. Reload nginx `service nginx reload`.
-
-1. Assuming Diffie-Hellman **.pem** and **crontab** for letsencrypt renewals are already configured, just run:
-
-	```
-	# /opt/letsencrypt/letsencrypt-auto certonly --agree-tos --renew-by-default --email hello@tomesh.net -a webroot --webroot-path=/usr/share/nginx/html -d chat.tomesh.net
-	```
-	
 ### Update Riot Web Client
-1. Get a root shell with `sudo -i`.
+1. SSH into matrix.tomesh.net
+
+1. Get a root shell with `sudo -i`
 
 1. Download the pre-compiled [Riot Web release](https://github.com/vector-im/riot-web/releases):
 
-	```
-	# wget https://github.com/vector-im/riot-web/releases/download/v0.17.3/riot-v0.17.3.tar.gz
-	```
+       wget https://github.com/vector-im/riot-web/releases/download/v1.3.0/riot-v1.3.0.tar.gz
 
-1. Remove old Riot Client
-	```
-	# rm -r /var/www/chat.tomesh.net/public/*
-	```
-1. Extract **riot-v0.17.3.tar.gz** into **/var/www/chat.tomesh.net/public**:
+1. Backup config file
 
-	```
-	# tar xf riot-v0.17.3.tar.gz -C /var/www/chat.tomesh.net/public --strip-components 1
-	```
+       cp /var/www/chat.tomesh.net/public/config.json /root/riot-config.json
 
-1. Create **config.json** with the following lines, so it is used in place of the default **config.sample.json**:
+1. Remove old Riot client:
 
-	```
-	{
-	    "default_hs_url": "https://matrix.tomesh.net",
-	    "default_is_url": "https://vector.im",
-	    "disable_custom_urls": false,
-	    "disable_guests": false,
-	    "disable_login_language_selector": false,
-	    "disable_3pid_login": false,
-	    "brand": "Riot",
-	    "integrations_ui_url": "https://scalar.vector.im/",
-	    "integrations_rest_url": "https://scalar.vector.im/api",
-	    "integrations_jitsi_widget_url": "https://scalar.vector.im/api/widgets/jitsi.html",
-	    "bug_report_endpoint_url": "https://riot.im/bugreports/submit",
-	    "features": {
-	        "feature_groups": "labs",
-	        "feature_pinning": "labs"
-	    },
-	    "default_federate": true,
-	    "welcomePageUrl": "home.html",
-	    "default_theme": "light",
-	    "roomDirectory": {
-	        "servers": [
-	            "tomesh.net",
-	            "matrix.org"
-	        ]
-	    },
-	    "welcomeUserId": "@riot-bot:matrix.org",
-	    "piwik": {
-	        "url": "https://piwik.riot.im/",
-	        "siteId": 1
-	    }
-	    "enable_presence_by_hs_url": {
-	    	"https://matrix.org": false
-	    }
-	}
-	```
+       rm -r /var/www/chat.tomesh.net/public/*
 
-1. Run `chmod 755 /var/www` to ensure we have the right permissions.
+1. Extract **riot-v1.3.0.tar.gz** into **/var/www/chat.tomesh.net/public**:
 
-## Create More RAM
+       tar xf riot-v1.3.0.tar.gz -C /var/www/chat.tomesh.net/public --strip-components 1
 
-We are running Synapse on a 1 GB VPS that also runs other services. The process often gets dangerously close to being killed by the kernel from memory exhaustion. So we created 2 GB of swap memory on the SSD to handle load spikes:
+1. Restore config file
 
-```
-# dd if=/dev/zero of=/swapfile bs=1M count=2048
-# chmod 600 /swapfile
-# mkswap /swapfile
-# swapon /swapfile
-# echo '/swapfile none swap defaults 0 0' >> /etc/fstab
-```
+       cp /root/riot-config.json /var/www/chat.tomesh.net/public/config.json
+
+1. Run `chown -R www-data:www-data /var/www/` to ensure that www-data have full access
