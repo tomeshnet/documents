@@ -25,6 +25,7 @@ Please scope your session within a 20 minute time block. If more time is needed,
 - @Darkdrgn2k
 - @Hurricos 
 - @dasanchez
+- @timtor
 
 ## Agenda
 
