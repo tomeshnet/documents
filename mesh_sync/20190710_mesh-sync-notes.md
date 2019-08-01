@@ -2,7 +2,7 @@ Mesh Sync
 =========
 
 📍 https://appear.in/tomeshnet  
-📅 wednsday, July 10, 2019
+📅 Wednesday, July 10, 2019
 
 | Timezone | Start time |
 |:---------|:-----------|
@@ -63,7 +63,7 @@ No preset agenda - Free Form
 - Burlington,Mi project for "rubmle" - MESH ice cast audio stream
     - Long buffer to allow for roaming
     - Pis runing 5v batteries
-    -
+    - MR16 mesh
 
 #### Important things for future Syncs
 - Taking notes
