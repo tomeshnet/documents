@@ -61,7 +61,7 @@ No preset agenda - Free Form
     - Work around are
         - Invite to ipv6 cjdns peer
         - Add ipv4 address to wlan0 interface to bypass cjdns ipv6 address
-- Burlington,Mi project for "rubmle" - MESH ice cast audio stream
+- Burlington, VT project for [The Ramble](https://theramble.org/) - MESH ice cast audio stream
     - Long buffer to allow for roaming
     - Pis runing 5v batteries
     - MR16 mesh
