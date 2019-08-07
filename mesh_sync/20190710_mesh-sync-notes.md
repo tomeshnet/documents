@@ -41,6 +41,20 @@ No preset agenda - Free Form
 - Discussion Around outreach projects to "ALT" isps
     - Teksavvy, Beanfield, swift
     - Need to have a more concrete concept to present
+    - Discussed reasons for outreach to  tech-savvy, beanfield, SWIFT or other organizations and initiatives - what do we expect to achieve with building relationships like these? Agreed that it comes down to discovering opportunities for collaboration and mutual benefit and expanding TOMesh resources and knowledge.
+
+    - Noted recent attendance at a information session about 5G testbed and innovation platform being rolled out along the 401 corridor from Waterloo to Quebec City.  See https://ontario.encqor.ca/ - offered this as an example resources being made available for innovative networking technology - even if not directly relevent to ToMesh.
+    - Also, some of these organizations likely have some form of a community support/sustainability intention/mandate - SWIFT for instance, may have a community development mandate of some kind given the extent of government funding.
+    
+
+    - Our current activity is somewhat reactive and unfocused - recently lots of exploratoration,  learning & orienting with the DWeb and other complementary/parallel communities and interest-areas. However, there are some fundamental challenges we face in deploying DWeb protocols and apps over mesh networks.
+
+    - We agreed that it would be better to formulate and develop several project plans - understanding that there is a diversity of interests represented among ToMesh collaborators. Proposed to develop a work-sheet analyzing some of the major technology challenges, and other project dimensions to help define a balanced set of projects (i.e. a user-driven project serving some value to a community, a technology-driven challenge, a fun project - more outreach/engagment oriented project, etc.)
+    - Project idea: modified coolers facilitating a "picnic-oriented testing set-ups" in large public parks - have BBQ's and test meshnets.. (some concern raised over misunderstandings arising from technology loaded coolers - even though they would not be left unattended)
+
+    - Proposal to approach the city and gain permission to undertake testing and temporary setups. For example, near FreeGeek/TMAC, there are light poles with AC power outlets that the city will rent for $10 per day.  Also, we have permission to temporarily install an small footprint antenna on the FreeGeek patio/balcony.
+
+    - Can we do something for the OurNetworks event which will be at TMAC? Could we link to Beanfield? Would they supply bandwidth in support of the OurNetworks event?
 - State-of-the-art protocols vs low-resource ones
     - CJDNS and YGG may be working against us
     - Tons of computing power required because encryption
