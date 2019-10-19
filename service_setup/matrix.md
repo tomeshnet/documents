@@ -129,7 +129,7 @@ The current workaround is enabling `cleanup_extremities_with_dummy_events` but i
 
 1. Download the pre-compiled [Riot Web release](https://github.com/vector-im/riot-web/releases):
 
-       wget https://github.com/vector-im/riot-web/releases/download/v1.3.0/riot-v1.3.0.tar.gz
+       wget https://github.com/vector-im/riot-web/releases/download/v1.5.0/riot-v1.5.0.tar.gz
 
 1. Backup config file
 
@@ -139,9 +139,9 @@ The current workaround is enabling `cleanup_extremities_with_dummy_events` but i
 
        rm -r /var/www/chat.tomesh.net/public/*
 
-1. Extract **riot-v1.3.0.tar.gz** into **/var/www/chat.tomesh.net/public**:
+1. Extract **riot-v1.5.0.tar.gz** into **/var/www/chat.tomesh.net/public**:
 
-       tar xf riot-v1.3.0.tar.gz -C /var/www/chat.tomesh.net/public --strip-components 1
+       tar xf riot-v1.5.0.tar.gz -C /var/www/chat.tomesh.net/public --strip-components 1
 
 1. Restore config file
 
