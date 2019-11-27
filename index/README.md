@@ -24,6 +24,10 @@ below it in this readme. Organize it later.
 https://github.com/sudomesh/propaganda
 - Plenty of links here for stuff like stickers
 
+## Tomesh / dasanchez' Presentation resources 
+https://github.com/tomeshnet/tomesh.101/tree/master/presentations
+- Great for presenting?? @hurricos hasn't checked this
+
 # Mailing lists
 
 ## Sudoroom's mesh mailing list
@@ -60,6 +64,12 @@ http://en.techinfodepot.shoutwiki.com/wiki/Main_Page
   is incredibly useful whenever you need to find information about a
   particular chipset, SoC, vendor, driver, architecture. This is where
   everyone should put their data about hardware.
+  
+  
+## Tomesh's stuff on Github
+https://github.com/tomeshnet/documents/tree/master/technical
+- These are mostly basically lab reports. Very very useful because
+  they show practical implementations.
   
 ## (How to take pictures of hardware)
 You should take pictures of hardware in very bright, very
