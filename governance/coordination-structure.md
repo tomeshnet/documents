@@ -11,9 +11,6 @@ We reflected and discussed on governance during the [November 12 Planning Meetin
 - Make use of our decentralized **collaboration tools**:
   - Applicable rooms on [our chat](https://chat.tomesh.net/)
   - Our [GitHub organization](https://github.com/tomeshnet).
-
-As per the 2018 November Planning Meeting:
-
 - Only people who have been involved with Toronto Mesh for one cycle or longer will be assigned lead roles.
 
 ## Decision Making
@@ -26,33 +23,81 @@ Toronto Mesh uses voting to determine whether we have reached consensus:
 
 ## Working Groups
 
+### Responsibilities of Working Group Leads
+
+Central Org
+  - Organize meetups and planning sessions
+  - Post event details to the tomesh.net website 
+
+Tools
+  - Maintain the following infrastructure services:
+    - tomesh.net website server
+    - chat.tomesh.net Riot UI server for Matrix chat
+    - matrix.tomesh.net Matrix server 
+    - webmail.tomesh.net Email web client
+    - y.mirror.tomesh.net and h.mirror.tomesh.net mesh mirrors
+
+Deployment
+  - Coordinate node deployment efforts
+
+Website
+  - Maintain the tomesh.net website
+    - Review pull requests to the [tomesh.net](https://github.com/tomeshnet/tomesh.net) repo
+
+Outreach
+  - Identify outreach opportunities and share with the rest of the group
+  - Drive speaking and workshop events 
+
+hello@tomesh.net Monitoring
+  - Respond to all messages that arrive to hello@tomesh.net address
+
+Code of Conduct Monitoring
+  - Monitor coc@tomesh.net and meetups to make sure members and attendees are following the Code of Conduct
+
+### Cycle VIII (2019 May)
+
+Working group leads established at the May 2019 Planning Meeting:
+
+| Working Group                              | Lead                |
+|--------------------------------------------|---------------------|
+| **Central Org** (_ongoing_)                | Tim                 |
+| **Tools** (_ongoing_)                      | HeavyMetal          |
+| **Node Tech** (_ongoing_)                  | darkdragon2k        |
+| **Deployment** (_ongoing_)                 | Tim                 |
+| **Website** (_ongoing_)                    | dasanchez           |
+| **Outreach** (_ongoing_)                   | benhylau, Tim, Ryan |
+| **hello@tomesh.net Monitoring** (ongoing)  | Hank,Tim            |
+| **Code of Conduct Monitoring** (_ongoing_) | Hank                |
+
+
+
 ### Cycle VII (2018 November)
 
 Working group leads established at the November 2018 Planning Meeting:
 
-| Working Group | Lead |
-| --- | --- |
-| **Central Org** (_ongoing_) | dasanchez |
-| **Tools** (_ongoing_) | HeavyMetal |
-| **Deployment** (_ongoing_) | Pedro.S |
-| **Website** (_ongoing_) | garry |
-| **Outreach** (_ongoing_) | benhylau, Tim, Hank |
-| **hello@tomesh.net Monitoring** (ongoing) | Hank, benhylau |
-| **Code of Conduct Monitoring** (_ongoing_) | Hank |
+| Working Group                              | Lead                |
+|--------------------------------------------|---------------------|
+| **Central Org** (_ongoing_)                | dasanchez           |
+| **Tools** (_ongoing_)                      | HeavyMetal          |
+| **Deployment** (_ongoing_)                 | Pedro.S             |
+| **Website** (_ongoing_)                    | garry               |
+| **Outreach** (_ongoing_)                   | benhylau, Tim, Hank |
+| **hello@tomesh.net Monitoring** (ongoing)  | Hank, benhylau      |
+| **Code of Conduct Monitoring** (_ongoing_) | Hank                |
 
 ### Cycle VI (2018 May)
 
 Sixth working groups with leads established at May 17 Planning Meeting.
 Excerpted from [Planning Meeting Notes - May 17, 2017](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20180517_planning-meeting-notes.md)
 
-| Working Group | Lead |
-| --- | --- |
-| **Central Org** (_ongoing_) | chrisbarless |
-| **Tools** (_ongoing_) | chrisbarless |
-| **Deployment** (_ongoing_) | Pedro.S |
-| **Website** (_ongoing_) | garry |
-| **Social Outreach** (_ongoing_) | Kumash |
-| **Email Monitoring** (ongoing) | Hank |
+| Working Group                   | Lead           |
+|---------------------------------|----------------|
+| **Central Org** (_ongoing_)     | chrisbarless   |
+| **Tools** (_ongoing_)           | chrisbarless   |
+| **Deployment** (_ongoing_)      | Pedro.S        |
+| **Website** (_ongoing_)         | garry          |
+| **Social Outreach** (_ongoing_) | Kumash         |
+| **Email Monitoring** (ongoing)  | Hank           |
 | **Code of Conduct** (_ongoing_) | Hank, benhylau |
 
 ### Cycle V (2017 November)
@@ -60,73 +105,73 @@ Excerpted from [Planning Meeting Notes - May 17, 2017](https://github.com/tomesh
 Fifth working groups with leads established at November 23 Planning Meeting.
 Excerpted from [Planning Meeting Notes - November 23, 2017](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20171123_planning-meeting-notes.md)
 
-| Working Group | Lead |
-| --- | --- |
-| **Central Org** (_ongoing_) | dasanchez |
-| **Tools** (_ongoing_) | benhylau |
-| **Deployment** (_ongoing_) | darkdrgn2k |
-| **Website** (_ongoing_) | garry |
-| **Code of Conduct** (_ongoing_) | dcwalk |
+| Working Group                   | Lead       |
+|---------------------------------|------------|
+| **Central Org** (_ongoing_)     | dasanchez  |
+| **Tools** (_ongoing_)           | benhylau   |
+| **Deployment** (_ongoing_)      | darkdrgn2k |
+| **Website** (_ongoing_)         | garry      |
+| **Code of Conduct** (_ongoing_) | dcwalk     |
 
 ### Cycle IV (2017 April)
 
 Fourth working groups with leads established at April 24 Planning Meeting.
 Excerpted from [Planning Meeting Notes - April 24, 2017](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20170424_planning-meeting-notes.md)
 
-| Working Group | Lead |
-| --- | --- |
-| **Central Org** (_ongoing_) | dasanchez |
-| (Welcome/Intros) **Onboarding** (_ongoing_) | Pedro.S |
-| **Tools** (_ongoing_) | co-lead benhylau, dasanchez, Pedro.S, udit |
-| **Website** (_ongoing_) | dcwalk |
-| **Virtual Mesh** (_ongoing_) |  |
-| **Deployment** (_ongoing_) | Pedro.S |
-| **Hardware** aka **node.tech** (_ongoing_) | udit |
-| **Code of Conduct** (_ongoing_) | dcwalk |
+| Working Group                               | Lead                                       |
+|---------------------------------------------|--------------------------------------------|
+| **Central Org** (_ongoing_)                 | dasanchez                                  |
+| (Welcome/Intros) **Onboarding** (_ongoing_) | Pedro.S                                    |
+| **Tools** (_ongoing_)                       | co-lead benhylau, dasanchez, Pedro.S, udit |
+| **Website** (_ongoing_)                     | dcwalk                                     |
+| **Virtual Mesh** (_ongoing_)                |                                            |
+| **Deployment** (_ongoing_)                  | Pedro.S                                    |
+| **Hardware** aka **node.tech** (_ongoing_)  | udit                                       |
+| **Code of Conduct** (_ongoing_)             | dcwalk                                     |
 
 ### Cycle III (2016 November)
 
 Third working groups with leads established at November 12 Planning Meeting.
 Excerpted from [Planning Meeting Notes - November 12, 2016](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20161112_planning-meeting-notes.md)
 
-| Working Group | Lead |
-| --- | --- |
-| **Central Org** (_ongoing_) | dcwalk |
-| (Welcome/Intros) **Onboarding** (_ongoing_) | josh_o |
-| **Tools** (_ongoing_) | benhylau |
-| **Website** (_ongoing_) | garry |
-| **Virtual Mesh** (_ongoing_) | benhylau |
-| **Miniconf** (Jan deadline) | dcwalk |
-| **Deployment** (Feb deadlines and _ongoing_) | udit |
-| **Funding/Grants** (Jan to Mar deadlines and _ongoing_) | anastasia |
-| **Code of Conduct** (_ongoing_) | dcwalk, anastasia |
+| Working Group                                           | Lead              |
+|---------------------------------------------------------|-------------------|
+| **Central Org** (_ongoing_)                             | dcwalk            |
+| (Welcome/Intros) **Onboarding** (_ongoing_)             | josh_o            |
+| **Tools** (_ongoing_)                                   | benhylau          |
+| **Website** (_ongoing_)                                 | garry             |
+| **Virtual Mesh** (_ongoing_)                            | benhylau          |
+| **Miniconf** (Jan deadline)                             | dcwalk            |
+| **Deployment** (Feb deadlines and _ongoing_)            | udit              |
+| **Funding/Grants** (Jan to Mar deadlines and _ongoing_) | anastasia         |
+| **Code of Conduct** (_ongoing_)                         | dcwalk, anastasia |
 
 ### Cycle II (2016 August)
 
 Second working groups established at August 05 Planning Meeting.
 Excerpted from [Planning Meeting Notes - August 5, 2016](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20160805_planning-meeting-notes.md)
 
-| Working Group | Members |
-| --- | --- |
-| **Prototype** | |
-| **Deployment** | |
-| **Code of Conduct** | Lee, Nick, Ben, Leandro, Dennis, David, Curtis, Michael, dcwalk |
-| **Website** | |
-| **Logo** | |
-| **Vision Statement** | |
+| Working Group        | Members                                                         |
+|----------------------|-----------------------------------------------------------------|
+| **Prototype**        |                                                                 |
+| **Deployment**       |                                                                 |
+| **Code of Conduct**  | Lee, Nick, Ben, Leandro, Dennis, David, Curtis, Michael, dcwalk |
+| **Website**          |                                                                 |
+| **Logo**             |                                                                 |
+| **Vision Statement** |                                                                 |
 
 ### Cycle I (2016 April)
 
 First working groups established at April 18 Planning Meeting.
 Excerpted from [Planning Meeting Notes - April 18, 2016](https://github.com/tomeshnet/documents/blob/master/meeting_notes/20160418_meeting-notes.md)
 
-| Working Group | Members |
-| --- | --- |
-| **Hardware** | Ben, Udit, dcwalk |
-| **Software** | Ben, Garry |
-| **Use Cases for the Mesh** | Udit, Ben, Garry |
-| **Outreach** | Vince, Ben |
-| **Literacy Development** | Yuri, Matt |
-| **Knowledge Management** | Matt, dcwalk |
-| **Design** | Matt |
-| **Website** | dcwalk, Matt, Garry |
+| Working Group              | Members             |
+|----------------------------|---------------------|
+| **Hardware**               | Ben, Udit, dcwalk   |
+| **Software**               | Ben, Garry          |
+| **Use Cases for the Mesh** | Udit, Ben, Garry    |
+| **Outreach**               | Vince, Ben          |
+| **Literacy Development**   | Yuri, Matt          |
+| **Knowledge Management**   | Matt, dcwalk        |
+| **Design**                 | Matt                |
+| **Website**                | dcwalk, Matt, Garry |
